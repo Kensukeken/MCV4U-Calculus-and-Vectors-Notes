@@ -280,8 +280,8 @@ What is the minimum length of ladder necessary? No domain is necessary?
 \end{align*}
 $$L(49.85^{\circ})=\frac{3}{\cos(49.85)}+\frac{5}{\sin(49.85)}\approx 11.2. \therefore \text{laddin must be at least 11.2m long} $$
 \newpage 
-
-\subsubsection*{Example 3: }
+\subsection{Trig Optimization Word Problem 2}
+\subsubsection*{Example 1: }
 Determine the greatest possible area of the trapezoid shown below; you are given three side lengths and the top side is as long as you need it to be.
 
 \begin{minipage}{0.5\textwidth}
@@ -325,7 +325,7 @@ $$\text{Derivative of } b^{f(x)} \text{is } b^{f(x)}(\ln n)f'(x)$$
         \frac{\delta(\ln x)}{\delta x}&=\frac{1}{x}\\
         \frac{\delta(e^x)}{\delta x}&=e^x\\
         \frac{\delta (b^x)}{\deleta x}&= b^{x}(\ln b)\\
-        \frac{\delta (b^{f(x)})}{\delta x}&=b^{f(x)}\ln b f(x)\\
+        \frac{\delta (b^{f(x)})}{\delta x}&=b^{f(x)}\ln b f'(x)\\
     \end{align*}  
 \end{tcolorbox}
 In other words, to differentiate an exponential function, restate the function, multiply by the natural logarithm (ln) of the base, and then multiply by the derivative of the exponent. This is assuming that there is no $x$ in the base as well. We will see that there is a different process when there is an $x$ in both the base and in the exponent.
@@ -428,4 +428,181 @@ Now, we need to use the domain analysis:
     E(30)&\approx8.35
 \end{align*}
 $\therefore$ the maximum effectiveness satvik should study 20 hours.
+\newpage 
+
+\subsubsection*{Example 2:}
+A consultant determines that the proportion of people who have responded to the advertisement of a new product after it has been marketed for t days is given by $f(t)=0.7(1-e^{-0.2t})$.The area covered by that advertisement contains 10 million potential customers and each response to the ad yields revenue of \$0.70 on average (excluding the cost of advertising). The ad costs \$30000 to produce and a further \$5000 per day to run.
+
+\begin{enumerate}
+    \item[a)] Determine $\lim_{t\to\infty}f(t)$ and interpret the result.
+    \item[b)] What percent of potential customers have responded after 7 days of advertising?
+    \item[c)] Write the function P(t) that represents the average profit after t days of advertising. What is the average profit after 7 days?
+    \item[d)] For how manyfull days should the ad campaign be run in order to maximize the average profit? Assume an advertising budget of \$200000.
+\end{enumerate}
+\subsubsection*{Solution: }
+\begin{enumerate}
+    \item[a)] 
+    \begin{align*}
+        &0.7-0.7e^{-0.2t}\\
+        \lim_{t\to \infty}f(t) &=\lim_{t\to \infty}0.7-\frac{0.7}{e^{0.2t}}\\
+        &=0.7
+    \end{align*}
+$\therefore$ if the ad runs forever, only 7070 of people will respond. 
+    \item[b)] $f(7)=0.7-0.7e^{-0.2(7)}\approx 53$
+    $\therefore$ after 7 days 539 of population have responded.
+    \item[c)] 
+    \begin{align*}
+    \text{Profit } &= \text{Revenue - Cost}\\    
+    \text{Revenue }&=(0.70)\text{(number of responses)}\\
+    &=(0.70)\text{(population)(percentage of population who have responded)} \\
+    &=(0.70)(1000000)(f(t))\\
+    &=70000000\left[(0.7(1-e^{-0.2t}))\right]\\
+    &=70000000(0.7-0.7e^{-0.2t})\\
+    &=4900000-4900000e^{-0.2t}\\
+    \end{align*}
+    \begin{align*}
+    \text{Cost} &= \text{Production cost + Opening cost}\\
+    &=3000+5000\text{(# of days)}\\
+    c(t)&=30000+5000t\\
+    P(t)&=R(t)-C(t)\\
+    &=4900000-4900000e^{-0.2t}-(30000+5000t)\\
+    &=4870000-4900000e^{-0.2t}-500t\\
+    P(7)&=4870000-490000e^{-0.2(7)}-5000(7)\\
+    &\approx 3626674.88
+    \end{align*}
+    \item[d)] 
+    \begin{align*}
+        \text{Domain Work}\\
+        t &\geq 0\\
+        \text{Cost} &\leq 200000\\
+        300000+5000+&\leq 20000\\
+        5000t&\leq 170000\\
+        t&\geq34\\
+        \therefore 0\leq &t \leq 34
+    \end{align*} 
+    \begin{align*}
+        P'(t) 0\implies -4900000e^{-0.2t}(-0.2)-5000&=0\\
+        98000e^{-0.2t}&=5000\\
+        e^{-0.2t}&=\frac{5000}{98000}\\
+        -0.2t&=\ln \left(\frac{5000}{980000}\right)\\
+        t&=\frac{\ln \left(\frac{5000}{980000}\right)}{-0.2} \approx 26
+    \end{align*}
+    \begin{align*}
+        P(0)&=487000-4900000e^{-0.2}-5000(0)=-30000\\
+        P(26)&=4712968.83\\
+        P(34)&=4694542.50
+    \end{align*}
+    $\therefore$ max profit at 26 days
+\end{enumerate}
+\newpage 
+\subsection{Logarithmic Differentiation}
+We know how to find the derivative of a power of x. For example, if we are given the function $y=3x^2$, we see that x is in the base of the exponent and we know that we can use the power rule.\\
+We also know how to find the derivative of an exponential function, where x is in the exponent. For example, if we are given the function $y=3^{2x-1}$, we see that x is in the exponent and we can use exponential differentiation.\\
+But what do we do if we have a function where x is in the base of the exponent and in the exponent. For example, how would we determine the derivative of the function $y=x^x$. \\
+If we have a power with x in both the base of the exponent and in the exponent itself, we can determine the derivative by taking the natural logarithm (i.e., ln) of both sides, then using previously learned rules of derivatives such as implicit differentiation and the power rule, among others, to isolate $y'$ and thus determine the derivative
+
+\subsubsection*{Example 1:}
+Determine the derivative with respect to x of $y=x^x$.
+\subsubsection*{Solution: }
+\begin{align*}
+    \log &= \ln x^x\\
+    \ln y &=x\ln x\\
+    \frac{1}{y} \frac{\delta y}{\delta x} &=\ln x +x\left(\frac{1}{x}\right)\\
+    \frac{1}{y} \frac{\delta y}{\delta x} &=\ln x+1\\
+    \frac{\delta y}{\delta x}&=x^x(\ln x+1)
+\end{align*}
+\subsubsection*{Example 2:}
+Determine the derivative with respect to x of $y=(3x+4)^{x^4-2x}$
+\subsubsection*{Solution: }
+\begin{align*}
+    \ln y &=\ln (3x+4)^{x^4-2x}\\
+    \ln y &=(x^4-2x) \ln(3x+4)\\
+    \frac{1}{y}\frac{\delta y}{\delta x}&=(4x^3-2)\ln(3x+4)+(x^4-2x)\left(\frac{1}{3x+4}\right)(3)   
+\end{align*}
+    \text{or}
+    \begin{align*}
+    \frac{\delta y}{\delta x}&=y\left[(4x^3-2)\ln(3x+4)+\frac{(x^4-2x)(3)}{3x+4}\right]\\
+    \frac{\delta y}{\delta x}&=(3x+4)^{x^4-2x}\left[(4x^3-2)\ln(3x+4)+\frac{(x^4-2x)(3)}{3x+4}\right]\\ 
+    \end{align*}
+    Sometimes Logarithmic differentiation can be used to answer other questions where it might not necessarily be applicable.
+    We will prove the power rule using Logarithmic differentiation in a moment, and then we will do an example where Logarithmic differentiation is beneficial to a question that would otherwise be rather complicated.
+\subsubsection*{Example 3:}
+    Using logarithmic differentiation, prove the power rule; i.e prove that if $f(x)=x^n$, then $f'(x)=nx^{n-1}$
+\subsubsection*{Solution: }
+
+First, take the natural logarithm of both sides:
+
+$$\ln(f(x)) = \ln(x^n)$$
+
+Using the property of logarithms that allows us to bring the exponent down as a coefficient, we get:
+
+$$\ln(f(x)) = n \cdot \ln(x)$$
+
+Now, differentiate both sides with respect to $x$. On the left side, we use the chain rule, and on the right side, the derivative of $\ln(x)$:
+
+$$\frac{1}{f(x)} \cdot f'(x) = n \cdot \frac{1}{x}$$
+
+Solving for $f'(x)$ gives us:
+
+$$f'(x) = f(x) \cdot n \cdot \frac{1}{x}$$
+
+Since $f(x) = x^n$, we substitute $f(x)$ back in:
+
+$$f'(x) = x^n \cdot n \cdot \frac{1}{x}$$
+
+Simplify the expression by canceling one $x$ from $x^n$ and $x$ in the denominator:
+
+$$f'(x) = n \cdot x^{n-1}$$
+
+And there we have it, the power rule is proven using logarithmic differentiation:
+
+$$f'(x) = nx^{n-1}$$
+
+This shows that the derivative of $x^n$ with respect to $x$ is indeed $nx^{n-1}$.
+
+\subsubsection*{Example 4:}
+Use logarithmic differentiation to evaluate $\frac{\delta y}{\delta x}$ at $x=-1$ $$y=\frac{(x^4+1)\sqrt{x+2}}{2x^2+2x+1}$$
+\subsubsection*{Solution:}
+
+ $$y=\frac{(x^4+1)\sqrt{x+2}}{2x^2+2x+1}$$ at $x=-1$ using logarithmic differentiation, follow these steps:
+
+1. Take the natural logarithm of both sides of the equation to obtain an expression that can be differentiated implicitly:
+   $$\ln(y) = \ln\left(\frac{(x^4+1)\sqrt{x+2}}{2x^2+2x+1}\right)$$
+
+2. Simplify the right-hand side using the properties of logarithms:
+   $$\ln(y) = \ln(x^4+1) + \frac{1}{2}\ln(x+2) - \ln(2x^2+2x+1)$$
+
+3. Differentiate both sides with respect to $x$:
+   $$\frac{1}{y}\frac{\delta y}{\delta x} = \frac{4x^3}{x^4+1} + \frac{1}{2(x+2)} - \frac{4x+2}{2x^2+2x+1}$$
+
+4. Multiply through by $y$ to solve for $\frac{dy}{dx}$:
+   $$\frac{\delta y}{\delta x} = y\left(\frac{4x^3}{x^4+1} + \frac{1}{2(x+2)} - \frac{4x+2}{2x^2+2x+1}\right)$$
+
+5. Substitute $y$ with the original function:
+   $$\frac{\delta y}{\delta x} = \frac{(x^4+1)\sqrt{x+2}}{2x^2+2x+1}\left(\frac{4x^3}{x^4+1} + \frac{1}{2(x+2)} - \frac{4x+2}{2x^2+2x+1}\right)$$
+
+6. Now, evaluate the derivative at $x=-1$:
+   $$\frac{\delta y}{\delta x}\bigg|_{x=-1} = \frac{((-1)^4+1)\sqrt{-1+2}}{2(-1)^2+2(-1)+1}\left(\frac{4(-1)^3}{(-1)^4+1} + \frac{1}{2(-1+2)} - \frac{4(-1)+2}{2(-1)^2+2(-1)+1}\right)$$
+
+7. Simplify the expression:
+   $$\frac{\delta y}{\delta x}\bigg|_{x=-1} = \frac{(1+1)\sqrt{1}}{2+2(-1)+1}\left(\frac{-4}{1+1} + \frac{1}{2(1)} - \frac{-4+2}{2+2(-1)+1}\right)$$
+   $$\frac{dy}{dx}\bigg|_{x=-1} = \frac{2}{1}\left(\frac{-4}{2} + \frac{1}{2} - \frac{-2}{1}\right)$$
+   $$\frac{dy}{dx}\bigg|_{x=-1} = 2\left(-2 + \frac{1}{2} + 2\right)$$
+   $$\frac{dy}{dx}\bigg|_{x=-1} = 2\left(\frac{1}{2}\right)$$
+   $$\frac{dy}{dx}\bigg|_{x=-1} = 1$$
+
+Therefore, the derivative of the function at $x=-1$ is $1$.\\
+Another time when we use logarithmic differentiation is when we are given a logarithmic function in a base other than e(i.e, when we are not using the natural logarithmic $\ln$).\\\\
+We will see that in these cases, we convert our logarithmic function to the equivalent equation and then use the natural logarithmic.
+\subsubsection*{Example 5: }
+Determine $\frac{\delta y}{\delta x}$ given that $y=\long_3(4x^2-5x+1)$
+\subsubsection*{Solution: }
+\begin{align*}
+    3^y&=4x^2-5x+1\\
+    \log 3^y&=\ln(4x^2-5x+1)\\
+    y\log_3&=\ln(4x^2-5x+1)\\b
+    y&=\left(\frac{1}{\ln 3}\right)\ln(4x^2-5x+1)\\
+    \frac{\delta y}{\delta x}&=\left(\frac{1}{\ln 3}\right)\left(\frac{1}{4x^2-5x+1}\right)(8x-5)\\
+    &=\frac{8x-5}{\ln(4x^2-5x+1)}
+\end{align*}
 \end{document}
