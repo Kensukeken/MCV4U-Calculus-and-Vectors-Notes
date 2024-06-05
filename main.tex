@@ -19,14 +19,19 @@
 \usepackage{amssymb}
 \usepackage{setspace}
 \usepackage{sectsty}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{tikzsymbols}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{parskip}
+\usepackage{MnSymbol,wasysym}
+\usepackage{multicol}
+\usepackage{tikz-cd}
 
-
-\definecolor{antiquefuchsia}{rgb}{0.57, 0.36, 0.51}
-\definecolor{carnationpink}{rgb}{1.0, 0.65, 0.79}
-\definecolor{lavenderpurple}{rgb}{0.59, 0.48, 0.71}
-\usetikzlibrary{positioning}
-
-
+% newcommand 
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 
 % COLOURS
 \definecolor{Orchid}{RGB}{218, 112, 214}
@@ -41,7 +46,11 @@
 \definecolor{CornflowerBlue}{RGB}{100, 149, 237}
 \definecolor{Cerulean}{RGB}{0, 123, 167}
 \definecolor{DarkOrchid}{RGB}{153, 50, 204}
+\definecolor{antiquefuchsia}{rgb}{0.57, 0.36, 0.51}
+\definecolor{carnationpink}{rgb}{1.0, 0.65, 0.79}
+\definecolor{lavenderpurple}{rgb}{0.59, 0.48, 0.71}
 
+\usetikzlibrary{positioning}
 \usetikzlibrary{positioning}
 \usetikzlibrary{calc,arrows.meta}
 
@@ -164,11 +173,11 @@ Suppose that we wish to determine $\lim_{x \to 3} (-x^2+6x-5 )$. We can draw the
         \lim_{x \to 3} f(x) &= 4
     \end{align*}
 \end{minipage}%
-\vspace{0.1em}%
+\vspace{1em}%
 \begin{minipage}{0.6\textwidth}
     The graph of $y=-x^2+6x-5$:
     \begin{center}
-        \begin{tikzpicture}[scale=0.3]
+        \begin{tikzpicture}[scale=0.2]
             % Axis
             \draw[->] (-1,0) -- (7,0) node[right] {$x$};
             \draw[->] (0,-7) -- (0,6) node[above] {$y$};
@@ -414,7 +423,7 @@ $$
     \item Evaluate $\lim_{x \to 3}\frac{2x^4-162}{-x^5+243}$
     \item Evaluate $\lim_{x \to -2}\frac{x^7+128}{10x+20}$ 
 \end{enumerate}
-Feel free to download \href{https://github.com/Kensukeken/MCV4U-Calculus-and-Vectors-Notes/blob/main/Lessons%20in%20Power%20Point%20Form/Unit%201/chap%201.010.evaluating%20limits%20graphically.pptx}{chap 1.020.evaluating limits algebraically.pptx} to check the solutions :) \\
+Feel free to download \href{https://github.com/Kensukeken/MCV4U-Calculus-and-Vectors-Notes/blob/main/Lessons%20in%20Power%20Point%20Form/Unit%201/chap%201.010.evaluating%20limits%20graphically.pptx}{chap 1.020.evaluating limits algebraically.pptx} to check the solutions :) 
 
  2b)  Examples where direct substitution leads to 0/0 but we can rationalize the numerator and/or denominator, then perhaps factor, then cross out then substitute\\
 
@@ -707,53 +716,6 @@ Three types of discontinuity are illustrated below.
 \boxed{\text{The function } f \text{ is continuous at } x=a \text{ if } f(a) \text{ is defined and if } f(a) = \lim_{x\to a} f(x)}
 \]
 
-\subsection*{Discontinuities}
-
-
-\begin{tikzpicture} 
-    \def \minx {-5}
-    \def \maxx {8}
-    \def \miny {-5}
-    \def \maxy {5}
-
-
-    \draw[black!15, line width=0.05pt,  step=0.2] (\minx,\miny) grid (\maxx,\maxy);
-    \draw[black!25, line width=1.3pt, step=1] (\minx,\miny) grid (\maxx,\maxy);
-
-
-    \draw[thick, latex-latex] (\minx-0.3,0)--(\maxx+0.3,0);
-    \draw[thick, latex-latex] (0,\miny-0.3)--(0,\maxy+0.3);
-    \node at (\maxx+0.5,0) {$x$};
-    \node at (0,\maxy+0.5) {$y$};
-
-    \foreach \x in {\minx,...,-1}
-     \node[below,black] at (\x,0) {$\x$};
-    \foreach \x in {1,2,...,\maxx}
-     \node[below,black] at (\x,0) {$\x$};
-    \foreach \y in {\miny,...,-1}
-     \node[left,black] at (0,\y) {$\y$};
-    \foreach \y in {1,2,...,\maxy}
-     \node[left,black] at (0,\y) {$\y$};
-    \node[below left,black] at (0,0) {$0$};
-
-    \draw[very thick, domain=-5:-3.2, smooth,variable=\x]  plot ({\x},{1/(\x+3)});
-    \draw[very thick, domain=-2.8:-1, smooth,variable=\x]  plot ({\x},{1/(\x+3)});
-    \draw[very thick, domain=-1:0, smooth,variable=\x]  plot ({\x},{2.5*\x+3});
-    \draw[very thick, domain=0:2, smooth,variable=\x]  plot ({\x},{\x*\x - 2});
-    \draw[very thick, domain=2:3, smooth,variable=\x]  plot ({\x},{(\x-4)*(\x-4) - 2});
-    \draw[very thick, domain=3:8, smooth,variable=\x]  plot ({\x},{1/(\x-2)});
-
-    \draw [very thick,fill=white] (0,3) circle [radius=0.1];
-    \draw [very thick,fill=white] (3,1) circle [radius=0.1];
-    \draw [very thick,fill=white] (-1,.5) circle [radius=0.1];
-    \draw [fill] (0,-2) circle [radius=0.1];
-    \draw [fill] (3,-1) circle [radius=0.1];
-  	\draw [fill] (-3,2) circle [radius=0.1];
-\end{tikzpicture}
-
-
-
-
 \subsubsection{General Observations Regarding Continuity:}
 \begin{enumerate}
     \item A function that is not continuous has some type of break in its graph.  This break is the result of a hole, jump, or vertical asymptote.
@@ -762,8 +724,6 @@ Three types of discontinuity are illustrated below.
 \item A rational function in simplified for has a discontinuity at the zeros of the denominator.
 \item When the one-sided limits are not equal to each other, then the limit at this point does not exist and the function is not continuous at this point
 \end{enumerate}
-\newpage 
-
 \subsection{Properties of Limits}
 \begin{itemize}
 \item 1) $\lim _{x \rightarrow a} x=a$ \\
@@ -779,7 +739,9 @@ Three types of discontinuity are illustrated below.
 \item If $P(x)$ is a polynomial, then
 $$\lim _{x \rightarrow a} P(x)=P(a)$$
 \end{itemize}
+
 \newpage
+
 \section{Unit 2 - Derivatives}
 \subsection{Instantaneous Rate of Change, aka Tangent Lines, Slope at a Point, Derivatives}
 \underline{Tangent Lines:} A tangent line to a curve is the straight line that most resembles the graph near that point.  By finding the slope of a tangent line, we can find the slope of the curve at the given point. \\ \\ 
@@ -1164,7 +1126,7 @@ Suppose $f(12)=-7, g(3)=12, f'(12)=11$ and $g'(3)=9$. If $h(x)=f(g(x))$, then ev
 \end{align*}
 \newpage 
 
-\subsection{Derivatives Not in Terms of x:}
+\subsection{Derivatives Not in Terms of $x$:}
 Every time that we state a rate of change, we state that rate of change with respect to something.\\
 For instance, if we talk about speed, we are talking about distance with respect to time.\\
 When we discuss slope on a Cartesian plane, we use the formula:
@@ -1436,17 +1398,531 @@ You need to remember the surface area formulas from grade 8th math.
 \end{center}
 \newpage
 
+\section{Unit 4}
+\subsection{Increasing and Decreasing Functions}
+For a continuous and differentiable function, f, the function values(y-values) are increasing for all x-values where $f'(x)>0$, and the function values (y-values) are decreasing for all x-values where $f'(c)<0$
+\subsubsection{Example 1a)}
+Determine the intervals of increase and decrease for the function $$y=x^3+3x^2-2$$
+\subsubsection*{Solution:}
+\begin{align*}
+    y&=3x^2+6x\\
+    &=3(x+2)
+\end{align*}
+\begin{center}
+ \begin{tikzpicture}[scale=1.5]
+  % Draw axes
+  \draw[->] (-3,0) -- (1.5,0) node[right] {$y'$};
+  % Draw points
+  \filldraw[black] (-2,0) circle (1pt) node[below] {$-2$};
+  \filldraw[black] (0,0) circle (1pt) node[below] {$0$};
+  
+  % Draw plus and minus signs
+  \node at (-2.5,0.3) {$+$};
+  \node at (-1,0.3) {$-$};
+  \node at (1,0.3) {$+$};
+\end{tikzpicture}
+\end{center}
+
+$\therefore$ the intervals of increase are $x\in(-\infty,-2)\cup(0, \infty)$
+
+$\therefore$ the intervals of decrease are $x\in (-2,0)$
+
+\subsubsection{Example 1b)}
+Determine the intervals of increase and decrease of the function $f(x)=\frac{x}{x^2+1}$
+\subsubsection*{Solution:}
+\begin{align*}
+    f'(x)&=\frac{x^2+1(1)-(x)(2x)}{(x^2+1)^2}\\
+    &=\frac{x^2+1-2x^2}{(x^2+1)^2}\\
+    &=\frac{-x^2+1}{(x^2+1)^2}\\
+    &=\frac{-(x^2-1)}{(x^2+1)}\\
+    &=\frac{-(x-1)(x+1)}{(x^2+1)^2}
+\end{align*}
+
+$\therefore$ the intervals of increase are $x\in(-\infty,-1)\cup(1, \infty)$
+
+$\therefore$ the intervals of decrease are $x\in (-1,1)$
+\subsubsection{Example 2}
+Given a graph of $y=f'(x)$, graph the curve $y=f(x)$
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+  % Grid
+  \draw[gray!50,very thin] (-2,-2) grid (5,5);
+  \draw[thick,->] (-2,0) -- (5,0) node[right] {$x$};
+  \draw[thick,->] (0,-2) -- (0,5) node[above] {$y$};
+  
+  % Plot of f'(x)
+  \draw[blue,domain=-0.3:2.3,smooth,variable=\x] plot ({\x},{3*\x*\x - 6*\x + 2}) node[right] {$f'(x)$};
+  
+  % Fill between curve and x-axis
+  \fill[pattern=north east lines,pattern color=gray!50,domain=0:2.26328,variable=\x] (0,0) -- plot ({\x},{3*\x*\x - 6*\x + 2}) -- (3.16228,0) -- cycle;
+  
+  % Plot of f(x)
+  \draw[red,domain=-0.5:2.7,smooth,variable=\x] plot ({\x},{\x*\x*\x - 3*\x*\x + 2*\x + 1}) node[right] {$f(x)$};
+\end{tikzpicture}
+\end{center}
+\subsubsection{Example 3}
+Find the constants a, b and c such that the graph of $y=-x^3+ax^2+bx+c$ will decrease to the point (-6, -200) and increase to the point (2, 56) and then decrease thereafter.
+\subsubsection*{Solution:}
+\begin{align*}
+    y'&=-3x^2+2ax+b\\
+    f'(-6)=0 &\implies -3(-6)^2+2a(-6)+b=0\\
+    &-108-12a+b=0\\
+    b&=12a+108 \quad \circled{1}\\
+    f'(2)=0 &\implies -3(2)^2+2a(2)+b=0\\
+    b&=-4a+12 \quad \circled{2}\\
+    12a+108&=-6a+12\\
+    16a&=-96\\
+    a&=-6\\
+    b&=-4a+12\\
+    &=-4(-6)+2\\
+    b&=36
+    y=-x^3-6x^2+36x+c\\
+    &\textbf{sub } (-6,-200)\\
+    -200&=-(-6)^3-6(-6)^2+36(-6)+c\\
+    16&=c \quad \therefore a=-6, b=36, c=16
+\end{align*}
+\subsection{Critical Points, Local Maxima and Local Minima}
+\subsubsection{First Derivative Test:}
+If $f'(x)$ goes from positive to 0 to negative, then there is a local maximum at the point where $f'(x)=0$
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+  % Draw function f'(x)
+  \draw[blue, thick, domain=0.5:2.5, smooth, variable=\x] plot ({\x},{-0.6*(\x-1.5)^2 + 1.8}) node[right] {$f'(x)$};
+  
+  % Draw local maximum point
+  \filldraw[red] (1.5,1.8) circle (1pt) node[above right] {Local Maximum};
+\end{tikzpicture}
+\end{center}
+
+Similarly, if $f'(x)$ goes from positive to undefined to negative, and if $f(x)$ is defined at the point where $f'(x)$ is undefined, then there is a local maximum at the point where $f'(x)=0$
+
+\begin{center}
+\begin{tikzpicture}[scale=1,cap=round]
+ \tikzset{axes/.style={}}
+ % The graphic
+\begin{scope}[style=axes]
+\draw[->] (-.5,0) -- (3,0) node[below] {$x$};
+\draw[->] (0,-.5)-- (0,3) node[left] {$y$};
+\draw[thick] (0.25,0.4) to [out=10,in=-90]  (1.5,2.5)
+ to [out=-90, in=175] (2.75,.4);
+\draw[thin] (1.5,2.5) -- ++ (0.2,0.6) node[above]{$f'(a)$ does not exist};
+\draw (1.5,0.2) -- (1.5,-0.2) node[below]{$a$};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+If $f'(x)$ goes from negative to 0 to negative, then there is a local minimum at the point where $f'(x)=0$
+
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+  % Draw function f'(x)
+  \draw[blue, thick, domain=0.5:2.5, smooth, variable=\x] plot ({\x},{0.6*(\x-1.5)^2 + 1.8}) node[right] {$f'(x)$};
+  
+  % Draw local minimum point
+  \filldraw[red] (1.5,1.8) circle (1pt) node[below left] {Local Minimum};
+\end{tikzpicture}
+\end{center}
+
+Similarly, if $f'(x)$ goes from negative to undefined to positive, and if $f(x)$ is defined at the point where $f'(x)$ is undefined, then there is a local minimum at the point where $f'(x)=0$
+\begin{center}
+\begin{tikzpicture}[scale=1.2,cap=round]
+  % Axes
+  \draw[->] (-0.5,0) -- (3,0) node[below] {$x$};
+  \draw[->] (0,-0.5)-- (0,3) node[left] {$y$};
+  
+  % Curve
+  \draw[thick] (0.25,2.6) to[out=-10,in=90] (1.5,0.5) to[out=80,in=175] (2.75,2.6);
+  
+  % Point and label for local minimum
+  \draw (1.5,0.2) -- (1.5,-0.2) node[below] {$a$};
+  
+  % Label for "f'(a) does not exist"
+  \draw[thin] (1.5,0.5) -- ++ (0,0.7) node[above, left] {$f'(a)$ does not exist};
+\end{tikzpicture}
+\end{center}
+
+If $f'(x)$ goes from positive to 0 positive, then there is neither a maximum nor a minimum.
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+  % Draw axes
+  \draw[->] (-2,0) -- (2,0) node[right] {$x$};
+  \draw[->] (0,-2) -- (0,2) node[above] {$y$};
+  
+  % Plot of x^3
+  \draw[blue, thick, domain=-1:1.1, smooth, variable=\x] plot ({\x},{\x*\x*\x}) node[right] {$f(x)=x^3$};
+  
+  % Label indicating positive slope
+  \node[above right] at (1,2) {Positive slope};  
+  % Label indicating positive slope again
+  \node[below left] at (-1,-1) {Positive slope};
+\end{tikzpicture}
+\end{center}
+If $f'(x)$ goes from negative to 0 negative, then there is neither a maximum nor a minimum.
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+  % Draw axes
+  \draw[->] (-2,0) -- (2,0) node[right] {$x$};
+  \draw[->] (0,-2) -- (0,2) node[above] {$y$};
+  
+  % Plot of x^-3 (negative part)
+ \draw[blue, thick, domain=-1:1.1, smooth, variable=\x] plot (-{\x},{\x*\x*\x}) node[left] {$f(x)=-x^3$};
+  
+  % Label indicating negative slope
+  \node[above left] at (-1,2) {Negative slope};
+  
+  % Label indicating negative slope again
+  \node[below right] at (1,-1) {Negative slope};
+\end{tikzpicture}
+\end{center}
+\subsubsection{Critical Points and Critical Numbers}
+The points at which $f(x)$ is defined and $f'(x)$ is undefined are called critical points.
+
+The values of x at which $f'(x)=0$ or $f'(x)$ is undefined are called critical numbers.
+
+\subsubsection{Example 1}
+For function $y=x^4-8x^3+18x^2$, determine all critical points. Determine whether each of these values of x gives a local maximum or neither.
+\subsubsection*{Solution:}
+\begin{align*}
+    y'+4x^3-24x^+36x\\
+    &=4x(x^2-6x+9)\\
+    &=4x(x-3)^2
+\end{align*}
+Our critical numbers are $x=0$ and $x=3$\\
+\begin{align*}
+    &\text{at } x=0, y=(0)^4-8(0)^3+18(0)^2\\
+    &(0,0)\\
+    &\text{at } x=3, y=(3)^4-8(3)^3+18(3)^2\\
+    &(3,27)
+\end{align*}
+$\therefore$ Our critical points are (0,0) which represents a minimum and (3,27) which represents neither a minimum nor a maximum.
+\subsubsection{Example 2}
+Determine whether the function $f(x)=x^3$ has a maximum or a minimum or neither at $(c, f(c))$ where $f'(c)=c.$
+\subsubsection*{Solution}
+\begin{align*}
+    f'(x)&=3x^2\\
+    3x^2=0 &\implies x=0\\
+    \text{at } x=0,& y=(0)^3\\
+    &=0\\
+    &(0,0)
+\end{align*}
+$\therefore$ at (0,0) there is neither a maximum nor a minimum.
+
 \newpage
+\subsection{Asymptotes etc.}
+\subsubsection{Testing for Vertical Asymptotes and Holes} 
+Given a rational function of the form $$f(x)=\frac{p(x)}{q(x)},$$ we should simplify by crossing out like factors from the numerator and the denominator. 
+\begin{enumerate}
+    \item There is a hole at $x = c$ if the factor $(x –c)$ was originally present in both the numerator and the denominator and if the degree of that factor in the numerator was greater than or equal to the degree of that factor in the denominator. In other words, if $(x –c)$ is present in both the numerator and denominator and if, after simplifying, it is completely crossed out of the denominator, then there is a hole at  $x = c$. To determine the y-coordinate of the hole, plug the x-value into the simplified rational expression.
+    \item There’s a vertical asymptote at $x = c$ if, AFTER SIMPLIFYING, the denominator equals 0 at $x = c$ and the numerator does not equal 0at $x = c$.
+\end{enumerate}
+
+\subsubsection{Test for Horizontal and Oblique Asymptotes}
+Given a rational function of the form $$f(x)=\frac{p(x)}{q(x)},$$ we should simplify by crossing out like factors from the numerator and the denominator. If the denominator is degree 0 (i.e, there are no more x’s), then there are no horizontal or oblique asymptotes. If the denominator is not degree 0, then, AFTER SIMPLIFYING:
+\begin{enumerate}
+    \item There’s a horizontal asymptote at y = 0 if the degree of the denominator is greater than the degree of the numerator.
+    \item There’s a horizontal asymptote at $$y=\frac{\text{lead coefficient of numerator}}{\text{lead coefficient of denominator}}$$ if the degree of the numerator equals the degree of the denominator. (Remember, the denominator must be at least degree 1 after simplifying)
+    \item There’s an oblique asymptote if the degree of the numerator is greater than the degree of the denominator.  To determine the equation of the oblique asymptote, we use synthetic division or long division
+\end{enumerate}
+\subsubsection{Example 1}
+Determine the equation of any asymptotes and the location of any holes(including y-coordinates) of the function $y=\frac{2x-2}{x^2+3x-4}$
+\subsubsection*{Solution}
+\begin{align*}
+    &=\frac{2(x-1)}{(x+4)(x-1)}\\
+    &=\frac{2}{(x+4)}\\
+    &\text{hole at } x=1\\
+    &\text{y-coordinate of hole: } \frac{2}{1+4}=\frac{2}{5}\\
+    &\text{hole at } \left(1, \frac{2}{5}\right)\\
+    &\text{V.A at } x=-4\\
+    &\frac{\text{degree 1}}{\text{degree 2}} \implies \text{H.A at } y=0
+\end{align*}
+\subsubsection{Example 2}
+Determine the equations of any asymptotes and the locations of any holes(including y-coordinate) of the function $y=\frac{5x+15}{2x+12}$
+\subsubsection*{Solution}
+\begin{align*}
+    &y=\frac{5(x+3)}{2(x+6)}\\
+    & \text{V.A at } x=-6\\
+    & \text{H.A at } y=\frac{5}{2}
+\end{align*}
+\subsubsection{Example 3}
+Determine the equations of any asymptotes and the locations of any holes(including y-coordinate) of the function $y=\frac{3x^2+15x-18}{4x^2-20x-24}$
+\subsubsection*{Solution}
+\begin{align*}
+    &=\frac{3(x+6)(x-1)}{4(x-6)(x+1)}\\
+    &\text{V.A at } x=6 \text{ and } x=-6\\
+    &\text{H.A at } y=\frac{3}{4}
+\end{align*}
+\subsubsection{Example 4}
+Determine the equation of any asymptotes and the location of any holes(including y-coordinate) of the function $y=\frac{x^2-2x+4}{x-3}$
+\subsubsection*{Solution}
+We cannot factor
+$\therefore$ V.A at x=3\\
+oblique (or slant) aspmptote 
+$$\polyhornerscheme[x=3]{x^2-2x+4}$$
+$$y=x+1+\frac{7}{x-3}$$
+$$\therefore \text{O.A at } y=x+1$$
+\subsubsection{Example 5}
+Find constants a and b such that the graph of the function $y=\frac{ax+8}{bx-1}$ has a horizontal asymptote at $y=8$ and a vertical asymptote at $x=-5$
+\subsubsection*{Solution}
+\begin{align*}
+    \text{V.A at } x=-5 \implies b(-5)-1&=0\\
+    -5b-1&=0\\
+    -5b&=1\\
+    b&=-\frac{1}{5}\\
+    \text{H.A at } y=8 \implies \frac{a}{b}&=8\\
+    \frac{a}{-\frac{1}{5}}=8 \implies a &=-\frac{8}{5}\\
+    \therefore a=-\frac{8}{5}, \quad b&=-\frac{1}{5}
+\end{align*}
+\newpage
+\subsection{Concavity and Points of Inflection}
+\subsubsection{Concave Up [$f''(x)>0$]}
+\underline{Concave Up:} $f''(x)>0$. The graph of $y=f(x)$ is a concave up when the second derivative is positive. i.e when $f''(x)>0$.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imgs/concave-up.png}
+\end{figure}
+
+Notice that the tangent lines go from a slope of negative to zero to positive. In other words the slopes are increasing meaning that the rate of change of the rate of change is positive(i.e $f''(x)>0$). When $f''(x)>0$, the curve is above the tangent lines. 
+
+\subsubsection{Concave Down [$f''(x)<0$]}
+\underline{Concave Down: } $f''(x)<0$. The graph of $y=f(x)$ is concave down when the second derivative is negative. i.e, when $f''(x)<0$.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imgs/concave-down.png}
+\end{figure}
+
+Notice that the tangent lines go from a slope of positive,to zero, to negative. In other words, the slopes are decreasing, meaning that the rate of change of the rate of change is negative (i.e  $f''(x)<0$). When $f''(x)<0$, the curve is below the tangent lines.
+
+\subsubsection{Second Derivative Test}
+If at a given point, $f'(x)=0$ and $f''(x)=0$, then there is a local minimum.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imgs/local-minimum.png}
+\end{figure}
+
+If at a given point, $f'(x)=0$ and $f''(x)<0$, then there is a local maximum.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imgs/local-maximum.png}
+\end{figure}
+
+\subsubsection{Points of Inflections}
+Points at which $f''(x)=0$ are called points of inflection.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imgs/points_of_inflections.png}
+\end{figure}
+\newpage 
+\subsubsection{Putting Together $f'(x)$ and $f''(x)$}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{imgs/putting_together.png}
+\end{figure}
+\subsubsection{Key Ideas}
+\textbf{Concavity:}
+\begin{itemize}
+    \item The graph of a function is concave up on an interval if it is increasing on the interval.
+    \item The graph of a function is concave down on an interval if it is decreasing on the interval.
+\end{itemize}
+
+\textbf{Point of Inflection:}
+\begin{itemize}
+    \item A point of inflection is a point on the graph of a function where the function changes from concave up to concave down, or vice versa, or is undefined if it is a point of inflection on the graph.
+\end{itemize}
+
+\textbf{Need to Know:}
+\begin{itemize}
+    \item Test for concavity: If $f$ is a differentiable function whose second derivative exists on an open interval $I$, then
+    \begin{itemize}
+        \item the graph of $f$ is concave up on $I$ if $f''(x) > 0$ for all values of $x$ in $I$.
+        \item the graph of $f$ is concave down on $I$ if $f''(x) < 0$ for all values of $x$ in $I$.
+    \end{itemize}
+    \item The second derivative test: Suppose that $f$ is a function for which $f'(c) = 0$ and the second derivative $f''(x)$ exists on an interval containing $c$.
+    \begin{itemize}
+        \item If $f''(c) > 0$, then $f$ has a local minimum value at $x = c$.
+        \item If $f''(c) < 0$, then $f$ has a local maximum value at $x = c$.
+        \item If $f''(c) = 0$, then the test fails. Use the first derivative test.
+    \end{itemize}
+\end{itemize}
+\newpage
+\subsection*{Example 1}
+Sketch the graph of $y=x^3-3x^2-9x+10$
+\subsection*{Solution}
+\begin{align*}
+    y' &= 3x - 6x - 9 \\
+    &= 3(x^2 - 2x - 3) \\
+    &= 3(x - 3)(x + 1) \\
+    y' &= 3(x - 3)(x + 1) \\
+    y' = 0 & \text{ at } x = 3 \text{ and } x = -1
+\end{align*}
+\begin{minipage}{0.5\linewidth}
+At $x=-3$ 
+\begin{align*}
+    y&=3^3-3(3)^2-9(3)+10\\
+    &=-17\\
+    &(3,-17)
+\end{align*}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+At $x=-1$ 
+\begin{align*}
+    y&=(-1)^3-3(-1)^2-9(-1)+10\\
+    &=15\\
+    &(-1,15)
+\end{align*}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\begin{align*}
+    y'' &= 6x - 6 \\
+    &= 6(x - 1) \\
+    y'' &= 0 \quad \text{at } x = 1
+\end{align*}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\begin{align*}
+\text{At } x &= 1 \\
+y &= (1)^3 - 3(1)^2 - 9(1) + 10 \\
+&= -1 \\
+&(1, -1)
+\end{align*}
+\end{minipage}
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imgs/alg 1.png}
+        \caption{Intervals}
+        \label{fig:alg1}
+    \end{minipage}%
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imgs/y=x^3-3x^2-9x+10.png}
+        \caption{Graph of $y=x^3-3x^2-9x+10$}
+        \label{fig:graph}
+    \end{minipage}
+\end{figure}
+\newpage 
+\subsection*{Example 2}
+Sketch the graph of the function $f(x)=x^{\frac{1}{3}}$.
+\subsubsection*{Solution}
+\begin{align*}
+    f'(x)&=\frac{1}{3}x^{-\frac{2}{3}} = \frac{1}{3x^{\frac{2}{3}}}\\
+    f''(x)&=-\frac{2}{9}x^{\frac{-5}{3}}=\frac{1}{9x^{\frac{5}{3}}}
+\end{align*}
+\begin{itemize}
+    \item $f'(x)$ never equal 0
+    \item $f'(x)$ undefined at $x=0$ (0,0)
+    \item $f''(x)$ never equal 0
+    \item $f''(x)$ undefined at $x=0$ (0,0)
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imgs/alg 2.png}
+        \caption{Intervals}
+        \label{fig:alg1}
+    \end{minipage}%
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imgs/y=x^1.png}
+        \caption{Graph of $y=x^{\frac{1}{3}}$}
+        \label{fig:graph}
+    \end{minipage}
+\end{figure}
+\newpage 
+\subsubsection*{Example 3}
+Determine any points of inflection on the graph of $f(x)=\frac{1}{x^2+3}$.
+\subsubsection*{Solution}
+\textbf{First Derivative:}
+\begin{align*}
+f(x) &= \frac{1}{x^2+3} \\
+f'(x) &= \frac{d}{dx} \left(\frac{1}{x^2+3}\right) \\
+     &= \frac{0 \cdot (x^2+3) - 1 \cdot 2x}{(x^2+3)^2} \\
+     &= \frac{-2x}{(x^2+3)^2}
+\end{align*}
+
+\textbf{Second Derivative:}
+\begin{align*}
+f'(x) &= \frac{-2x}{(x^2+3)^2} \\
+f''(x) &= \frac{d}{dx} \left(\frac{-2x}{(x^2+3)^2}\right) \\
+      &= \frac{-2(x^2+3)^2 - (-2x) \cdot 2(x^2+3)(2x)}{(x^2+3)^4} \\
+      &= \frac{-2(x^4 + 6x^2 + 9) + 8x^2(x^2+3)}{(x^2+3)^4} \\
+      &= \frac{-2x^4 - 12x^2 - 18 + 8x^4 + 24x^2}{(x^2+3)^4} \\
+      &= \frac{6x^4 + 12x^2 - 18}{(x^2+3)^4}\\
+      &=\frac{6(x-1)(x+1)}{(x^+3)^3}
+\end{align*}
+At $x=-1$
+$$y=\frac{1}{(1)^+3}=\frac{1}{4} \quad \left(-1, \frac{1}{4}\right)$$
+At $x=1$
+$$y=\frac{1}{(-1)^+3}=\frac{1}{4} \quad \left(1, \frac{1}{4}\right)$$
+$\therefore$ 2 points of inflection are $$\left(-1, \frac{1}{4}\right) \& \left(1, \frac{1}{4}\right)$$
+
+\subsection{Graphing Curves}
+\underline{Algorithm for Curve Sketching:}
+\begin{enumerate}
+    \item Determine $y$-intercept if it exists (let $x=0$)
+    \item Determine $x$-intercepts if they exist (let $y=0$)
+    \item Determine any holes (including $y$-coordinate) or vertical asymptotes
+    \item Determine any horizontal or oblique asymptotes
+    \item Determine intervals of increase and decrease (determine $x$-values at which $y'$ is zero or undefined and do interval testing)
+    \item Determine intervals of concavity (determine $x$-values at which $y''$ is zero or undefined and do interval testing)
+    \item "Stack" the intervals created in numbers 5 and 6
+    \item Determine the associated $y$-values of any points where $y'$ or $y''$ is zero or undefined and graph those points
+    \item Don't forget what you already know about graphs \smiley{} 
+\end{enumerate}
+
+For the following diagrams, assume that the function is defined all the way through the interval.
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.9\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{imgs/diagram_1_2.png}
+        \caption{}
+    \end{subfigure}
+    
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{imgs/diagram_3.png}
+        \caption{}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{imgs/diagram_4.png}
+        \caption{}
+    \end{subfigure}
+    
+    \begin{subfigure}[b]{0.9\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{imgs/diagram_5_6.png}
+        \caption{}
+    \end{subfigure}
+    
+    \begin{subfigure}[b]{0.9\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{imgs/diagram_7_8.png}
+        \caption{}
+    \end{subfigure}
+    
+    \caption{All diagrams}
+\end{figure}
+
+\clearpage % New page
+
 \section{Unit 5}
-\subsection{Trig Derivatives }
+\subsection{Trig Derivatives}
 The two main rules to remember are the following:
 \begin{tcolorbox}[sharp corners=uphill,
     colback=purple!50!white,colframe=blue!25!black,coltext=yellow,
     fontupper=\Large\bfseries,arc=6mm,boxrule=2mm,boxsep=5mm]
-$$\frac{\delta (\sin x)}{\delta x}=\cos x \quad \text{and } \quad \frac{\delta(\cos x)}{\delta}=-\sin x$$
+    $$\frac{\delta (\sin x)}{\delta x}=\cos x \quad \text{and } \quad \frac{\delta(\cos x)}{\delta x}=-\sin x$$
 \end{tcolorbox}
-\textit{Proof} that $\frac{\delta (sin \theta)}{\delta x}=\cos \theta$.\\
-We will do this proof in two parts. \\
+
+\textit{Proof} that $\frac{\delta (\sin \theta)}{\delta x}=\cos \theta$.\\
+We will do this proof in two parts. 
+
 
 In the first part, we will prove that  $\lim_{\theta \to 0}\left( \frac{\sin \theta }{\theta}\right)$\\
 
@@ -1995,5 +2471,554 @@ Determine $\frac{\delta y}{\delta x}$ given that $y=\log_3(4x^2-5x+1)$
     \frac{\delta y}{\delta x}&=\left(\frac{1}{\ln 3}\right)\left(\frac{1}{4x^2-5x+1}\right)(8x-5)\\
     &=\frac{8x-5}{\ln(4x^2-5x+1)}
 \end{align*}
+
+
+\section{Unit 6}
+\subsection{Introduction to Vectors}
+A vector is a quantity that requires both a magnitude and a direction for a complete description.  Examples of vectors are weight, velocity and friction.  On the other hand, a scalar is a magnitude that can be completely specified by just one number.  Examples of scalars include age, volume, area, speed, mass and temperature.\\
+
+
+A vector can be represented by a directed line segment.  The magnitude of the vector is indicated by the length of the line segment, and the direction of the vector is indicated by an arrowhead on the end of the segment.\\
+
+
+Speed is a scalar quantity. We can describe the speed of an airplane as 200 km/h.\\
+
+
+Velocity is a vector quantity. We can refer to the velocity of one airplane as $400 km/h$ in a southwesterly direction (represented by the vector $\vec{a}$ in the diagram) and the velocity of another airplane as 100 km/h in a northerly direction (represented by $\Vec{v}$)\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imgs/a_v.png}
+\end{figure}
+
+We can indicate movement in a direction from one location to another using vectors. For example, the vector $\overrightarrow{AB}$ is a line segment running from A to B with its tail at A and its head at B. Its actual size, or magnitude, is denoted by $|\overrightarrow{AB}|$ , and is represented by the length of the line segment. The magnitude of a vector is always non-negative. The direction of the arrow represents the direction of the airplane, and its length represents the speed.
+\newpage
+\subsubsection{Equal Vectors}
+\underline{Equal Vectors:}
+Two vectors $\overrightarrow{AB}$ and $\overrightarrow{CD}$ are equal if and only if\\
+
+\begin{enumerate}
+    \item $\overrightarrow{AB}$ and $\overrightarrow{CD}$ are parallel to each other, and the direction from A to B is the same as the direction from A to B is the same as the direction from C to D.
+    \item The magnitude of $\overrightarrow{AB}$ equals the magnitude of $\overrightarrow{CD}$. In other words, $|\overrightarrow{AB}|=|\overrightarrow{CD}|$
+\end{enumerate}
+\subsubsection{Opposite Vectors}
+\underline{Opposite Vectors:}
+Two vector $\overrightarrow{AB}$ and $\overrightarrow{CD}$ are opposite if and only if
+\begin{enumerate}
+    \item $\overrightarrow{AB}$ and $\overrightarrow{CD}$ are parallel to each other, and the direction from A to B is the opposite of the direction from C to D. Another way of putting this is that the direction from A to B is the same as the direction from D to C.
+    \item The magnitude of $\overrightarrow{AB}$ equals the magnitude of $\overrightarrow{CD}$. In other words, $|\overrightarrow{AB}|=|\overrightarrow{CD}|$
+\end{enumerate}
+\subsubsection{Vector Addition}
+\underline{Triangle Law of Addition}\\
+
+You can determine the sum $\vec{a}+\vec{b}$ by putting the tail of $\vec{b}$ on the tip of $\vec{a}$ and then drawing a vector straight from the tail of $\vec{a}$ to the tip of $\vec{b}$. The resulting vector is called the resultant.
+
+The method is sometimes also called the "tip to tail" method.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imgs/a+b.png}
+\end{figure}
+
+
+A way of thinking about the sum of two vectors is as follows:\\
+
+If you start at Point A and walk to Point B, then walk from Point B to C, the net result is as if you walked from A directly to C.\\
+
+Therefore, $\overrightarrow{AB}+\overrightarrow{BC}=\overrightarrow{AC}$.
+
+\subsubsection*{Example}
+Suppose that an airplane is travelling with a component velocity of 500 km/h N when it encounters a wind blowing with a velocity of 100 km/h E. What is resultant velocity?
+
+\subsubsection*{Solution}
+\begin{minipage}{0.45\textwidth}
+    \centeringa
+    \includegraphics[width=0.6\textwidth]{imgs/a_w_r.png}
+\end{minipage}%
+\begin{minipage}{0.4\textwidth}
+    \begin{align*}
+        |\vec{r}|^2 &= |\vec{a}|^2 + |\vec{w}|^2 \\
+                    &= (500)^2 + (100)^2 \\
+                    &= 200000 \\
+        |\vec{r}| &\approx 509.9 \\
+        \tan (\theta) &= \frac{100}{500} \\
+        \theta &\approx 11.3^{\circ}
+    \end{align*}
+\end{minipage}
+\vspace{2em}
+
+    $\therefore$ The resultant velocity is approximately 509.9 km/h, N $11.3^{\circ}$
+
+\subsubsection{Angle Between Two Vectors}
+\hl{When you are told the angle between two vectors, it is always the angle between those vectors if they are drawn tail to tail.}
+\\ \\ 
+Note, however, that often when we add vectors, the angle that we use for our sine law or cos law calculations will not be that same value.
+\subsubsection*{Example 2}
+Two unit vectors $\vec{a}$ and $\vec{b}$ have an angle of $30^{\circ}$ between them. Determine the magnitude and direction of $2\vec{a}+\vec{b}$.
+\subsubsection*{Solution}
+We can start by drawing two diagrams:
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imgs/a_b=30.png}
+\end{figure}
+\begin{minipage}{0.45\textwidth}
+    \begin{align*}
+        |\vec{r}|^2 &=|2\vec{a}|^2+|\vec{b}|^2-2|2\vec{a}||\vec{b}| \cos(150^\circ) \\
+                    &=(2)^2+(1)^2-2(2)(1)\left(-\frac{\sqrt{3}}{2}\right) \\
+                    &=5+3\sqrt{3} \\
+        |\vec{r}|&\approx 2.91
+    \end{align*}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+    \begin{align*}
+        \frac{\sin \theta}{|\vec{b}|} &= \frac{\sin 150^\circ}{|\vec{r}|} \\
+        \sin \theta &= 0.1718 \\
+        \theta &= 9.9^\circ
+    \end{align*}
+\end{minipage}
+\vspace{2em}
+
+$\therefore$ The resultant vector has a magnitude of approximately 2.91 with a direction of approximately \textcolor{red}{$9.9^{\circ}$ rotated from $\vec{a}$ towards $\Vec{b}$}
+
+\subsubsection*{Example}
+In the picture below of a rectangle prism, we know that $$\overrightarrow{AB}= \vec{a}, \overrightarrow{AC}=\vec{b}, \overrightarrow{AE}=\vec{c}.$$\\
+Determine an expression in terms of $\vec{a}, \vec{b}$ and $\vec{c}$ equal to each of the following
+
+\subsubsection*{Solution}
+
+\begin{minipage}{0.45\textwidth}
+    \centering
+        \includegraphics[width=0.7\textwidth]{imgs/abcdefgh.png}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+    \begin{enumerate}
+        \item[a)] 
+        \begin{align*}    
+            \overrightarrow{CH} &= \overrightarrow{CG} + \overrightarrow{GH} \\
+                                &= \vec{c} + \vec{a}
+        \end{align*}
+        \item[b)] 
+        \begin{align*}
+            \overrightarrow{FG} &= \overrightarrow{FE} + \overrightarrow{EG} \\
+                                &= -\vec{a} + \vec{b}
+        \end{align*}
+        \item[c)] $\overrightarrow{CF} = \vec{a} - \vec{b} + \vec{c}$ 
+    \end{enumerate}
+\end{minipage}
+
+\subsubsection{Representing Vectors on a Cartesian Plane}
+\textit{Components: }
+We can repeat a two-dimensional vector on a Cartesian plane.
+
+For example:
+\begin{itemize}
+    \item A vector that moves 1 unit to the right and 2 units up could be represented by the vector $\overrightarrow{(1,2)}$.
+    \item A vector that moves 3 units to the left and 5 units down could be represented by the vector $\overrightarrow{(-3,-5)}$
+    \item A vector that only moves 10 units down could be represented by the vector $\overrightarrow{(0,-10)}$
+\end{itemize}
+\subsubsection{Unit Vectors on the Cartesian Plane}\\
+
+
+A unit vector is a vector with a magnitude of 1.\\
+
+A vector that moves 1 unit to the right is $\overrightarrow{(1,0)}$ and a vector that moves 1 unit unit up is $\overrightarrow{(0,1)}$. These vectors are so significant that they are referred to as $\vec{i}$ and $\vec{j}$ respectively. In other words, $\vec{i}=\overrightarrow{(1,0)}$ and $\vec{j}=\overrightarrow{(0,1)}$.
+
+All vectors represented with components on the two-dimensional Cartesian plane can be represented as a sum or difference of these unit vectors, for example,\\
+$$\overrightarrow{(3,-4)}=3\overrightarrow{(1,0)}-4\overrightarrow{(0,1)}=3\vec{i}-4\vec{j}$$
+
+\subsubsection{Distributive Property With Vectors}
+\\
+
+\textit{Component Form}
+\subsubsection*{Example}
+Simplify $3(2\vec{a}-5\vec{b}+\vec{c})-2(\vec{a}-4\vec{b}+6\vec{c})$
+\subsubsection*{Solution}
+\begin{align*}
+    &=6\vec{a}-15\vec{b}+3\vec{c}-2\vec{a}+8\vec{b}-12\vec{c}\\
+    &=4\vec{a}-7\vec{b}-9\vec{c}
+\end{align*}
+\subsubsection*{Example}
+Given that $\vec{u}=(3,-1), \vec{v}=(-4,-7), \vec{w}=(10,1)$, state the components of the vector $4\vec{u}+2\vec{u}-7\vec{w}$
+\subsubsection*{Solution}
+\begin{align*}
+    4\vec{u}-2\vec{v}=7\vec{w}&=4\overrightarrow{(3,-1)}+2\overrightarrow{(-4,-7)}-7\overrightarrow{(10,1)}\\
+    &=\overrightarrow{(12,-4)}+\overrightarrow{(-8,-14)}-\overrightarrow{(70,7)}\\
+    &=\overrightarrow{(12-8-70,-4-14-7)}=\overrightarrow{(-66,-25)}
+\end{align*}
+\subsubsection{Taking Different Paths Questions }
+Another type of question is the "taking different paths" question. For some questions, you have to try getting from one place to another in a variety of ways unit a solution to your problem presents itself.
+%% Continue this part later
+
+
+\subsection{Forces}
+Generally speaking, force can be defined as that which changes, or tends to change, the state of rest, or uniform motion of a body.\\
+The description of a force's magnitude, without also specifying its direction, has little practical value. Since force has a magnitude and direction, therefore \underline{force is a vector.}\\
+
+Often, there are a number of forces working on an object. 
+
+\begin{itemize}
+    \item The resultant force is the single force that would produce exactly the        same effect as all of the forces acting together.
+    \item \textbf{Equilibrium} is a state in which an object does not move (i.e., its net force is 0).
+    \item The \textbf{equilibrant} of a number of forces is the single force that opposes the resultant of the forces; therefore when the equilibrant is applied to the object, the object is in a state of equilibrium.  The equilibrant is equal to the resultant times negative 1.
+\end{itemize}
+The \textbf{Newton} is the unit of measurement for force.  One Newton is equal to the amount of force necessary to cause a mass of one kg to accelerate at one metre per second squared.  In other $1N=1kg \times m/s^2$
+
+\subsubsection*{Example}
+Two children, James and Fred, are pushing on a rock. James pushes with a force of 80 N in an easterly direction and Fred pushes with a force of 60 N in the same direction.Determine the resultant and the equilibrant of these two forces.
+\subsubsection*{Solution}
+\[\begin{tikzcd}
+	{} && {} &&&& {}
+	\arrow[""{name=0, anchor=center, inner sep=0}, "60"{pos=0.7}, from=1-3, to=1-7]
+	\arrow["80", from=1-3, to=0]
+\end{tikzcd}\]
+$\therefore$ the resultant force is 140N east\\
+the equilaterat force is 140N west
+
+\begin{itemize}
+    \item Of course, forces acting on an object are not always collinear.  The manner that we determine the resultant force is to add the vectors representing each of the individual forces.  We can use numerous different methods to do this, including
+    \item the triangle law of addition of vectors, or
+    \item the parallelogram law of addition, or
+    \item adding components
+\end{itemize}
+ The best way to approach the situation will often depend on the specific question, and it will be helpful for us to recall the sin law and the cos law.
+ 
+ $$\frac{\sin A}{a}=\frac{\sin B}{b}=\frac{\sin C}{c} \quad or \quad \frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}$$\\
+
+ $$c^2=a^2+b^2-2ab\cos C$$
+ Of course, we need to remember that the angle between two vectors refers to “tail-to-tail”, but often in our calculations we use the angle between the tip and the tail, which is a different value.
+ \subsubsection*{Example}
+Two forces of 20N and 40N act at an angle of $30^{\circ}$ to each other.  Determine the resultant of these two forces.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imgs/force_1.png}
+\end{figure}
+\begin{align*}
+    |r|^2&=20^2+40^2-2(20)(40)\cos 150 ^{\circ}\\
+    |r|&\approx 58.2\\
+    \frac{\sin 150^{\circ}}{58.2}&\approx \frac{\sin \theta}{40}\\
+    \theta &\approx 20.1^{\circ}
+\end{align*}
+$\therefore$ the resultant force is approximately 58.2N in a direction of $20.1^{\circ}$ related from the 20N force to the 40N force.\\
+\newpage 
+
+\subsubsection{Equilibrium:} A group of forces is said to be in equilibrium when there is no movement.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imgs/equilibrium.png}
+    \caption{Forces in equilibrium}
+\end{figure}
+
+As you may notice, when there are two forces in equilibrium, they are opposite vectors.\\
+When there are more than two forces in equilibrium, they form a closed polygon.
+\subsubsection*{Example}
+Given that three forces of 2 N, 3N and 4N are in equilibrium, determine the angle between the two smallest forces?
+\subsubsection*{Solution}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imgs/force_2.png}
+\end{figure}
+\begin{align*}
+    4^2=2^2+3^2-2(2)(3)\cos \theta\\
+    16=4+9-12\cos \theta\\
+    \theta \approx 104.5^{\circ}
+\end{align*}
+$\therefore$ the angle between the two smallest is approximately $75.5^{\circ}$
+\newpage 
+
+\subsubsection{Component Vectors}\\
+It is often convenient to break a vector down into one or more vectors that together comprise the original vector.  
+\begin{itemize}
+    \item In two dimensions, this is most commonly done by considering the horizontal and vertical components of a vector.  
+    \item In three dimensions, this is most commonly done by considering the components along each of the three axes.
+\end{itemize}
+
+\begin{minipage}[h]{0.4\textwidth}
+    Consider the vector $\vec{f}$ shown at the right.\\
+    We can break $\vec{f}$ down into a horizontal and a vertical component vector.\\
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+    \begin{tikzpicture}
+        % Draw the vector f
+        \draw[->, thick] (0,0) -- (4,3) node[midway, above left] {$\vec{f}$};
+        
+        % Draw the horizontal component
+        \draw[dashed, ->] (0,0) -- (4,0) node[midway, below] {$\vec{f}_x$};
+        
+        % Draw the vertical component
+        \draw[dashed, ->] (4,0) -- (4,3) node[midway, right] {$\vec{f}_y$};
+
+        % Draw the right angle symbol
+        \draw (4,0) -- (4.3,0) -- (4.3,0.3) -- (4,0.3) -- cycle;
+        
+        % Add labels to the points
+        \node at (0,0) [below left] {O};
+        \node at (4,0) [below] {A};
+        \node at (4,3) [above right] {B};
+    \end{tikzpicture}
+    \[
+    |\overrightarrow{f_x}| = |\overrightarrow{f}| \cos \theta
+    \]
+    \[
+    |\overrightarrow{f_y}| = |\overrightarrow{f}| \sin \theta
+    \]
+\end{minipage}
+
+
+\subsubsection*{Example}
+Kayla pulls on a rope attached to her sleigh with a force of 200N. If the rope makes an angle of 20º with the horizontal, determine:
+\begin{enumerate}
+    \item[a)] the force that pulls the sleigh forward
+    \item[b)] the force that tends to lift the sleigh
+\end{enumerate}
+
+\begin{tikzpicture}
+    % Draw the sleigh
+    \draw[thick] (0,0) -- (3,0);
+    \draw[thick] (3,0) -- (3,1);
+    \draw[thick] (3,1) -- (0,1);
+    \draw[thick] (0,1) -- (0,0);
+    
+    % Draw the rope
+    \draw[thick,->] (1.5,0.5) -- (5,2) node[midway, above, sloped] {200N};
+    
+    % Draw the angle
+    \draw[thick] (1.5,0.5) -- (5,0.5);
+    \draw (3,0.5) arc (0:20:1.5);
+    \node at (3.3,0.7) {20º};
+    
+    % Draw components
+    \draw[dashed,->] (1.5,0.5) -- (5,0.5) node[midway, below] {$F_x$};
+    \draw[dashed,->] (5,0.5) -- (5,2) node[midway, right] {$F_y$};
+\end{tikzpicture}
+
+\subsubsection*{Solution}
+
+Let the force applied by Kayla be \( F = 200 \text{ N} \).
+
+The force \( F \) can be decomposed into two components:
+\begin{enumerate}
+    \item[a)] The horizontal component (\( F_x \)) that pulls the sleigh forward.
+    \item[b)] The vertical component (\( F_y \)) that tends to lift the sleigh.
+\end{enumerate}
+
+Using trigonometric identities:
+\begin{itemize}
+    \item \( F_x = F \cos(\theta) \)
+    \item \( F_y = F \sin(\theta) \)
+\end{itemize}
+
+Given \( F = 200 \text{ N} \) and \( \theta = 20^\circ \):
+
+\begin{enumerate}
+    \item[a)] The force that pulls the sleigh forward:
+    \[
+    F_x = 200 \cos(20^\circ) \approx 200 \times 0.9397 = 187.94 \text{ N}
+    \]
+    \item[b)] The force that tends to lift the sleigh:
+    \[
+    F_y = 200 \sin(20^\circ) \approx 200 \times 0.3420 = 68.40 \text{ N}
+    \]
+\end{enumerate}
+
+Therefore:
+\begin{itemize}
+    \item[a)] The force that pulls the sleigh forward is approximately \( 187.94 \text{ N} \).
+    \item[b)] The force that tends to lift the sleigh is approximately \( 68.40 \text{ N} \).
+\end{itemize}
+\subsubsection*{Example}
+A mass of 20 kg is suspended from a ceiling by two lengths of rope that make angles of 60º and 45º with the ceiling. Determine the magnitude of the tension in each rope.
+
+\begin{tikzpicture}
+    % Draw the ceiling
+    \draw[thick] (-4,3) -- (4,3);
+    
+    % Draw the ropes
+    \draw[thick,->] (0,0) -- (-2,3) node[midway, sloped, above] {$T_1$};
+    \draw[thick,->] (0,0) -- (2,3) node[midway, sloped, above] {$T_2$};
+    
+    % Draw the mass
+    \draw[fill=gray] (0,0) circle (0.3) node[below] {20 kg};
+    
+    % Draw the angles
+    \draw (1.5,0) arc (0:45:1.5);
+    \node at (1.2,0.3) {45º};
+    
+    \draw (-1.5,0) arc (180:120:1.5);
+    \node at (-1.9,0.3) {60º};
+    
+    % Draw weight
+    \draw[thick,->] (0,0) -- (0,-2) node[midway, right] {$W$};
+\end{tikzpicture}
+
+\subsubsection*{Solution}
+
+Given:
+\[
+W = mg = 20 \text{ kg} \times 9.8 \text{ m/s}^2 = 196 \text{ N}
+\]
+
+Using equilibrium conditions:
+1. Horizontal equilibrium:
+\[
+T_1 \cos(60^\circ) = T_2 \cos(45^\circ)
+\]
+\[
+T_1 \times 0.5 = T_2 \times 0.7071
+\]
+\[
+T_1 = 1.4142 T_2
+\]
+
+2. Vertical equilibrium:
+\[
+T_1 \sin(60^\circ) + T_2 \sin(45^\circ) = W
+\]
+\[
+T_1 \times 0.8660 + T_2 \times 0.7071 = 196
+\]
+\[
+1.4142 T_2 \times 0.8660 + T_2 \times 0.7071 = 196
+\]
+\[
+1.2247 T_2 + 0.7071 T_2 = 196
+\]
+\[
+1.9318 T_2 = 196
+\]
+\[
+T_2 = \frac{196}{1.9318} \approx 101.44 \text{ N}
+\]
+
+Now, substituting \( T_2 \) back into the equation for \( T_1 \):
+\[
+T_1 = 1.4142 \times 101.44 \approx 143.42 \text{ N}
+\]
+
+Therefore, the tensions in the ropes are:
+\begin{itemize}
+    \item \( T_1 \approx 143.42 \text{ N} \)
+    \item \( T_2 \approx 101.44 \text{ N} \)
+\end{itemize}
+\subsection{Velocity}
+\subsubsection*{Example 1}
+A plane is heading due north with an air speed of 400 km/h when it is blown off course by a wind of 100 km/h from the northeast. Determine the resultant ground velocity of the airplane.
+
+\begin{multicols}{2}
+\begin{tikzpicture}
+    % Plane velocity vector
+    \draw[->, thick] (0,0) -- (0,4) node[midway, left] {400 km/h};
+    
+    % Wind velocity vector
+    \draw[->, thick] (0,0) -- (2,2) node[midway, above, sloped] {100 km/h};
+    
+    % Resultant velocity vector
+    \draw[->, thick, red] (0,0) -- (2,6) node[midway, right] {Resultant};
+    
+    % Components
+    \draw[dashed] (0,4) -- (2,6);
+    \draw[dashed] (2,2) -- (2,6);
+    
+    % Angle
+    \draw (0.5,0) arc (0:45:0.5);
+    \node at (0.7,0.2) {45º};
+\end{tikzpicture}
+
+\columnbreak
+
+\subsubsection*{Solution}
+\begin{align*}
+    |\vec{r}|^2&=(400)^2+(100)^2-2(400)(100)\cos 45\\
+    |\vec{r}|&\approx 336.8\\
+    \frac{\sin \theta}{100}\approx \frac{\sin 45}{336.8}\\
+    \theta &\approx 12.1^{\circ}
+\end{align*}
+$\therefore$ the resultant velocity is approx $336.8 km/h N 12.1^{\circ}w$
+
+\end{multicols}
+
+\subsubsection*{Example 2}
+A plane is traveling 400 km/h in the direction W 25°N when it encounters a wind. As a result of the wind, the resultant velocity of the plane is 410 km/h, W 10°N. What is the velocity of the wind?
+
+\begin{multicols}{2}
+\begin{tikzpicture}
+    % Plane initial velocity vector
+    \draw[->, thick] (0,0) -- (-3.63,1.69) node[midway, above, sloped] {400 km/h};
+    
+    % Resultant velocity vector
+    \draw[->, thick, red] (0,0) -- (-4.04,0.71) node[midway, below, sloped] {410 km/h};
+    
+    % Wind velocity vector
+    \draw[->, thick, blue] (0,0) -- (-0.41,-0.98) node[midway, below, sloped] {Wind};
+    
+    % Components
+    \draw[dashed] (-3.63,1.69) -- (-4.04,0.71);
+    \draw[dashed] (0,0) -- (-0.41,0.71);
+    
+    % Angles
+    \draw (-0.7,0) arc (180:155:0.7);
+    \node at (-0.9,0.3) {25º};
+    
+    \draw (-1.2,0) arc (180:170:1.2);
+    \node at (-1.3,0.2) {10º};
+\end{tikzpicture}
+
+\columnbreak
+
+\subsubsection*{Solution}
+\begin{align*}
+    |\vec{w}|&=(410)^2(400)^2-2(410)(400)\cos 15\\
+    |\vec{w}|&\approx 106.2\\
+    (410)^2&=(400)^2+(106.2)^2-2(400)(106.2)\cos \theta\\
+    \theta &\approx 87.9^{\circ}
+\end{align*}
+$\theta$ to the left of south is $\approx$ $22.9^{\circ}$\\
+$\therefore$ the velocity of the wind is approx $106.2 km/h, s, 22.1^{\circ}$
+
+
+\end{multicols}
+
+\subsubsection*{Example 3}
+A river is 2 km wide and flows at 6 km/h. Anna is driving a motorboat, which has a speed of 20 km/h in still water, and she heads out from one bank in a direction perpendicular to the current. A marina lies directly across the river from the starting point on the opposite bank.
+
+\begin{multicols}{2}
+\begin{tikzpicture}
+    % River banks
+    \draw[thick] (0,0) -- (5,0);
+    \draw[thick] (0,3) -- (5,3);
+    
+    % Boat velocity vector
+    \draw[->, thick] (2.5,0) -- (2.5,3) node[midway, right] {20 km/h};
+    
+    % Current velocity vector
+    \draw[->, thick] (2.5,0) -- (5,0) node[midway, below] {6 km/h};
+    
+    % Resultant velocity vector
+    \draw[->, thick, red] (2.5,0) -- (5,3) node[midway, above, sloped] {Resultant};
+    
+    % Components
+    \draw[dashed] (5,0) -- (5,3);
+\end{tikzpicture}
+
+\columnbreak
+
+\subsubsection*{Solution}
+\begin{itemize}
+    \item a) Time to cross: \( \frac{2 \text{ km}}{20 \text{ km/h}} = 0.1 \text{ h} \) or 6 minutes.
+    \item b) Distance downstream: \( 6 \text{ km/h} \times 0.1 \text{ h} = 0.6 \text{ km} \)
+    \item c) To end up at the marina:
+        \[
+        \theta = \tan^{-1} \left( \frac{6}{20} \right) \approx 16.7^\circ \text{ upstream}
+        \]
+        Resultant velocity:
+        \[
+        V_{\text{resultant}} = \sqrt{(20 \cos(16.7^\circ))^2 + (20 \sin(16.7^\circ) - 6)^2} 
+        \]
+        \[
+        \approx 19.2 \text{ km/h}
+        \]
+\end{itemize}
+
+\end{multicols}
  
 \end{document}
