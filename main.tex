@@ -28,6 +28,7 @@
 \usepackage{MnSymbol,wasysym}
 \usepackage{multicol}
 \usepackage{tikz-cd}
+\usepackage{circuitikz}
 
 % newcommand 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
@@ -479,7 +480,7 @@ However, if $\lim_{x \to a^{-}}f(x)$ exists and if $\lim_{x \to a^+}$ exists but
     \end{array}\right\},$$
     $\text{use a graphing approach to determine} \lim\limits_{x \to -1} f(x)$ or justify that it does not exist.
     $\lim_{x \to -1^-}f(x)=-2$\\
-    $\lim_{x\ to -1^+}f(x)=-3$\\
+    $\lim_{x\ \to -1^+}f(x)=-3$\\
    $\boxed{\therefore\ \lim\limits_{x \to -1} f(x)\text{ does not exist}}$
     \vspace{1cm}
 \end{minipage}
@@ -815,7 +816,7 @@ Determine the derivative of the function $y=x^2$ and evaluate the derivative at 
 \begin{align*}
     y' &= \lim_{x \to 0} \frac{f(x+h)-f(x)}{h}\\
     &= \lim_{h \to 0} \frac{(x+h)^2-x^2}{h}\\
-    &= \lim_{h \to 0} \frac{x^2+2xh+h^2)-x^2}{h}\\
+    &= \lim_{h \to 0} \frac{x^2+2xh+h^2-x^2}{h}\\
     &= \lim_{h \to 0} \frac{2xh+h^2}{h}\\
     &= \lim_{h \to 0} (2x+h)\\
     &= 2x + 0\\
@@ -1119,7 +1120,7 @@ Suppose $f(12)=-7, g(3)=12, f'(12)=11$ and $g'(3)=9$. If $h(x)=f(g(x))$, then ev
 \textbf{Solution:}
 \begin{align*}
     h'(x)&=f(g(x))\\
-    h'(3)&=f'(g(3))g(3)\\
+    h'(3)&=f'(g(3))g'(3)\\
     &=f'(12)(9)\\
     &=(11)(9)\\
     &=99
@@ -1143,13 +1144,13 @@ Suppose $y=3(2x^2+x+-1)^4$. Determine $\frac{\delta y}{\delta x}$.\\
 \textbf{Solution:}
 $\frac{\delta y}{\delta x}=12(2x^2+x-1)^3(4x+1)$
 \subsubsection*{Example 2:}
-Suppose $y=3(2x^3+x-1)^4$. Determine $\frac{\delta y}{d(2x^2+x-1)}$.\\
+Suppose $y=3(2x^3+x-1)^4$. Determine $\frac{\delta y}{\delta(2x^2+x-1)}$.\\
 \textbf{Solution:}
 \begin{align*}
     \text{ let w } &= (2x^2+x-1)^4\\
     y&=3w^4\\
     \frac{\delta y}{\delta x}&=12w^3\\
-    \frac{\delta y}{d(2x^2+x-1)}&=12(2x^2+x-1)^3
+    \frac{\delta y}{\delta(2x^2+x-1)}&=12(2x^2+x-1)^3
 \end{align*}
 
 \begin{center}
@@ -1254,7 +1255,7 @@ b)
     \item Substitute into the resulting equation all known values for the variables and their rates of change. Then, solve for the required rate of change.	
 \end{itemize}
 
-\section{Unit 3}
+\section{Unit 3 - Derivatives and Applications }
 \subsection{Higher Order Derivatives, Velocity, Acceleration, and Rates of Change}
 \subsubsection*{Second Derivative Test}
 The second derivative of $y=f(x)$ is the derivative of $y=f^{\prime}(x)$\\
@@ -1398,7 +1399,7 @@ You need to remember the surface area formulas from grade 8th math.
 \end{center}
 \newpage
 
-\section{Unit 4}
+\section{Unit 4 - Curve Sketching}
 \subsection{Increasing and Decreasing Functions}
 For a continuous and differentiable function, f, the function values(y-values) are increasing for all x-values where $f'(x)>0$, and the function values (y-values) are decreasing for all x-values where $f'(c)<0$
 \subsubsection{Example 1a)}
@@ -1584,7 +1585,7 @@ The values of x at which $f'(x)=0$ or $f'(x)$ is undefined are called critical n
 For function $y=x^4-8x^3+18x^2$, determine all critical points. Determine whether each of these values of x gives a local maximum or neither.
 \subsubsection*{Solution:}
 \begin{align*}
-    y'+4x^3-24x^+36x\\
+    y'=4x^3-24x^2+36x\\
     &=4x(x^2-6x+9)\\
     &=4x(x-3)^2
 \end{align*}
@@ -1911,7 +1912,7 @@ For the following diagrams, assume that the function is defined all the way thro
 
 \clearpage % New page
 
-\section{Unit 5}
+\section{Unit 5 - Derivatives of Exponential and Trigonometric Functions}
 \subsection{Trig Derivatives}
 The two main rules to remember are the following:
 \begin{tcolorbox}[sharp corners=uphill,
@@ -2473,7 +2474,7 @@ Determine $\frac{\delta y}{\delta x}$ given that $y=\log_3(4x^2-5x+1)$
 \end{align*}
 
 
-\section{Unit 6}
+\section{Unit 6 - An Introduction to Vectors}
 \subsection{Introduction to Vectors}
 A vector is a quantity that requires both a magnitude and a direction for a complete description.  Examples of vectors are weight, velocity and friction.  On the other hand, a scalar is a magnitude that can be completely specified by just one number.  Examples of scalars include age, volume, area, speed, mass and temperature.\\
 
@@ -2485,10 +2486,23 @@ Speed is a scalar quantity. We can describe the speed of an airplane as 200 km/h
 
 
 Velocity is a vector quantity. We can refer to the velocity of one airplane as $400 km/h$ in a southwesterly direction (represented by the vector $\vec{a}$ in the diagram) and the velocity of another airplane as 100 km/h in a northerly direction (represented by $\Vec{v}$)\\
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imgs/a_v.png}
-\end{figure}
+\begin{center}
+    
+\begin{tikzpicture}[scale=0.7]
+
+% Drawing vector a (southwesterly direction)
+\draw[->, thick] (0,0) -- (-2.828, -2.828) node[midway, above, sloped] {\footnotesize 400 km/h};
+\node at (-3, -3.5) {$\vec{a}$};
+
+% Drawing vector v (northerly direction)
+\draw[->, thick] (0,0) -- (0,3) node[midway, right] {\footnotesize 100 km/h};
+\node at (0.5, 3.2) {$\vec{v}$};
+
+% Origin point
+\fill (0,0) circle (2pt) node[above right] {Origin};
+\end{tikzpicture}
+\end{center}
+
 
 We can indicate movement in a direction from one location to another using vectors. For example, the vector $\overrightarrow{AB}$ is a line segment running from A to B with its tail at A and its head at B. Its actual size, or magnitude, is denoted by $|\overrightarrow{AB}|$ , and is represented by the length of the line segment. The magnitude of a vector is always non-negative. The direction of the arrow represents the direction of the airplane, and its length represents the speed.
 \newpage
@@ -2513,11 +2527,25 @@ Two vector $\overrightarrow{AB}$ and $\overrightarrow{CD}$ are opposite if and o
 You can determine the sum $\vec{a}+\vec{b}$ by putting the tail of $\vec{b}$ on the tip of $\vec{a}$ and then drawing a vector straight from the tail of $\vec{a}$ to the tip of $\vec{b}$. The resulting vector is called the resultant.
 
 The method is sometimes also called the "tip to tail" method.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{imgs/a+b.png}
-\end{figure}
-
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+    % Define the vectors
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (2,1);
+    \coordinate (B) at (4,1);
+    
+    % Draw the vectors
+    \draw[->, thick] (O) -- (A) node[midway, above left] {$\vec{a}$};
+    \draw[->, thick] (A) -- (B) node[midway, above] {$\vec{b}$};
+    \draw[->, thick,red] (O) -- (B) node[midway, below right] {$\vec{a} + \vec{b}$};
+    
+    % Points
+    \fill (O) circle (2pt);
+    \fill (A) circle (2pt);
+    \fill (B) circle (2pt);
+    
+\end{tikzpicture}
+\end{center}
 
 A way of thinking about the sum of two vectors is as follows:\\
 
@@ -2530,10 +2558,26 @@ Suppose that an airplane is travelling with a component velocity of 500 km/h N w
 
 \subsubsection*{Solution}
 \begin{minipage}{0.45\textwidth}
-    \centeringa
-    \includegraphics[width=0.6\textwidth]{imgs/a_w_r.png}
+    \centering
+    \resizebox{0.7\textwidth}{!}{%
+        \begin{circuitikz}
+        \tikzstyle{every node}=[font=\LARGE]
+        \draw [line width=0.7pt, ->, >=Stealth] (4.25,13) -- (8.25,13);
+        \draw [line width=0.7pt, ->, >=Stealth] (4.25,8.25) -- (4.25,13);
+        \draw [line width=0.7pt, ->, >=Stealth, dashed] (4.25,8.25) -- (8.25,13);
+        \draw [line width=0.7pt, short] (4.25,9.25) .. controls (4.5,9.75) and (4.75,10) .. (5,9.25);
+        \node [font=\LARGE] at (4.5,9) {$\theta$};
+        \node [font=\LARGE] at (6,13.5) {$\rightarrow$};
+        \node [font=\LARGE] at (6,13.25) {\textit{w}};
+        \node [font=\LARGE] at (3.75,11.25) {$\rightarrow$};
+        \node [font=\LARGE] at (3.75,11) {a};
+        \node [font=\LARGE] at (7,10.75) {r};
+        \node [font=\LARGE] at (7,11) {$\rightarrow$};
+        \end{circuitikz}
+    }%
+    \label{fig:my_label}
 \end{minipage}%
-\begin{minipage}{0.4\textwidth}
+\begin{minipage}{0.45\textwidth}
     \begin{align*}
         |\vec{r}|^2 &= |\vec{a}|^2 + |\vec{w}|^2 \\
                     &= (500)^2 + (100)^2 \\
@@ -2555,13 +2599,24 @@ Note, however, that often when we add vectors, the angle that we use for our sin
 Two unit vectors $\vec{a}$ and $\vec{b}$ have an angle of $30^{\circ}$ between them. Determine the magnitude and direction of $2\vec{a}+\vec{b}$.
 \subsubsection*{Solution}
 We can start by drawing two diagrams:
+\begin{center}
+    
+\begin{tikzpicture}[scale=0.5]
+    % Define the vectors
+    \draw[->, thick] (0,0) -- (4,0) node[midway, below] {$\vec{a}$};
+    \draw[->, thick] (0,0) -- (3.464,2) node[midway, right] {$\vec{b}$};
+    \draw[->, thick, blue] (0,0) -- (8,0) node[midway, below] {$2\vec{a}$};
+    \draw[->, thick, red] (8,0) -- (11.464,2) node[midway, above] {$\vec{b}$};
+    \draw[->, thick, green] (0,0) -- (11.464,2) node[midway, above] {$2\vec{a} + \vec{b}$};
 
-
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{imgs/a_b=30.png}
-\end{figure}
+    % Draw the angle
+    \draw[thick] (2.5,0) arc[start angle=0, end angle=30, radius=2.5];
+    \node at (2.9, 0.4) {$30^\circ$};
+    
+    % Origin point
+    \fill (0,0) circle (2pt) node[below right] {Origin};
+\end{tikzpicture}
+\end{center}
 \begin{minipage}{0.45\textwidth}
     \begin{align*}
         |\vec{r}|^2 &=|2\vec{a}|^2+|\vec{b}|^2-2|2\vec{a}||\vec{b}| \cos(150^\circ) \\
@@ -2589,7 +2644,38 @@ Determine an expression in terms of $\vec{a}, \vec{b}$ and $\vec{c}$ equal to ea
 
 \begin{minipage}{0.45\textwidth}
     \centering
-        \includegraphics[width=0.7\textwidth]{imgs/abcdefgh.png}
+    \resizebox{0.6\textwidth}{!}{%
+        \begin{circuitikz}
+        \tikzstyle{every node}=[font=\LARGE]
+        \draw [line width=0.7pt, short] (3,12) -- (5.75,12);
+        \draw [line width=0.7pt, short] (3,12) -- (3,7.75);
+        \draw [line width=0.7pt, short] (3,7.75) -- (5.75,7.75);
+        \draw [line width=0.7pt, short] (5.75,12) -- (5.75,7.75);
+        \draw [color={rgb,255:red,43; green,255; blue,0}, line width=0.7pt, short] (3,12) -- (4.5,13);
+        \draw [line width=0.7pt, short] (5.75,12) -- (7.25,13);
+        \draw [color={rgb,255:red,255; green,0; blue,221}, line width=0.7pt, short] (4.5,13) -- (7.25,13);
+        \draw [color={rgb,255:red,255; green,0; blue,0}, line width=0.7pt, short] (4.5,13) -- (4.5,9);
+        \draw [line width=0.7pt, short] (3,7.75) -- (4.5,9);
+        \draw [line width=0.7pt, short] (4.5,9) -- (7.25,9);
+        \draw [line width=0.7pt, short] (7.25,13) -- (7.25,9);
+        \draw [line width=0.7pt, short] (5.75,7.75) -- (7.25,9);
+        \node [font=\LARGE] at (2.5,12) {C};
+        \node [font=\LARGE] at (2.5,7.75) {G};
+        \node [font=\LARGE] at (4.25,13.75) {A};
+        \node [font=\LARGE] at (7.5,13.5) {B};
+        \node [font=\LARGE] at (6.25,11.75) {D};
+        \node [font=\LARGE] at (5,9.5) {E};
+        \node [font=\LARGE] at (7.75,9.5) {F};
+        \node [font=\LARGE] at (6.75,7.75) {H};
+        \node [font=\LARGE, color={rgb,255:red,255; green,0; blue,208}] at (5.75,13.5) {$\rightarrow$};
+        \node [font=\LARGE, color={rgb,255:red,255; green,0; blue,208}] at (5.75,13.25) {a};
+        \node [font=\LARGE, color={rgb,255:red,17; green,255; blue,0}] at (3.5,13) {$\rightarrow$};
+        \node [font=\LARGE, color={rgb,255:red,17; green,255; blue,0}] at (3.5,12.75) {b};
+        \node [font=\LARGE, color={rgb,255:red,255; green,0; blue,0}] at (5,11) {$\rightarrow$};
+        \node [font=\LARGE, color={rgb,255:red,255; green,0; blue,0}] at (5,10.75) {c};
+        \end{circuitikz}
+    }%
+    \label{fig:my_label}
 \end{minipage}%
 \begin{minipage}{0.5\textwidth}
     \begin{enumerate}
@@ -2689,10 +2775,32 @@ the equilaterat force is 140N west
  Of course, we need to remember that the angle between two vectors refers to “tail-to-tail”, but often in our calculations we use the angle between the tip and the tail, which is a different value.
  \subsubsection*{Example}
 Two forces of 20N and 40N act at an angle of $30^{\circ}$ to each other.  Determine the resultant of these two forces.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{imgs/force_1.png}
-\end{figure}
+\begin{center}
+    \begin{tikzpicture}
+    % Define the forces
+    \draw[->, thick] (0,0) -- (4,0) node[midway, below] {40N};
+    \draw[->, thick] (0,0) -- (3.464,2) node[midway, right] {20N};
+
+    % Calculate the resultant vector components
+    \coordinate (R) at (7.464, 2);
+    
+    % Draw the resultant force
+    \draw[->, thick, red] (0,0) -- (R) node[midway, above] {Resultant};
+
+    % Draw the angle
+    \draw[thick] (1.5,0) arc[start angle=0, end angle=30, radius=1.5];
+    \node at (1.7, 0.4) {$30^\circ$};
+    
+    % Origin point
+    \fill (0,0) circle (2pt) node[below right] {Origin};
+
+    % Adding resultant components for clarity
+    \draw[dashed] (4,0) -- (R);
+    \draw[dashed] (0,2) -- (R);
+    
+\end{tikzpicture}
+\end{center}
+
 \begin{align*}
     |r|^2&=20^2+40^2-2(20)(40)\cos 150 ^{\circ}\\
     |r|&\approx 58.2\\
@@ -2726,8 +2834,9 @@ Given that three forces of 2 N, 3N and 4N are in equilibrium, determine the angl
 $\therefore$ the angle between the two smallest is approximately $75.5^{\circ}$
 \newpage 
 
-\subsubsection{Component Vectors}\\
-It is often convenient to break a vector down into one or more vectors that together comprise the original vector.  
+\subsubsection{Component Vectors}
+It is often convenient to break a vector down into one or more vectors that together comprise the original vector.
+
 \begin{itemize}
     \item In two dimensions, this is most commonly done by considering the horizontal and vertical components of a vector.  
     \item In three dimensions, this is most commonly done by considering the components along each of the three axes.
@@ -2988,7 +3097,7 @@ A river is 2 km wide and flows at 6 km/h. Anna is driving a motorboat, which has
     \draw[thick] (0,3) -- (5,3);
     
     % Boat velocity vector
-    \draw[->, thick] (2.5,0) -- (2.5,3) node[midway, right] {20 km/h};
+    \draw[->, thick] (2.5,0) -- (2.5,3) node[midway, left] {20 km/h};
     
     % Current velocity vector
     \draw[->, thick] (2.5,0) -- (5,0) node[midway, below] {6 km/h};
@@ -3020,5 +3129,1840 @@ A river is 2 km wide and flows at 6 km/h. Anna is driving a motorboat, which has
 \end{itemize}
 
 \end{multicols}
- 
+\newpage
+\section{Unit 7 -  Applications of Vectors}
+\subsection{Vectors in $R^2$ and $R^3$}
+Any two-dimensional vector has a unique representation on the Cartesian plane in $R^2$.  The vector $\overrightarrow{OP}$ is a vector with its tail at the origin and its head at point $P(a,b)$. Different ways of expressing this vector include:
+\begin{enumerate}
+    \item[1.] $\overrightarrow{OP}$
+    \item[2.](a,b)
+    \item[3.] $\overrightarrow{(a,b)}$
+\end{enumerate}
+Similarly, any three-dimensional vector has a unique representation in $R^3$. The most common convention for expressing the x, y, and z-axes is the right-handed system of coordinates.  The vector $\overrightarrow{OP}$is a vector with its tail at the origin and its head at the point $P(a,b,c)$. Different ways of expressing this vector include:
+\begin{enumerate}
+    \item[1.] $\overrightarrow{OP}$
+    \item[2.](a,b,c)
+    \item[3.] $\overrightarrow{(a,b,c)}$
+\end{enumerate}
+\subsubsection*{Example 1} Using the right-handed system, sketch the vector $\overrightarrow{OP}$ where the coordinates of point P are (6,2,4).
+\begin{center}
+\centering
+ \tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[tdplot_main_coords]
+  \draw[->] (0,0,0) -- (6,2,4) node[anchor=south]{$\overrightarrow{OP}$};
+  \draw[dashed, color=gray] (0,0,0) -- (6,2,0) -- (6,2,4);
+  \draw[dashed, color=gray] (6,2,0) -- (6,0,0);
+  \draw[dashed, color=gray] (6,2,0) -- (0,2,0);
+  \node at (7,2,4) {P(6,2,4)};
+  \draw[thick,->] (0,0,0) -- (7,0,0) node[anchor=north east]{$x$};
+  \draw[thick,->] (0,0,0) -- (0,3,0) node[anchor=north west]{$y$};
+  \draw[thick,->] (0,0,0) -- (0,0,5) node[anchor=south]{$z$};
+\end{tikzpicture}
+\end{center}
+\subsubsection*{Example 2} Using the right-handed system, sketch the vector $\overrightarrow{OP}$ where the coordinates of point P are (-2,1,-5).
+\begin{center}
+\centering
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[tdplot_main_coords]
+  \draw[->] (0,0,0) -- (-2,1,-5) node[anchor=north]{$\overrightarrow{OP}$};
+  \draw[dashed, color=gray] (0,0,0) -- (-2,1,0) -- (-2,1,-5);
+  \draw[dashed, color=gray] (-2,1,0) -- (-2,0,0);
+  \draw[dashed, color=gray] (-2,1,0) -- (0,1,0);
+  \node at (-3,1,-5) {P(-2,1,-5)};
+  \draw[thick,->] (0,0,0) -- (-3,0,0) node[anchor=south east]{$x$};
+  \draw[thick,->] (0,0,0) -- (0,2,0) node[anchor=south west]{$y$};
+  \draw[thick,->] (0,0,0) -- (0,0,-6) node[anchor=east]{$z$};
+\end{tikzpicture}
+\end{center}
+
+\subsection{Addition and Subtraction of Vectors in $R^2$ and $R^3$}
+
+The unit vectors $\vec{\imath}, \vec{\jmath}$ and $\vec{k}$\\
+Any vector in the two-dimensional plane can be expressed in terms of the unit vectors $\vec{\imath}$ and $\vec{\jmath}$ where $\vec{\imath}=\overrightarrow{(1,0)}$ and $\vec{\jmath}=\overrightarrow{(0,1)}$\\
+
+For example, $\overrightarrow{(-3,4)}=-3 \overrightarrow{(1,0)}+4 \overrightarrow{(0,1)}=-3 \vec{\imath}+4 \vec{\jmath}$\\\\
+Similarly, any vector in three dimensions can be expressed in terms of the unit vectors $\vec{\imath}, \vec{j}$ and $\vec{k}$ where $\vec{\imath}=\overrightarrow{(1,0,0}), \vec{j}=$ $\overrightarrow{(0,1,0)}$ and $\vec{k}=(0,0,1)$\\
+
+
+For example, $\overrightarrow{(5,-2,-3)}=5 \overrightarrow{(1,0,0)}-2 \overrightarrow{(0,1,0)}-3 \overrightarrow{(0,0,1)}$
+$$
+=5 \vec{\imath}-2 \vec{\jmath}-3 \vec{k}
+$$
+
+\subsubsection{Distributive Property}
+As a general rule, if $\vec{v}=\overrightarrow{(a, b)}$, then $k \vec{v}=k \overrightarrow{(a, b)}=\overrightarrow{(k a, k b)}$\\
+
+
+For example, $5 \overrightarrow{(2,-3)}=\overrightarrow{(10,-15)}$\\
+
+
+
+Similarly, if $\vec{v}=\overrightarrow{(a, b, c)}$, then $k \vec{v}=k \overrightarrow{(a, b, c)}=\overrightarrow{(k a, k b, k c)}$\\
+
+
+For example, $-4 \overrightarrow{(6,-1,2)}=\overrightarrow{(-24,4,-8)}$\\
+
+\subsubsection{Adding and Subtracting Vectors}
+
+
+Given $\vec{a}=\overrightarrow{O A}=\overrightarrow{(1,3)}$ and $\vec{b}=\overrightarrow{O B}=(4,-2)$,
+
+\subsubsection*{a) Graph $\overrightarrow{O A}$ and $\overrightarrow{O B}$}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    % Axis
+    \draw[thick,->] (-1,0) -- (5,0) node[anchor=north east]{$x$};
+    \draw[thick,->] (0,-3) -- (0,4) node[anchor=north west]{$y$};
+    % Vector a (OA)
+    \draw[thick,->,blue] (0,0) -- (1,3) node[anchor=south east ]{$\vec{a}$};
+    % Vector b (OB)
+    \draw[thick,->,red] (0,0) -- (4,-2) node[anchor=south east]{$\vec{b}$};
+    % Point O
+    \filldraw[black] (0,0) circle (2pt) node[anchor=north east]{$O$};
+    % Point A
+    \filldraw[black] (1,3) circle (2pt) node[anchor=south west]{$A$};
+    % Point B
+    \filldraw[black] (4,-2) circle (2pt) node[anchor=south west]{$B$};
+\end{tikzpicture}
+\end{center}
+
+\subsubsection*{b) Graph $\vec{a}+\vec{b}$ and state the components of that vector}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    % Axis
+    \draw[thick,->] (-1,0) -- (7,0) node[anchor=north east]{$x$};
+    \draw[thick,->] (0,-3) -- (0,4) node[anchor=north west]{$y$};
+    % Vector a (OA)
+    \draw[thick,->,blue] (0,0) -- (1,3) node[anchor=south west]{$\vec{a}$};
+    % Vector b (OB)
+    \draw[thick,->,red] (0,0) -- (4,-2) node[anchor=south west]{$\vec{b}$};
+    % Vector a+b
+    \draw[thick,->,green] (0,0) -- (5,1) node[anchor=south west]{$\vec{a}+\vec{b}$};
+\end{tikzpicture}
+\end{center}
+
+Components of $\vec{a}+\vec{b}$: $(1+4, 3+(-2)) = (5, 1)$
+
+\subsubsection*{c) Graph $\vec{a}-\vec{b}$ and state the components of that vector}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    % Axis
+    \draw[thick,->] (-1,0) -- (7,0) node[anchor=north east]{$x$};
+    \draw[thick,->] (0,-3) -- (0,4) node[anchor=north west]{$y$};
+    % Vector a (OA)
+    \draw[thick,->,blue] (0,0) -- (1,3) node[anchor=south west]{$\vec{a}$};
+    % Vector b (OB)
+    \draw[thick,->,red] (0,0) -- (4,-2) node[anchor=south west]{$\vec{b}$};
+    % Vector a-b
+    \draw[thick,->,purple] (0,0) -- (-3,5) node[anchor=south west]{$\vec{a}-\vec{b}$};
+\end{tikzpicture}
+\end{center}
+
+Components of $\vec{a}-\vec{b}$: $(1-4, 3-(-2)) = (-3, 5)$
+\begin{tcolorbox}[enhanced,frame style image=blueshade.png,
+  opacityback=0.75,opacitybacktitle=0.25,
+  colback=blue!5!white,colframe=blue!75!black]
+In short, if $\vec{a}=\overrightarrow{\left(x_1, y_1\right)}$ and if $\vec{b}=\overrightarrow{\left(x_2, y_2\right)}$, then
+$$
+\vec{a}+\vec{b}=\overrightarrow{\left(x_1+x_2, y_1+y_2\right)}
+$$
+
+This also works in 3 dimensions. In other words, if\\
+$\vec{a}=\overrightarrow{(x_1,y_1,z_1)}$ and if $\vec{b}=\overrightarrow{(x_2,y_2,z_2)}$, then 
+$$\vec{a}+\vec{b}=\overrightarrow{(x_1+x_2,y_1+y_2,z_1+z_2)}$$
+\end{tcolorbox}
+
+\subsubsection{Subtracting vectors} Notice that if we are to subtract vector $\vec{b}$ from vector $\vec{a}$, we can do so by the tip-to-tail meth well.
+
+We add the opposite of $\vec{b}$ to $\vec{a}$. In other words, $\vec{a}-\vec{b}=\vec{a}+(-\vec{b})$
+So, for example,
+$$
+\overrightarrow{(1,3)}-\overrightarrow{(4,-2)}=\overrightarrow{(-3,5)}
+$$
+\begin{tcolorbox}[enhanced,frame style image=blueshade.png,
+  opacityback=0.75,opacitybacktitle=0.25,
+  colback=blue!5!white,colframe=purple!75!black]
+In short, if $\vec{a}=\overrightarrow{\left(x_1, y_1\right)}$ and if $\vec{b}=\overrightarrow{\left(x_2, y_2\right)}$, then
+$$
+\vec{a}-\vec{b}=\overrightarrow{\left(x_1-x_2, y_1-y_2\right)}
+$$
+
+This also works in 3 dimensions. In other words, if $\vec{a}=\overrightarrow{\left(x_1, y_1, z_1\right)}$ and if $\vec{b}=\overrightarrow{\left(x_2, y_2, z_2\right)}$, then
+$$
+\vec{a}-\vec{b}=\overrightarrow{\left(x_1-x_2, y_1-y_2, z_1-z_2\right)}
+$$
+\end{tcolorbox}
+\subsubsection{Magnitudes of Vectors}
+\begin{tcolorbox}[enhanced,frame style image=blueshade.png,
+  opacityback=0.75,opacitybacktitle=0.25,
+  colback=blue!5!white,colframe=purple!75!black]
+-Given the points $A\left(x_1, y_1\right)$ and $B\left(x_2, y_2\right)$,
+$\overrightarrow{A B}=\overrightarrow{\left(x_2-x_1, y_2-y_1\right)}$ and $|\overrightarrow{A B}|=\sqrt{\left(x_2-x_1\right)^2+\left(y_2-y_1\right)^2}$
+Similarly, given the points $A\left(x_1, y_1, z_1\right)$ and $B\left(x_2, y_2, z_2\right)$,
+$$
+\begin{aligned}
+\overrightarrow{A B}=\overrightarrow{\left(x_2-x_1, y_2-y_1, z_2-z_1\right)} \text { and } \\
+|\overrightarrow{A B}|=\sqrt{\left(x_2-x_1\right)^2+\left(y_2-y_1\right)^2+\left(z_2-z_1\right)^2}
+\end{aligned}
+$$
+\end{tcolorbox}
+\subsubsection{Example 1}
+Determine $\overrightarrow{A B}$ and $|\overrightarrow{A B}|$ where the coordinates of $\mathrm{A}$ are $(3,2,-5)$ and the coordinates of $\mathrm{B}$ are $(-4,0,-3)$.
+\begin{align*}
+    \overrightarrow{AB}&=(-4-3,0-2,-3-(-5))\\
+    &\boxed{\overrightarrow{AB}=(-7,-2,2)}\\
+    |\overrightarrow{AB}| &=\sqrt{(-7)^2+(-2)^2+(2)^2}\\
+    &=\sqrt{49+4+4}\\
+    &=\sqrt{57}
+\end{align*}
+\newpage
+\subsubsection{Example 2}
+For the vector shown at the right determine the components of the position vector. 
+
+\vspace{2em}
+\begin{minipage}{0.5\textwidth}
+\begin{tikzpicture}[scale=0.5]
+    % Draw axes
+    \draw[thick, ->] (-5, 0) -- (6, 0) node[anchor=north west] {};
+    \draw[thick, ->] (0, -4) -- (0, 4) node[anchor=south east] {};
+    \fill (0,0) circle (2pt) node[below left] {O};
+
+    
+    % Draw points and arrows
+    \draw[->] (0,0) -- (4,2) node[anchor=south west] {$B(4,2)$};
+    \draw[->,red] (0,0) -- (5,-1) node[anchor=south west] {$P(5,-1)$};
+    \draw[->] (0,0) -- (-1,3) node[anchor=south east] {$A(-1,3)$};
+    
+    % Draw connections between points
+    \draw[->] (-1,3) -- (4,2);
+    \draw[->] (4,2) -- (5,-1);
+    
+    % Draw points
+    \fill (4,2) circle (2pt);
+    \fill (5,-1) circle (2pt);
+    \fill (-1,3) circle (2pt);
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+$$\overrightarrow{OP}=(4-(-1),2-3)$$
+$$=(5,-1)$$
+\end{minipage}
+
+\subsubsection{Example 2}
+Parallelogram OABC is determined by the vectors $\overrightarrow{OA}=\overrightarrow{7,4}$ and $\overrightarrow{OC}=\overrightarrow{(1,-6)}$.
+Determine $\overrightarrow{OB},\overrightarrow{AB}$ and $\overrightarrow{BC}$
+
+\subsubsection*{Solution}
+\begin{minipage}{0.5\textwidth}
+Given: $\overrightarrow{OA} = \begin{pmatrix} 7 \\ 4 \end{pmatrix}$ and $\overrightarrow{OC} = \begin{pmatrix} 1 \\ -6 \end{pmatrix}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+    % Draw axes
+    \draw[thick, ->] (-2,0) -- (9,0) node[anchor=north west] {x};
+    \draw[thick, ->] (0,-8) -- (0,5) node[anchor=south east] {y};
+    
+    % Draw points and vectors
+    \coordinate (A) at (7,4);
+    \coordinate (C) at (1,-6);
+    \coordinate (B) at ($(A)+(C)$);
+    
+    \draw[->] (0,0) -- (A) node[anchor=south west] {$A(7,4)$};
+    \draw[->] (0,0) -- (C) node[anchor=north east] {$C(1,-6)$};
+    \draw[->] (0,0) -- (B) node[anchor=south west] {$B$};
+    
+    % Draw the parallelogram
+    \draw[dashed] (A) -- node[midway, left] {} (C) -- node[midway, below] {} (B);
+    \draw[dashed] (B) -- node[midway, right] {} (A);
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\subsubsection*{Solution}
+\begin{align*}
+\overrightarrow{OB} &= \overrightarrow{OA} + \overrightarrow{OC} = \begin{pmatrix} 7 \\ 4 \end{pmatrix} + \begin{pmatrix} 1 \\ -6 \end{pmatrix} = \begin{pmatrix} 8 \\ -2 \end{pmatrix} \\
+\overrightarrow{AB} &= \overrightarrow{OB} - \overrightarrow{OA} = \begin{pmatrix} 8 \\ -2 \end{pmatrix} - \begin{pmatrix} 7 \\ 4 \end{pmatrix} = \begin{pmatrix} 1 \\ -6 \end{pmatrix} \\
+\overrightarrow{BC} &= \overrightarrow{OC} - \overrightarrow{OA} = \begin{pmatrix} 1 \\ -6 \end{pmatrix} - \begin{pmatrix} 7 \\ 4 \end{pmatrix} = \begin{pmatrix} -6 \\ -10 \end{pmatrix}
+\end{align*}
+\end{minipage}
+
+\subsubsection*{Example 3}
+If $\vec{u}=-2\vec{i}+6\vec{k}$, and if $\vec{v}=\vec{i}-\vec{j}+\vec{k}$, determine $3\vec{u}-2\vec{v}$ and $|3\vec{u}-2\vec{v}|$.
+\subsubsection*{Solution}
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+\vec{u}&=-2\vec{j}+9\vec{j}+6\vec{k}\\
+&=(-2,9,6)\\
+\vec{v}&=\vec{i}-\vec{j}+\vec{k}\\
+&=\overrightarrow{(1,-1,1)}
+\end{align*}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+3\vec{u}-2\vec{v}&=3\overrightarrow{(-2,9,6)}-2\overrightarrow{(1,-1,1)}\\
+    &=\overrightarrow{(-6-2,27+2,18-2)}\\
+    &=(-8,29,16)\\
+    |3\vec{u}-2\vec{v}|&=\sqrt{(-8)^2+(29)^2+(16)^2}\\
+    &=\sqrt{1161}
+\end{align*}
+\end{minipage}
+\subsubsection*{Example 4}
+A parallelogram is formed by the vectors $\overrightarrow{OA}=\begin{pmatrix} 3 \\ -1 \\ 4 \end{pmatrix}$, $\overrightarrow{OB}=\begin{pmatrix} -1 \\ 8 \\ -7 \end{pmatrix}$, and $\overrightarrow{OC}=\begin{pmatrix} 4 \\ 0 \\ -9 \end{pmatrix}$. Determine the coordinates of all the vertices for the parallelepiped.
+\subsubsection*{Solution}
+The coordinates of the vertices are:
+\begin{align*}
+A &= (3, -1, 4) \\
+B &= A + \overrightarrow{OB} = (3, -1, 4) + (-1, 8, -7) = (2, 7, -3) \\
+C &= A + \overrightarrow{OC} = (3, -1, 4) + (4, 0, -9) = (7, -1, -5) \\
+D &= B + \overrightarrow{OC} = (2, 7, -3) + (4, 0, -9) = (6, 7, -12)
+\end{align*}
+
+\subsubsection*{Example 5}
+Determine the midpoint of the points $A(-4,3,9)$ and $B(2,-11,7)$.
+\subsubsection*{Solution}
+The midpoint of two points is calculated by taking the average of their coordinates. Therefore, the midpoint of $A$ and $B$ is:
+\begin{align*}
+\text{Midpoint}
+&= \left(\frac{x_1+x_2}{2}, \frac{y_1+y_2}{2}, \frac{z_1+z_2}{2}\right) \\
+&= \left(\frac{-4+2}{2}, \frac{3+(-11)}{2}, \frac{9+7}{2}\right) \\
+&= (-1, -4, 8)
+\end{align*}
+\newpage 
+\subsection{Linear Combinations and Spanning Sets}
+A set of two vectors forms a spanning set for \(\mathbb{R}^2\) if every vector in \(\mathbb{R}^2\) can be written as a linear combination of those two vectors.\\\\
+If \(\vec{u}\), \(\vec{v}\), and \(\vec{w}\) are vectors and if \(\vec{w} = a\vec{u} + b\vec{v}\) where \(a\) and \(b\) are scalars, then \(\vec{w}\) can be written as a linear combination of \(\vec{u}\) and \(\vec{v}\).\\\\
+For example, the vectors \(\vec{i}\) and \(\vec{j}\) span \(\mathbb{R}^2\) because every vector in \(\mathbb{R}^2\) can be written as a linear combination of \(\vec{i}\) and \(\vec{j}\). To illustrate:
+\[\overrightarrow{(4,-3)} = 4\vec{i} - 3\vec{j}\]
+\subsubsection{Example 1}
+Show that \(\vec{v}=\overrightarrow{(4,23)}\) can be written as a linear combination of the set of vectors \(\{\overrightarrow{(-1,4)},\overrightarrow{(2,5)}\}\)
+\subsubsection*{Solution}
+In other words, we want to show that we can get from the origin to the point (4, 23) using only the two vectors shown\\
+
+\begin{minipage}{0.5\textwidth}
+\begin{tikzpicture}[scale=0.3]
+% Define the vectors
+\coordinate (origin) at (0,0);
+\coordinate (v) at (4,23);
+\coordinate (a) at (-1,4);
+\coordinate (b) at (2,5);
+
+% Draw the axes
+\draw[->] (-3,0) -- (5,0) node[right] {$x$};
+\draw[->] (0,-1) -- (0,24) node[above] {$y$};
+
+% Draw the vectors
+\draw[->,red,thick] (origin) -- (v) node[midway,above] {$\vec{v}$};
+\draw[->,blue,thick] (origin) -- (a) node[midway,below right] {$\vec{a}$};
+\draw[->,green,thick] (origin) -- (b) node[midway,above right] {$\vec{b}$};
+
+% Draw the components of v
+\draw[dashed,gray] (4,0) -- (v);
+\draw[dashed,gray] (0,23) -- (v);
+
+% Label the components of v
+\draw[<->,gray] (0,-1) -- node[fill=white] {$23$} (0,23);
+\draw[<->,gray] (-1,0) -- node[fill=white] {$4$} (4,0);
+
+% Add a right angle symbol for clarity
+\draw[gray] (0.5,1) arc (26.57:116.57:0.5);
+\draw[gray] (0.3,0.7) -- (0.7,1.1);
+
+% Add a right angle symbol for vector a
+\draw[gray] (-0.3,0.4) arc (116.57:206.57:0.3);
+\draw[gray] (-0.5,0.7) -- (-0.1,0.3);
+
+% Add a right angle symbol for vector b
+\draw[gray] (2.3,1.4) arc (26.57:-63.43:0.3);
+\draw[gray] (2.1,1.1) -- (2.5,1.5);
+
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+\overrightarrow{(4,23)}&=a\overrightarrow{(-1,4)}+b\overrightarrow{(2,5)}\\
+4&=-a+2b\\
+23&=4a+5b\\
+a&=2b-4\\
+23&=4(2b-4)+56\\
+23&=8b-16+56\\
+39&=13b\\
+b&=3\\
+a&=2b-4 \implies a=2(3)-4\\
+a&=2
+\end{align*}
+\end{minipage}
+$$\therefore \overrightarrow{(4,23)}=2\overrightarrow{(-1,4)}+3\overrightarrow{(2,5)}$$
+
+\subsubsection{Term to Know: Spanning Set} 
+A spanning set of $\mathbb{R}^2$ exists if every vector in $\mathbb{R}^2$ can be written as a linear combination of those vectors.
+\[\{\overrightarrow{(1,0)}, \overrightarrow{(0,1)}\}\]
+
+\subsubsection*{Example 2}
+Show that the set of vectors \(\{\overrightarrow{(2,3)}, \overrightarrow{(-4,-6)}\}\) is not a spanning set of $\mathbb{R}^2$
+\subsubsection*{Solution}
+Try an counter example. We'll try $(3,2)$.\\
+Let $\overrightarrow{(3,2)}=a\overrightarrow{(2,3)}+b\overrightarrow{(-4,-6)}$\\
+\begin{minipage}[t]{0.5\textwidth}
+\begin{align*}
+    \therefore 3&=2a-4b\\
+    2&=3a-6b\\
+\end{align*}    
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\text{Using elimination}
+$$
+\begin{array}{ccccc}
+    9&=6a-12b \quad \text{(1) $\times$ 3}\\
+    4&=6a-12b \quad \text{(2) $\times$ 2}\\
+    \hline\\
+    5&=0a+0 \quad \text{Not possible} 
+\end{array}
+$$    
+\end{minipage}
+\\\\
+$\therefore \overrightarrow{(3,2)}$ is not a linear combination of $\overrightarrow{(2,3)}$ and $\overrightarrow{(-4,-6)}$.\\
+$\therefore \{\overrightarrow{(2,3)}, \overrightarrow{(-4,-6)}\}$ is not a spanning set of $\mathbb{R}^2$.
+
+\subsubsection{Terms to Know: Collinear Vectors}
+Two vectors are collinear vectors if they are parallel and lie on the same straight line. We can tell algebraically if two vectors are collinear by determining whether they are scalar multiples of each other.
+
+Examples:
+1. $\overrightarrow{(-3,2)}$ and $\overrightarrow{(12,-8)}$ are collinear.
+2. $\overrightarrow{(5,15,-30)}$ and $\overrightarrow{(1,3,-6)}$ are collinear.
+3. $\overrightarrow{(9,4)}$ and $\overrightarrow{(3,2)}$ are not collinear.
+4. $\overrightarrow{(-8,-12,4)}$ and $\overrightarrow{(2,-3,-1)}$ are not collinear.
+\begin{tcolorbox}[enhanced,frame style image=blueshade.png,
+  opacityback=0.75,opacitybacktitle=0.25,
+  colback=blue!5!white,colframe=blue!75!black]
+  \begin{itemize}
+      \item General Rule Regarding Spanning Sets
+      \item Any two non-zero, non-collinear vectors in $R^2$ span $R^2$.
+\item Any two collinear vectors in $R^2$ do not span $R^2$.
+  \end{itemize}
+\end{tcolorbox}
+\begin{tcolorbox}[enhanced,frame style image=blueshade.png,
+  opacityback=0.75,opacitybacktitle=0.25,
+  colback=blue!5!white,colframe=blue!75!black] 
+  \begin{itemize}
+      \item Another Similar and Related Rule Regarding Spanning Sets
+\item Any two non-zero, non-collinear vectors in $R^3$ span a plane (two-dimensional) in $R^3$. This means that there will be many other vectors in $R^3$ on that plane and many other vectors in $R^3$ not on that plane.
+\item As an example, think of the vectors $\vec{\imath}=\overrightarrow{(1,0,0)}$ and $\vec{\jmath}=\overrightarrow{(0,1,0)}$. These vectors are not collinear, yet they span the entire plane consisting of all vectors with a z-component of 0 . (we will talk in great detail later in the course about the equations of planes)
+\item 
+Any two collinear vectors in $R^3$ do not span a plane in $R^3$.
+  \end{itemize}
+\end{tcolorbox}
+
+\subsubsection{Example 1}
+Give the two vectors $\vec{a}=\overrightarrow{(-1,-2,1)}$ and $\vec{b}=\overrightarrow{(3,-1,1)}$, does the vector $\vec{c}=\overrightarrow{(-9,-4,1)}$ lie on the plane spanned by $\vec{a}$ and $\vec{b}$?
+\subsubsection*{Solution}
+ if vector $\vec{c}$ lies on the plane spanned by $\vec{a}$ and $\vec{b}$, we can check if $\vec{c}$ can be expressed as a linear combination of $\vec{a}$ and $\vec{b}$. That is, we need to find scalars $x$ and $y$ such that:
+\[
+\vec{c} = x\vec{a} + y\vec{b}
+\]
+Substituting the given vectors into the equation, we get:
+\[
+\overrightarrow{(-9,-4,1)} = x\overrightarrow{(-1,-2,1)} + y\overrightarrow{(3,-1,1)}
+\]
+This gives us the system of equations:
+
+\begin{align*}
+-9 &= -x + 3y \\
+-4 &= -2x - y \\
+1 &= x + y
+\end{align*}
+
+Solving this system, we find that $x = 2$ and $y = -1$ satisfy all three equations. Therefore, $\vec{c}$ does lie on the plane spanned by $\vec{a}$ and $\vec{b}$.
+
+
+\subsubsection{Example 2}
+Give the two vectors $\vec{a}=\overrightarrow{(-1,-2,1)}$ and $\vec{b}=\overrightarrow{(3,-1,1)}$, does the vector $\vec{c}=\overrightarrow{(-9,-4,2)}$ lie on the plane spanned by $\vec{a}$ and $\vec{b}$?
+\subsubsection*{Solution }
+Using the same approach, we set up the equation:
+\[
+\overrightarrow{(-9,-4,2)} = x\overrightarrow{(-1,-2,1)} + y\overrightarrow{(3,-1,1)}
+\]
+Which leads to the system:
+
+\begin{align*}
+-9 &= -x + 3y \\
+-4 &= -2x - y \\
+2 &= x + y
+\end{align*}
+
+However, this system does not have a solution where $x$ and $y$ satisfy all three equations simultaneously. Therefore, $\vec{c}$ does not lie on the plane spanned by $\vec{a}$ and $\vec{b}$.
+
+\subsection{Dot Product(Aka Scalar Product)}
+The dot product of the vectors $\vec{a}$ and $\vec{b}$ is equal to magnitude of $\vec{a}$ times the magnitude of $\vec{b}$ times the cosine of the angle between them.\\\\
+In other words,
+\[\vec{a}\cdot \vec{b}=|\vec{a}||\vec{b}|\cos \theta\]
+
+\subsubsection*{Example 1}
+Give the magnitude of $\vec{a}$ is 7, the magnitude of $\vec{b}$ is 4, and that there is an angle of $60^{\circ}$ between $\vec{a}$ and $\vec{b}$, evaluate $\vec{a}\cdot \vec{b}$
+
+\subsubsection*{Solution}
+$$\vec{a}\cdot \vec{b}=(7)(4)\cos 60^{\circ}\implies 14$$
+\subsubsection*{Example 2}
+Give the magnitude of $\vec{a}$ is 9, the magnitude of $\vec{b}$ is 5, and that there is an angle of $140^{\circ}$ between $\vec{a}$ and $\vec{b}$, evaluate $\vec{a}\cdot \vec{b}$
+
+\subsubsection*{Solution}
+$$\vec{a}\cdot \vec{b}=(9)(5)\cos 140^{\circ}\implies -34.5$$
+That's it :)
+\newpage 
+
+\subsubsection{$\underline{R e l a t i o n s h i p ~ B e t w e e n ~ D o t ~ P r o d u c t ~ a n d ~ A n g l e ~ B e t w e e n ~ V e c t o r s ~}$}
+Assume that neither $\vec{a}$ nor $\vec{b}$ have a magnitude of 0 , meaning that each of the magnitudes is positive.
+Next, recall the following:\\
+\begin{enumerate}
+    \item $\cos \theta>0$ if $0^0 \leq \theta<90^{\circ}$
+    \item $\cos \theta=0$ if $\theta=90^{\circ}$
+    \item $\cos \theta<0$ if $90^{\circ}<\theta \leq 180^{\circ}$
+\end{enumerate}
+
+
+Since $\vec{a} \cdot \vec{b}=|\vec{a}||\vec{b}| \cos \theta$, therefore:\\
+\begin{tcolorbox}[enhanced,frame style image=blueshade.png,
+  opacityback=0.75,opacitybacktitle=0.25,
+  colback=blue!5!white,colframe=blue!75!black] 
+\begin{enumerate}
+    \item $\vec{a} \cdot \vec{b}$ is positive if $\theta$ is acute
+    \item $\vec{a} \cdot \vec{b}=0$ if $\theta=90^{\circ}$
+    \item $\vec{a} \cdot \vec{b}$ is negative if $\theta$ is obtuse
+\end{enumerate}
+
+* A significant detail of this course is that two vectors are perpendicular if and only if the dot product is 0
+\end{tcolorbox}
+\subsubsection*{Example 3}
+Determine the value of $\vec{a} \cdot \vec{a}$ given that $|\vec{a}|=7$
+\subsubsection*{Solution}
+\begin{align*}
+    \vec{a}\cdot \vec{b}&=|\vec{a}||\vec{b}|\cos \theta\\
+    &=(7)(7)\cos \theta\\
+    &=49\\
+    &=|\vec{a}|
+\end{align*}
+\subsubsection{Properties of the Dot Product}
+\textcolor{blue}{\textbf{Commutative Property:}}
+\[
+\vec{a} \cdot \vec{b}=\vec{b} \cdot \vec{a}
+\]
+
+\textcolor{blue}{\textbf{Associative Property:}}
+\[
+(m \vec{a}) \cdot \vec{b}=m(\vec{a} \cdot \vec{b}) \quad \text{For example, } (3 \vec{a}) \cdot \vec{b}=3(\vec{a} \cdot \vec{b})
+\]
+
+\textcolor{blue}{\textbf{Distributive Property (2):}}
+\[
+\begin{aligned}
+& \vec{a} \cdot(\vec{b}+\vec{c})=\vec{a} \cdot \vec{b}+\vec{a} \cdot \vec{c} \\
+& (\vec{a}+\vec{b}) \cdot(\vec{c}+\vec{d})=\vec{a} \cdot \vec{c}+\vec{a} \cdot \vec{d}+\vec{b} \cdot \vec{c}+\vec{b} \cdot \vec{d}
+\end{aligned}
+\]
+
+\subsubsection*{Example 4}
+Suppose the vectors $\vec{a}+3 \vec{b}$ and $4 \vec{a}-\vec{b}$ are perpendicular and suppose that $|\vec{a}|=2|\vec{b}|$. Determine the angle between the vectors $\vec{a}$ and $\vec{b}$.
+
+\subsubsection*{Solution}
+\begin{align*}
+    (\vec{a}+3\vec{b})\cdot (4\vec{a}+\vec{b})&=0\\
+    4\vec{a}\cdot \vec{a} -\vec{a}\cdot \vec{b}+12\vec{a} \cdot \vec{b}-3\vec{b}\cdot \vec{b}&=0\\
+    4|\vec{a}|^2+11\vec{a}\cdot \vec{b}-3|\vec{b}|^2&=0\\
+    4(2|\vec{b}|)^2+11\vec{a}\cdot \vec{b}-3|\vec{b}|^2&=0\\
+    4(4|\vec{b}|^2)+11\vec{a}\cdot \vec{b}-3|\vec{b}|^2&=0\\
+    16|\vec{b}|^2+11\vec{a} \cdot \vec{b}-3|\vec{b}|^2&=0\\
+    13|\vec{b}|^2+11\vec{a}\cdot \vec{b}&=0\\
+    13|\vec{b}|^2+11|\vec{a}||\vec{b}|\cos \theta&=0\\
+    13|\vec{b}|^2+11[2|\vec{b}|]|\vec{b}|\cos\theta&=0\\
+    13|\vec{b}|^2+22|\vec{b}|^2\cos \theta&=0\\
+    22 \cdot |\vec{b}|\cos \theta&=-13|\vec{b}|^2\\
+    \cos\theta &= \frac{-13|\vec{b}|^2}{22|\vec{b}|^2}\\
+    \theta&=126.2^{\circ} 
+\end{align*}
+Therefore, the angle between $\vec{a}$ and $\vec{b}$ is approximately $126.2^{\circ}$
+
+\subsubsection*{Example 5}
+If $|\vec{x}+\vec{y}|=|\vec{x}-\vec{y}|$, then prove that the non-zero vectors $\vec{x}$ and $\vec{y}$ are perpendicular.
+\subsubsection*{Solution}
+\begin{align*}
+    |\vec{x}+\vec{y}|^2&=|\vec{x}-\vec{y}|^2\\
+    (\vec{x}+\vec{y})\cdot(\vec{x}+\vec{y})&=(\vec{x}-\vec{y})\\
+    \cancel{\vec{x}\cdot\vec{x}}+2\vec{x}\cdot +\cancel{\vec{y}\cdot \vec{y}}&=\vec{x}\cdot \vec{x}-2\vec{x}\cdot \vec{y}+\cancel{\vec{y}\cdot \vec{y}}\\
+    4\vec{x}\cdot \vec{y}&=0\\
+    \vec{x} \cdot \vec{y}&=0\\
+    \therefore &\vec{x} \text{ and } \vec{y} \text{are perpendicular}
+\end{align*}
+
+\subsection{Dot product Component Method}
+\begin{tcolorbox}[enhanced,frame style image=blueshade.png,
+  opacityback=0.75,opacitybacktitle=0.25,
+  colback=blue!5!white,colframe=blue!75!black] 
+  \begin{itemize}
+      \item In $R^2$, given that $\vec{a}=\overrightarrow{\left(a_1, a_2\right)}$ and that $\vec{b}=\overrightarrow{\left(b_1, b_2\right)}$, then
+$$
+\vec{a} \cdot \vec{b}=a_1 b_1+a_2 b_2
+$$
+\item In $R^3$, given that $\vec{a}=\overrightarrow{\left(a_1, a_2, a_3\right)}$ and that $\vec{b}=\overrightarrow{\left(b_1, b_2, b_3\right)}$, then $\vec{a} \cdot \vec{b}=a_1 b_1+a_2 b_2+a_3 b_3$
+\end{itemize}
+\end{tcolorbox}
+
+\subsubsection*{Example 1}
+Determine the angle between the vectors $\vec{a}=\overrightarrow{(1,-3,4)}$ and $\vec{b}=\overrightarrow{(-8,5,7)}$.
+
+\subsubsection*{Solution}
+The angle $\theta$ between two vectors $\vec{a}$ and $\vec{b}$ is given by:
+\[ \cos \theta = \frac{\vec{a} \cdot \vec{b}}{\|\vec{a}\| \|\vec{b}\|} \]
+
+Where $\vec{a} \cdot \vec{b}$ is the dot product of vectors $\vec{a}$ and $\vec{b}$, and $\|\vec{a}\|$ and $\|\vec{b}\|$ are the magnitudes of vectors $\vec{a}$ and $\vec{b}$ respectively.
+
+Given vectors:
+\[ \vec{a} = \langle 1, -3, 4 \rangle \]
+\[ \vec{b} = \langle -8, 5, 7 \rangle \]
+
+The dot product $\vec{a} \cdot \vec{b}$ is:
+\[ \vec{a} \cdot \vec{b} = (1)(-8) + (-3)(5) + (4)(7) = -8 - 15 + 28 = 5 \]
+
+The magnitudes of vectors $\vec{a}$ and $\vec{b}$ are:
+\[ \|\vec{a}\| = \sqrt{1^2 + (-3)^2 + 4^2} = \sqrt{1 + 9 + 16} = \sqrt{26} \]
+\[ \|\vec{b}\| = \sqrt{(-8)^2 + 5^2 + 7^2} = \sqrt{64 + 25 + 49} = \sqrt{138} \]
+
+So, the cosine of the angle between the vectors is:
+\[ \cos \theta = \frac{5}{\sqrt{26} \cdot \sqrt{138}} \]
+
+Therefore, the angle $\theta$ is:
+\[ \theta = \arccos \left( \frac{5}{\sqrt{26} \cdot \sqrt{138}} \right) \implies \theta \approx 85.2^{\circ} \]
+
+\subsubsection*{Example 2}
+For what value(s) of $k$ are the vectors $\overrightarrow{(-1,3,4)}$ and $\overrightarrow{(3,k,-2)}$ perpendicular.
+
+\subsubsection*{Solution}
+Two vectors are perpendicular if their dot product is zero.
+
+Given vectors:
+\[ \vec{a} = \langle -1, 3, 4 \rangle \]
+\[ \vec{b} = \langle 3, k, -2 \rangle \]
+
+The dot product $\vec{a} \cdot \vec{b}$ is:
+\[ \vec{a} \cdot \vec{b} = (-1)(3) + (3)(k) + (4)(-2) = -3 + 3k - 8 = 3k - 11 \]
+
+For the vectors to be perpendicular, $\vec{a} \cdot \vec{b}$ must be zero:
+\[ 3k - 11 = 0 \]
+\[ 3k = 11 \]
+\[ k = \frac{11}{3} \]
+
+So, for the vectors to be perpendicular, $k$ must be $\frac{11}{3}$.
+
+\subsubsection*{Example 3}
+Determine the acute and obtuse angles between the diagonals of a box that measures 12 cm by 4 cm by 6 cm
+\usetikzlibrary{calc}
+
+\begin{center}
+
+\begin{tikzpicture}[scale=0.5]
+% Define vertices
+\coordinate (A) at (0,0,0);
+\coordinate (B) at (12,0,0);
+\coordinate (C) at (12,0,6);
+\coordinate (D) at (0,0,6);
+\coordinate (E) at (0,4,0);
+\coordinate (F) at (12,4,0);
+\coordinate (G) at (12,4,6);
+\coordinate (H) at (0,4,6);
+
+% Draw edges
+\draw (A) -- (B) -- (C) -- (D) -- cycle;
+\draw (A) -- (E);
+\draw (B) -- (F);
+\draw (C) -- (G);
+\draw (D) -- (H);
+\draw (E) -- (F) -- (G) -- (H) -- cycle;
+
+% Draw diagonals
+\draw[dashed] (A) -- (C);
+\draw[dashed] (B) -- (D);
+\draw[dashed] (E) -- (G);
+\draw[dashed] (F) -- (H);
+
+% Add labels
+\node at ($(A)!0.5!(B)$) [below] {$a$};
+\node at ($(A)!0.5!(D)$) [left] {$b$};
+\node at ($(A)!0.5!(E)$) [above left] {$c$};
+
+% Show diagonals
+\node at ($(A)!0.5!(C)$) [above right] {$d_1$};
+\node at ($(E)!0.5!(G)$) [above right] {$d_2$};
+\node at ($(F)!0.5!(H)$) [above right] {$d_3$};
+
+% Draw angles
+\draw[->] (5,2,0) arc (0:25:2) node[midway, right] {$\alpha$};
+\draw[->] (8,2,0) arc (0:65:2) node[midway, right] {$\beta$};
+
+\end{tikzpicture}
+\end{center}
+\subsection*{Solution}
+\begin{align*}
+    \vec{d_1}&=\overrightarrow{(12,4,6)} \quad \vec{d_2}=\overrightarrow{(12,4,6)}\\
+    \vec{d_1}\cdot \vec{d_2}&=|\vec{d_1}||\vec{d_2}|\cos\theta\\
+    144-16+36&=\sqrt{196}\sqrt{196}\cos \theta\\
+    \frac{164}{\sqrt{196}\sqrt{196}}&=\cos \theta\\
+    \theta \approx 33.2^{\circ} 
+\end{align*}
+
+\newpage 
+
+\subsection{Scalar and Vector Projections}
+Refer to diagram below
+\[\begin{tikzcd}
+	&& {} \\
+	\\
+	{} && {}
+	\arrow["{\vec{a}}", from=3-1, to=1-3]
+	\arrow["{\vec{b}}"', from=3-1, to=3-3]
+\end{tikzcd}\]
+The scalar projection of $\vec{a}$ on $\vec{b}$ is obtained by drawing a line from the head of $\vec{a}$ perpendicular to $\vec{b}$ or to an extension of $\vec{b}$.\\
+Let’s establish a formula for the scalar projection of $\vec{a}$ on $\vec{b}$ in this situation.\\\\
+But, what if $\vec{b}$ is seemingly not long enough?\\
+In that case we just extend $\vec{b}$\\
+Let’s establish a formula for the scalar projection of $\vec{a}$ on $\vec{b}$ in this situation. 
+
+\[\begin{tikzcd}
+	&& {} \\
+	\\
+	{} & {}
+	\arrow["{\vec{a}}", from=3-1, to=1-3]
+	\arrow["{\vec{b}}"', from=3-1, to=3-2]
+\end{tikzcd}\]
+But what if the angle is obtuse?\\
+\[\begin{tikzcd}
+{} \\
+&& {} && {}
+\arrow["{\vec{a}}"', from=2-3, to=1-1]
+\arrow["{\vec{b}}", from=2-3, to=2-5]
+\end{tikzcd}\]
+In this case, we just extend $\vec{b}$ in its opposite direction.We state that the scalar projection is negative. Luckily, the cosine value of an obtuse angle is negative.Let’s establish a formula for the scalar projection of $\vec{a}$ on $\vec{b}$ in this situation.\\
+
+\begin{tcolorbox}[enhanced,frame style image=blueshade.png,
+  opacityback=0.75,opacitybacktitle=0.25,
+  colback=blue!5!white,colframe=blue!75!black] 
+In each of the cases shown, we see that the scalar projection has the same formula. We will refer to the scalar projection of $\vec{a}$ on $\vec{b}$ as scale $\frac{\vec{a}}{\vec{b}}$ and we will state our formula:
+$$Scal\frac{\vec{a}}{\vec{b}}=\frac{\vec{a}\cdot \vec{b}}{|\vec{b}|}$$
+
+\end{tcolorbox}
+
+
+\subsubsection{$\underline{\text { Vector Projections }}$}
+
+When we evaluate the scalar projection of one vector onto another, we get a scalar quantity.
+That projection is always on the vector being projected onto.
+What if we want a vector projection instead?
+We can multiply the scalar projection by a unit vector in the direction of the vector being projected onto to get a vector projection.
+
+In other words,
+
+We said in one of our earlier lessons that to get a unit vector in the direction of a vector, we simply divide that vector by its own magnitude.
+
+In other words, (unit vector in the direction of $\vec{b}$ ) $=\frac{1}{|\vec{b}|} \vec{b}$
+$$
+\begin{aligned}
+& \operatorname{vect} \overrightarrow{\vec{a}}=\frac{\vec{a} \cdot \vec{b}}{|\vec{b}|} \times \frac{1}{|\vec{b}|} \vec{b} \\
+& \operatorname{vect} \overrightarrow{\vec{a}}=\frac{\vec{a} \cdot \vec{b}}{|\vec{b}|^2} \vec{b}
+\end{aligned}
+$$
+
+But remember from our first lesson on the dot product, $|\vec{b}|^2=\vec{b} \cdot \vec{b}$\\
+Therefore,
+$$
+\text { vect } \overrightarrow{\vec{a}}=\frac{\vec{a} \cdot \vec{b}}{\vec{b} \cdot \vec{b}} \vec{b}
+$$
+
+\subsubsection*{Example 1}
+Given the vectors $\vec{a}=\overrightarrow{(-3,4,5 \sqrt{3})}$ and $\vec{b}=\overrightarrow{(-2,2,-1)}$, determine the scalar and vector projections of $\vec{a}$ on $\vec{b}$ and of $\vec{b}$ on $\vec{a}$
+\subsubsection*{Solution }
+
+\begin{minipage}{0.45\textwidth}
+\begin{align*}
+    Scal\frac{\vec{a}}{\vec{b}}&=\frac{\vec{a}\cdot\vec{b}}{|\vec{b}|}\\
+    &=\frac{6+8-5\sqrt{3}}{\sqrt{4+4+1}}\\
+    &=\frac{14-5\sqrt{3}}{3}
+\end{align*}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+\begin{align*}
+    Vect\frac{\vec{a}}{\vec{b}}=\frac{\vec{a}\cdot \vec{b}}{\vec{b}\cdot\vec{b}}\vec{b}\\
+    &=\frac{6+8-5\sqrt{3}}{4+4+1}\overrightarrow{(-2,2,-1)}\\
+    &=\frac{14-5\sqrt{3}}{3}\overrightarrow{(-2,2,-1)}
+\end{align*}
+\end{minipage}
+
+\subsubsection{Determining Projections onto an Axis}
+To determine the scalar and vector projections made by a vector with one of the positive axes, you simply need to determine the scalar or vector projection of that vector with the associated unit vector, either $\vec{i}$, $\vec{j}$ or $\vec{k}$.  
+\subsubsection*{Example 2}
+Determine the scalar projection of the vector $\vec{u}(-3,7,4)$ on the vector $\vec{v}=(1,0,0)$ and then on the vector $\vec{k}=(100,0,0)$.
+
+\subsubsection*{Solution}
+\begin{minipage}{0.45\textwidth}
+\begin{align*}
+    \text{Scal} \frac{\vec{u}\cdot\vec{v}}{\vec{v}} &= \frac{\vec{u} \cdot \vec{v}}{\|\vec{v}\|} \\
+    &= \frac{(-3)(1) + (7)(0) + (4)(0)}{\sqrt{1^2 + 0^2 + 0^2}} \\
+    &= \frac{-3}{1} = -3 
+\end{align*}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+\begin{align*}
+    \text{Scal}\frac{\vec{u}}{\vec{w}}&= \frac{\vec{u} \cdot \vec{w}}{\|\vec{w}\|} \\
+    &= \frac{(-3)(100) + (7)(0) + (4)(0)}{\sqrt{100^2 + 0^2 + 0^2}} \\
+    &= \frac{-300}{100} = -3 
+\end{align*}
+\end{minipage}
+The scalar and vector projections of the vector $\vec{u}$ are the same on the vector $\overrightarrow{(1,0,0)}$ as they are on the vector $\overrightarrow{(100,0,0)}$.This makes sense\\
+\[\begin{tikzcd}
+	& {} &&& {} \\
+	\\
+	{} & {} && {} && {}
+	\arrow[from=3-1, to=1-2]
+	\arrow[from=3-1, to=3-2]
+	\arrow[from=3-4, to=1-5]
+	\arrow[from=3-4, to=3-6]
+\end{tikzcd}\]
+
+We see that if we extend the floor on the first diagram, then the projections are the same.\\
+
+\subsubsection{Projecting onto an Axis}
+
+Let’s extend the above discussion to projecting onto an axis. Therefore, if we are asked to determine the projection of a vector onto the positive x-axis, we can project that vector onto  $\vec{i}$. If we are asked to determine the projection of a vector onto the negative x-axis, we can project that vector onto  -$\vec{i}$.\\\\
+Similarly, if we are asked to determine the projection of a vector onto the positive y-axis, we project that vector onto  $\vec{j}$. If we are asked to determine the projection of a vector onto the negative y-axis, we can project that vector onto  -$\vec{j}$.\\\\
+Finally, if we are asked to determine the projection of a vector onto the positive z-axis, we project that vector onto  $\vec{k}$. If we are asked to determine the projection of a vector onto the negative z-axis, we can project that vector onto  -$\vec{k}$.
+\newpage 
+\subsubsection{Direction Cosines}
+Suppose we want to know the angle made by the vector with the positive x-axis
+\begin{figure}[!ht]
+\centering
+\resizebox{0.7\textwidth}{!}{%
+\begin{circuitikz}[scale=0.5]
+\tikzstyle{every node}=[font=\small]
+% Axes
+\draw [->, >=Stealth] (10,12.25) -- (6,8.5) node[left] {$x$};
+\draw [->, >=Stealth] (10,12.25) -- (10,16.25) node[above] {$z$};
+\draw [->, >=Stealth] (10,12.25) -- (15.75,12.25) node[right] {$y$};
+% Structure
+\draw [short] (10,13.5) -- (7.25,11.5);
+\draw [short] (7.25,11.5) -- (7.25,9.75);
+\draw [short] (10,13.5) -- (13,13.5);
+\draw [short] (7.25,11.5) -- (10.5,11.5);
+\draw [short] (13,13.5) -- (10.5,11.5);
+\draw [short] (10.5,11.5) -- (10.5,9.75);
+\draw [short] (7.25,9.75) -- (10.5,9.75);
+\draw [short] (10.5,9.75) -- (13,12);
+\draw [short] (13,13.5) -- (13,12);
+% Red line with label
+\draw [color={rgb,255:red,255; green,0; blue,0}, ->, >=Stealth] (10,13.5) -- (10.5,11.5);
+\node [font=\small, color={rgb,255:red,255; green,0; blue,0}] at (10.75,12.5) {$(a,b,c)$};
+\end{circuitikz}
+}%
+
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/image.png}
+    \label{fig:enter-label}
+\end{figure}
+\subsubsection*{Example}
+Determine the angle made by the vector $\overrightarrow{(-2,-6,3)}$ with each of the positive axes.
+\subsubsection*{Solution }
+\begin{align*}
+    \cos \alpha = \frac{-2}{\sqrt{(-2)^2 + (-6)^2 + 3^2}} = -\frac{2}{7} \implies \alpha \approx \cos^{-1}\left(-\frac{2}{7}\right) \approx 106.6^{\circ}\\
+    \cos \beta = \frac{-6}{\sqrt{(-2)^2 + (-6)^2 + 3^2}} = -\frac{6}{7} \implies \beta \approx \cos^{-1}\left(-\frac{6}{7}\right) \approx 151.9^{\circ}\\
+    \cos \gamma = \frac{3}{\sqrt{(-2)^2 + (-6)^2 + 3^2}} = \frac{3}{7} \implies \gamma \approx \cos^{-1}\left(\frac{3}{7}\right) \approx 64.6^{\circ}
+\end{align*}
+
+\newpage 
+\subsection{Cross Product(Aka the Vector Product)}
+If you are given two non-zero vectors in $R^2$, it is not necessarily possible to find a vector perpendicular to both of the given vectors.
+
+For example, consider the two vectors at the right.\\
+
+However, it is a different story in $R^3 \ldots$\\
+
+If you are given any two non-zero vectors in $R^3$, it is possible to find a third vector perpendicular to both of the given vectors. One way of doing this is called the cross-product.\\
+
+The reason that it is always possible in $R^3$ is because you have a third dimension. (Think of the perpendicular vector as coming out of the page, or going into the page). Perhaps it's helpful to think of the $x$ and $y$ and $z$ axes. That third dimension provides us with an opportunity to find a vector perpendicular to each of the given vectors.\\
+\begin{tcolorbox}[enhanced,frame style image=blueshade.png,
+  opacityback=0.75,opacitybacktitle=0.25,
+  colback=blue!5!white,colframe=blue!75!black] 
+Cross Product of Two Vectors in $R^3$\\
+To determine a vector perpendicular to each of two different vectors in $R^3$, we use the cross product.
+Suppose $\vec{a}=\overrightarrow{\left(a_1, a_2, a_3\right)}$ and $\vec{b}=\overrightarrow{\left(b_1, b_2, b_3\right)}$. say that $\vec{v}$ is the cross product of $\vec{a}$ and $\vec{b}$, and we can write this as
+$$
+\begin{aligned}
+& \vec{v}=\vec{a} \times \vec{b} \\
+& \vec{a} \times \vec{b}=\overrightarrow{\left(a_2 b_3-a_3 b_2, a_3 b_1-a_1 b_3, a_1 b_2-a_2 b_1\right)} \\
+&
+\end{aligned}
+$$
+\end{tcolorbox}
+\subsubsection*{Example 1}
+Show that $\vec{v}$ (from he formula above) is perpendicular to both $\vec{a}$ and $\vec{b}$.
+\subsubsection*{Proof that $\vec{v}$ is perpendicular to both $\vec{a}$ and $\vec{b}$}
+
+To show that the vector $\vec{v} = \vec{a} \times \vec{b}$ is perpendicular to both $\vec{a}$ and $\vec{b}$, we need to demonstrate that the dot products $\vec{v} \cdot \vec{a}$ and $\vec{v} \cdot \vec{b}$ are both zero.
+
+Given:
+\[
+\vec{a} = (a_1, a_2, a_3)
+\]
+\[
+\vec{b} = (b_1, b_2, b_3)
+\]
+\[
+\vec{v} = \vec{a} \times \vec{b} = (a_2 b_3 - a_3 b_2, a_3 b_1 - a_1 b_3, a_1 b_2 - a_2 b_1)
+\]
+
+First, we compute the dot product $\vec{v} \cdot \vec{a}$:
+\[
+\vec{v} \cdot \vec{a} = (a_2 b_3 - a_3 b_2) a_1 + (a_3 b_1 - a_1 b_3) a_2 + (a_1 b_2 - a_2 b_1) a_3
+\]
+
+Expanding this:
+\[
+\vec{v} \cdot \vec{a} = a_1 a_2 b_3 - a_1 a_3 b_2 + a_2 a_3 b_1 - a_1 a_2 b_3 + a_3 a_1 b_2 - a_2 a_3 b_1
+\]
+
+Notice that each term has a corresponding negative term that cancels it out:
+\[
+\vec{v} \cdot \vec{a} = (a_1 a_2 b_3 - a_1 a_2 b_3) + (a_2 a_3 b_1 - a_2 a_3 b_1) + (a_3 a_1 b_2 - a_3 a_1 b_2) = 0
+\]
+
+Thus:
+\[
+\vec{v} \cdot \vec{a} = 0
+\]
+
+Now, we compute the dot product $\vec{v} \cdot \vec{b}$:
+\[
+\vec{v} \cdot \vec{b} = (a_2 b_3 - a_3 b_2) b_1 + (a_3 b_1 - a_1 b_3) b_2 + (a_1 b_2 - a_2 b_1) b_3
+\]
+
+Expanding this:
+\[
+\vec{v} \cdot \vec{b} = a_2 b_1 b_3 - a_3 b_1 b_2 + a_3 b_1 b_2 - a_1 b_2 b_3 + a_1 b_2 b_3 - a_2 b_1 b_3
+\]
+
+Again, notice that each term has a corresponding negative term that cancels it out:
+\[
+\vec{v} \cdot \vec{b} = (a_2 b_1 b_3 - a_2 b_1 b_3) + (a_3 b_1 b_2 - a_3 b_1 b_2) + (a_1 b_2 b_3 - a_1 b_2 b_3) = 0
+\]
+
+Thus:
+\[
+\vec{v} \cdot \vec{b} = 0
+\]
+
+Since both dot products $\vec{v} \cdot \vec{a}$ and $\vec{v} \cdot \vec{b}$ are zero, the vector $\vec{v}$ is perpendicular to both $\vec{a}$ and $\vec{b}$. This completes the proof.
+\newpage 
+
+
+
+\subsection{Applications of the Dot Product and the Cross Product } 
+\subsubsection{Application 1: Work}
+Suppose that $\vec{f}$ is a constant force opening on an object at O so that this force moves the object from O to A.\\
+Let $\vec{s}$ be the vector from O to A, and let $s=|\overrightarrow{OA}|$ be the scalar representing the distance that the object is displaced.\\
+We know from physics that work is a scalar quantity which is equal to the magnitude of the force applied to the object in the direction of the movement, times the distance moved. The distance moved is the magnitude of the displacement, $|\vec{s}|$\\
+The magnitude of the force applied is $|\vec{f}|$, and the magnitude of the force applied in the direction of the displacement is $|\vec{f}|\cos\theta$\\
+Work = (force in the direction of movement) $\times$ (distance traveled)\\
+\begin{align*}
+    W&=|\vec{f}| \costheta \times |\vec{s}|\\
+    W&=|\vec{f}| |\vec{s}| \cos \theta\\
+    W&=\vec{f} \cdot \vec{s}
+\end{align*}
+When force is measured in the Newtons and displacement is measured in metres, then work is a scalar quantity measured in Joules (J). 1N $\cdot$ m=1 J
+
+\subsubsection*{Example}
+Marianna is pulling her daughter in a toboggan and is exerting a force of 40N acting at $24^{\circ}$ to the ground. If Marianna pulls the child a distance of 100m, how much work was done?
+ \subsubsection*{Solution}
+ \begin{align*}
+    W&=\vec{f} \times \vec{s}\\
+    &|\vec{f}||\vec{s}| \cos \theta\\
+    &=(40N)(100m) \cos 20^{\circ}\\
+    &\approx 3654.2 J
+ \end{align*}
+
+ \subsubsection{Application 2: Area}
+ The area of a parallelogram determined by the vectors $\vec{a}$ and $\vec{b}$ is equal to $|\vec{a} \times \vec{b}|$\\
+ Since a triangle is one half of a parallelogram, therefore,\\
+ the area of a triangle determined by the vectors $\vec{a}$ and $\vec{b}$ is equal to $\frac{1}{2}|\vec{a}\times \vec{b}|$
+\subsubsection*{Example}
+ Determine the area of the parallelogram determined by the vectors $\vec{a}=\overrightarrow{(4,-7,5)}$ and $\vec{b}=\overrightarrow{(-1,0,2)}$
+ \subsubsection*{Solution}
+The area of the parallelogram defined by the vectors $\vec{a} = \overrightarrow{(4, -7, 5)}$ and $\vec{b} = \overrightarrow{(-1, 0, 2)}$, we need to use the cross product of the two vectors. The magnitude of the cross product gives the area of the parallelogram.
+
+First, compute the cross product $\vec{a} \times \vec{b}$.
+
+\[
+\vec{a} \times \vec{b} = \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+4 & -7 & 5 \\
+-1 & 0 & 2
+\end{vmatrix}
+\]
+
+The determinant can be expanded as follows:
+
+\[
+\vec{a} \times \vec{b} = \mathbf{i} \left((-7)(2) - (5)(0)\right) - \mathbf{j} \left((4)(2) - (5)(-1)\right) + \mathbf{k} \left((4)(0) - (-7)(-1)\right)
+\]
+
+\[
+\vec{a} \times \vec{b} = \mathbf{i} (-14) - \mathbf{j} (8 + 5) + \mathbf{k} (0 - 7)
+\]
+
+\[
+\vec{a} \times \vec{b} = -14\mathbf{i} - 13\mathbf{j} - 7\mathbf{k}
+\]
+
+So the cross product is:
+
+\[
+\vec{a} \times \vec{b} = \overrightarrow{(-14, -13, -7)}
+\]
+
+The magnitude of this vector is given by:
+
+\[
+|\vec{a} \times \vec{b}| = \sqrt{(-14)^2 + (-13)^2 + (-7)^2}
+\]
+
+\[
+|\vec{a} \times \vec{b}| = \sqrt{196 + 169 + 49}
+\]
+
+\[
+|\vec{a} \times \vec{b}| = \sqrt{414} 3\sqrt{46}
+\]
+
+So, the area of the parallelogram is $3\sqrt{46}$ square units.
+
+ \subsubsection{Application 3: Torque}
+ Torque is the running effect(twisting effect) of a force about a point.
+ \begin{center}
+     \begin{tikzpicture}
+    % Define the points
+    \coordinate (M) at (0,0);
+    \coordinate (A) at (4,1);
+    \coordinate (B) at (4,0);
+    \coordinate (F) at (4,1.5);
+    
+    % Draw the vectors
+    \draw[->, thick] (M) -- (A) node[midway, above] {$\vec{r}$};
+    \draw[->, thick] (A) -- ++(1,0.5) node[midway, right] {$\vec{f}$};
+    \draw[dashed] (A) -- (B);
+    \draw[<->, thick] (M) -- (B) node[midway, below right] {$d$};
+
+    % Draw the points
+    \filldraw (M) circle (2pt) node[below left] {$M$};
+    \filldraw (A) circle (2pt);
+    \filldraw (B) circle (2pt);
+
+    % Labels
+    \node[above] at (B) {Point of application};
+    \node[right] at (F) {Force line of action};
+
+\end{tikzpicture}
+ \end{center}
+
+ In the diagram shown, the torque of the force $\vec{f}$ about the point \textit{M} is defined to be the vector $\vec{r} \times \vec{f}$. The magnitude of the torque is the product of the magnitude of the force (i,e $|\vec{f}|$) and the distance d.\\
+ The force $\vec{f}$ is measured in Newtons, and the distance d is measured in metres, so the unit of magnitude for torque is Newton metres, or Jouls(J), which is the same unit that work is measured in.
+
+ \subsubsection*{Example}
+ A 20N force is applied at the end of a wrench that is 40cm in length. The force is applied at angle of $60^{\circ}$ to the wrench. Calculate the magnitude of the torque about the point of rotation M.
+
+ \subsubsection*{Solution}
+ \begin{align*}
+     Torque &= |\vec{r}\times \vec{f}|\\
+     &=|\vec{r}||\vec{f}| \sin \theta\\
+     &=(40cm)(20N)\sin 60^{\circ}\\
+     &=(0.4m)(20N)\left(\frac{\sqrt{3}}{2}\right)\\
+     &=6.93 J
+ \end{align*}
+
+
+\newpage
+\section{Unit 8 - Equations of Lines and Planes }
+\subsection{Vector and Parametric Equations of a Line in $\mathbb{R}^2$}
+To find the vector and/or parametric equation of a line in $\mathbb{R}$, we must be given two points on the line, or a point on the line a direction vector.\\
+A direction vector is defined to be a vector $\vec{m}=\overrightarrow{(a,b)}$ that is parallel to (i.e colliear with) the line in question.
+
+\subsubsection*{Example}
+\begin{minipage}{0.45\textwidth}
+    Sketch the line that has the point $(3,-2)$ on it, with the direction vector $\vec{m}=\overrightarrow{(4,-1)}$.
+\end{minipage}%
+\begin{minipage}{0.45\textwidth}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.3]
+            % Define the point and the direction vector
+            \coordinate (P) at (3, -2);
+            \coordinate (Q) at ($(P) + (4, -1)$);
+
+            % Draw the axes
+            \draw[->] (-2,0) -- (8,0) node[right] {$x$};
+            \draw[->] (0,-4) -- (0,4) node[above] {$y$};
+
+            % Draw the line
+            \draw[thick,blue] ($(P) - 2*(4,-1)$) -- ($(P) + 2*(4,-1)$);
+
+            % Draw the point (3, -2)
+            \filldraw (P) circle (2pt) node[above left] {$(3, -2)$};
+            
+            % Draw the direction vector
+            \draw[->, red, thick] (P) -- (Q) node[midway, below right] {$(4, -1)$};
+
+            % Add grid for reference
+            \draw[step=1cm, gray, very thin] (-2, -4) grid (8, 4);
+        \end{tikzpicture}
+    \end{center}
+\end{minipage}
+
+\vspace{1cm}
+
+\subsubsection*{Solution}
+    \begin{align*}
+        \vec{r} = \overrightarrow{(3,-2)} + t\overrightarrow{(4,-1)}, \quad t \in \mathbb{R} \\
+        \vec{r} = \vec{r}_0 + t\vec{m}, \quad t \in \mathbb{R}
+    \end{align*}
+    Therefore, to travel from the origin to any point, we need to travel along the following journey:
+    \[
+        \vec{r} = \vec{r}_0 + t\vec{m}, \quad t \in \mathbb{R}
+    \]
+    This is the vector equation. \\
+    In this example, the vector equation is $\vec{r} = \overrightarrow{(3,-2)} + t\overrightarrow{(4,-1)}, \quad t \in \mathbb{R}$, where $\overrightarrow{(3,-2)}$ is called the position vector, $\overrightarrow{(4,-1)}$ is called the direction vector, and $t$ is called a parameter.
+
+
+
+\begin{tcolorbox}[colback=red!5!snow, colframe=red!50!white,
+  colbacktitle=red!75!mistyrose]
+The vector of a line in $\mathbb{R}^2$ is\\
+\[
+\vec{r} = \vec{r}_0 + t\vec{m}, t\in \mathbb{R}
+\]
+where 
+\begin{itemize}
+    \item  $\vec{r_0}$ is called the position vector 
+    \item $\vec{m}$ is called the direction vector
+    \item $t$ is called a parameter 
+\end{itemize}
+\end{tcolorbox}
+\subsubsection{How to Develop the Parametric Equations }
+If we are given the vector equation 
+\[
+    \vec{r}=\overrightarrow{(3,-2)}+t\overrightarrow{(4,-1)}, t \in \mathbb{R} 
+\]
+We can think of that as
+\[
+    \overrightarrow{(x,y)}=\overrightarrow{(3,-2)}+t\overrightarrow{(4,-1)}, t \in \mathbb{R}
+\]
+
+In turn, we can thunk of that as 
+\[
+    x=3+4t,y=-2-t,t\in \mathbb{R}
+\]
+These are the parametric equations of the line.
+\subsubsection*{Example}
+Determine the equation of a line is perpendicular to the line $\vec{r}=\overrightarrow{(5,-9)}+t\overrightarrow{(3,-5)}$ and that passes the point $(-5,-1)$
+\subsubsection*{Solution}
+\[
+    \vec{r}=\overrightarrow{(5,-9)}+t\overrightarrow{(3,-5)}
+\]
+Perpendicular to a direction vector of $\overrightarrow{(3,-5)}$ is $\overrightarrow{(5,3)}$\\
+Since the line for which we seek on equation contains the point $(-5,-1)$ as a position vector.\\
+$\therefore$ the vector equation of the line being sought is $\vec{r}=\overrightarrow{(5,-1)}+t\overrightarrow{(5,3)}, t\in \mathbb{R}$
+
+
+\subsection{Cartesian Equation of a Line in $\mathbb{R}^2$}
+\begin{center}
+\begin{tikzpicture}[>=stealth]
+
+    % Slope of a line
+    \begin{scope}[shift={(0,0)}]
+        \draw[->] (0,0) -- (2,0) node[below] {$x$};
+        \draw[->] (0,0) -- (0,2) node[left] {$y$};
+        \draw[thick, blue, ->] (1,1) -- (2,1) node[midway, above] {$\vec{m} = \overrightarrow{(a, b)}$};
+        \filldraw (1,1) circle (1pt) node[below left] {$(1, 1)$};
+        \draw[dashed] (1,1) -- (1,2);
+        \draw[dashed] (1,1) -- (2,1);
+        \node at (1.5, 0.7) {$\frac{b}{a}$};
+    \end{scope}
+
+    % Cartesian equation of a line
+    \begin{scope}[shift={(5cm,0)}]
+        \draw[->] (0,0) -- (2,0) node[below] {$x$};
+        \draw[->] (0,0) -- (0,2) node[left] {$y$};
+        \draw[thick, red] (-1.5,2) -- (1.5,-1);
+        \node[right, red] at (1.5,-1) {$Ax + By + C = 0$};
+        \draw[dashed] (0,1) -- (1,0);
+        \node[right] at (0.5, 0.5) {$-\frac{A}{B}$};
+    \end{scope}
+
+    % Normal vector
+    \begin{scope}[shift={(10cm,0)}]
+        \draw[->] (0,0) -- (2,0) node[below] {$x$};
+        \draw[->] (0,0) -- (0,2) node[left] {$y$};
+        \draw[thick, green, ->] (1,1) -- (2,2) node[midway, above] {$(A, B)$};
+        \filldraw (1,1) circle (1pt) node[below left] {$(1, 1)$};
+        \draw[dashed] (1,1) -- (1,2);
+        \draw[dashed] (1,1) -- (2,1);
+    \end{scope}
+
+\end{tikzpicture}
+\end{center}
+
+\begin{itemize}
+    \item \textbf{Left:} If the slope of a line is $\frac{b}{a}$, then the direction vector is $\overrightarrow{(a,b)}$.
+    \item \textbf{Middle:} If the Cartesian equation of a line is $Ax + By + C = 0$, then the slope of the line is $-\frac{A}{B}$.
+    \item \textbf{Right:} If $Ax + By + C = 0$, then the normal vector is $(A,B)$.
+\end{itemize}
+\subsubsection*{Example}
+Determine the equivalent vector and parametric equations of the line $y=\frac{3}{4}x+2$
+\subsubsection*{Solution}
+\begin{align*}
+    y&=\frac{3}{4}x+2\\
+    m&=\overrightarrow{(4,3)}\\
+\end{align*}
+a point on the line is $\overrightarrow{(0,2)}$\\
+A point on the line is $\vec{r}_0 = \begin{pmatrix} 0 \\ 2 \end{pmatrix}$.
+
+Therefore, a vector equation is $\vec{r} = \vec{r}_0 + t \vec{d}$, where $\vec{d} = \begin{pmatrix} 4 \\ 3 \end{pmatrix}$.
+
+Parametric equations are:
+$ x = 4t, \quad y = 2 + 3t, \quad t \in \mathbb{R}.$
+\subsubsection*{Example }
+The line segment joining $A(2,0)$ and $B(5,3)$ is the hypotenuse of a right triangle. The third vertex, C, lies on the line $\vec{r}=\overrightarrow{(3,1)}+t\overrightarrow{(1,-2)}$. Determine the coordinates of C(there might be more than one answer)
+
+\subsubsection*{Solution}
+
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \resizebox{0.9\textwidth}{!}{%
+        \begin{circuitikz}
+        \tikzstyle{every node}=[font=\small]
+        \node [font=\LARGE, color={rgb,255:red,255; green,0; blue,0}] at (13.5,16.75) {};
+        \node [font=\LARGE] at (13.5,16.75) {};
+        \draw [short] (5.25,9) -- (14,9);
+        \draw [short] (7.5,14) -- (7.5,7);
+        \draw [ color={rgb,255:red,0; green,51; blue,255}, short] (9.5,9) -- (9.5,12.5);
+        \draw [ color={rgb,255:red,4; green,0; blue,255}, short] (9.25,12.5) -- (12.5,12.5);
+        \draw [short] (12.5,12.5) -- (9,8.5);
+        \draw [short] (9.5,12.25) -- (9.75,12.25);
+        \draw [short] (9.75,12.5) -- (9.75,12.25);
+        \draw [dashed] (7.5,14) -- (14,9);
+        \node [font=\small] at (9.75,8.75) {A(2,0)};
+        \node [font=\small] at (9.5,12.75) {C};
+        \node [font=\small] at (12.5,12.75) {B(5,3)};
+        \end{circuitikz}
+    }%
+\end{minipage}%
+\begin{minipage}{0.55\textwidth}
+    \begin{align*}
+        &\overrightarrow{AC} \cdot \overrightarrow{BC} = 0 \\
+        &\overrightarrow{AC} = \overrightarrow{(3+t-2,1-2t-0)} = \overrightarrow{(t+1,1-2t)} \\
+        &\overrightarrow{(t+1,1-2t)} \cdot \overrightarrow{(t-2,-2-2t)} = 0 \\
+        &(t+1)(t-2) + (1-2t)(-2-2t) = 0 \\
+        &t^2 - t - 2 - 2 + 2t + 4t^2 = 0 \\
+        &5t^2 + t - 4 = 0 \\
+        &(5t-4)(t+1) = 0 \\
+        &\boxed{t=\frac{4}{5} \text{ or } t=-1} \\
+        &t=\frac{4}{5} \implies x=3+\frac{4}{5}=\frac{19}{5}, \\
+        &\quad y=1-2\left(\frac{4}{5}\right)=-\frac{3}{5} \quad \therefore C \left(\frac{19}{5}, -\frac{3}{5}\right) \\
+        &\text{or} \\
+        &t=-1 \implies x=3-1=2, \quad y=1-2(1)=3 \quad \therefore C(2,3)
+    \end{align*}
+\end{minipage}
+
+\newpage 
+\subsection{Vector, Parametric and Symmetric Equations of a Line in $R^3$}
+\subsubsection*{Example}
+Determine the vector equation and parametric equations of a line that passes through the points $A(2,-3,4)$ and $B(8,1-9)$.
+\subsubsection*{Solution}
+\begin{align*}
+\vec{m}=\overrightarrow{AB}&=\overrightarrow{(6,4,-13)}
+\end{align*}
+$\therefore$ a vector equation is a $\vec{r}=\overrightarrow{(2,-3,4)}+t\overrightarrow{(6,4,-13)}, t \in \mathbb{R}$ and parametric are:
+
+\begin{align*}
+    x&=2+6t\\
+    y&=-3+4t\\
+    z&=4-13t, t \in \mathbb{R}
+\end{align*}
+
+\subsubsection*{Example}
+Show that the following two vector equations represents the same line.
+\[
+    L_1: \vec{r}=\overrightarrow{(3,1,0)}+s\overrightarrow{(-9,6,3)}, s \in \mathbb{R}
+\]
+\[
+ L_2: \vec{r}=\overrightarrow{(-6,7,3)}+s\overrightarrow{(3,-2,-1)}, t \in \mathbb{R}
+\]
+\subsubsection*{Solution}
+\underline{Part 1}
+\[
+\overrightarrow{m_1}=-3\overrightarrow{m_2}
+\]
+
+$\therefore$ lines are parallel collinear.\\\\
+\underline{Part 2}\\
+Next, show that a point on one line is on the other line.\\
+We know that $(3,1,0)$ is a point on $L_1$ it is also on $L_2$.
+\begin{align*}
+    \text{let } 3&=-6+3t \implies 9=3t \implies \textcolor{red}{t=3}\\
+    \text{let } 1&=7-2t \implies -6 =-2t \implies \textcolor{red}{t=3}\\
+    \text{let } 0&=3-t \implies -3=-t \implies \textcolor{red}{t=3}
+\end{align*}
+Since the line are parallel and where a point $\therefore$ they are the same line.
+\subsubsection*{Example}
+Does the line $\vec{r}=\overrightarrow{(8,4-1)}+t\overrightarrow{(4,1,3)},t \in \mathbb{R}$ have a z-intercept?
+\subsubsection*{Solution}
+$z-int \implies x=0, y=0$\\
+\[
+    \implies 8+4t=0 \quad \text{ and } \quad 4+t=0
+\]
+We get $t=-2$ and $t=-4 \implies$ Not possible. Therefore, no z-intercepts 
+
+
+\subsubsection{Symmetric Equation of a Line}
+Suppose $\vec{r}=\overrightarrow{(x_0,y_0,z_0)}+t\overrightarrow{(a,b,c)}, t \in \mathbb{R}$ is the equation of a line in $\mathbb{R}^3$. Future, suppose that none of a a or b or c are zero. In other words, the components of the direction vector are all non-zero.\\
+
+Then, the parametric equations of the line are:
+\begin{align*}
+    x&=x_0+ta\\
+    y&=y_0+tb\\
+    z&=z_0+tc, t \in \mathbb{R}
+\end{align*}
+Let's solve for t in each of these three parametric equations \\
+\begin{align*}
+    x=x_0+ta \quad y=y_0+td \quad z=z_0+tc\\
+    x-x_0=ta \quad y-y_0=tb \quad z-z_0=tc\\
+    \boxed{\frac{x-x_0}{a}=t} \quad \boxed{\frac{y-y_0}{b}=t} \quad \boxed{\frac{z-z_0}{c}=t}
+\end{align*}
+
+Now notice that in last line, t is equal to all of those quantities. That must mean that each of those quantities is equal to each other. In other words
+\[
+    \frac{x-x_0}{a}=\frac{y-y_0}{b}=\frac{z-z_0}{c}
+\]
+
+\begin{tcolorbox}[colback=red!5!snow, colframe=red!50!white,
+  colbacktitle=red!75!mistyrose]
+If the vector equation of a line is $\vec{r}=(x_0,y_0,z_0)+t\overrightarrow{(a,b,c)}, t \in \mathbb{R}$, then the symmetric equation of the line is:
+\[
+    \frac{x-x_0}{a}=\frac{y-y_0}{b}=\frac{z-z_0}{c}, a\neq 0, b \neq 0 , c \neq 0
+\]
+
+\end{tcolorbox}
+\newpage 
+
+\subsection{Vector and Parametric Equation of a Plane}
+We know that a point on a line and a direction vector define a line in $\mathbb{R}^3$.\\
+We also know that two non-zero, non-collinear vector span a plane in $\mathbb{R}^3$.\\
+Putting these concepts together gives us this:
+
+\begin{tcolorbox}[colback=red!5!snow, colframe=red!50!white,
+  colbacktitle=red!75!mistyrose]
+Two non-zero, non-collinear vectors and a point define a plane in $\mathbb{R}^3$  
+\end{tcolorbox}
+\subsubsection*{Example 1}
+Given the plane with vector equation 
+$\vec{r}=\overrightarrow{(1,5,-3)}+s\overrightarrow{(3,-4,6)}+t\overrightarrow{(4,5,-8)}$ and parametric equations $x=1+3s+4t, y=5-4s+5t$ and $z=-3+6s-8$, determine whether the point (11,2,3) is on the plane.
+\subsubsection*{Solution}
+Substitute \(x = 11\), \(y = 2\), and \(z = 3\) into the parametric equations:
+\[
+\begin{cases}
+11 = 1 + 3s + 4t \\
+2 = 5 - 4s + 5t \\
+3 = -3 + 6s - 8t
+\end{cases}
+\]
+
+Simplify each equation:
+\[
+\begin{cases}
+10 = 3s + 4t \quad \text{(1)} \\
+-3 = -4s + 5t \quad \text{(2)} \\
+6 = 6s - 8t \quad \text{(3)}
+\end{cases}
+\]
+
+Solve equations (1) and (2):
+\[
+4 \times (3s + 4t) = 40 \implies 12s + 16t = 40
+\]
+\[
+3 \times (4s - 5t) = 9 \implies 12s - 15t = 9
+\]
+Subtract:
+\[
+31t = 31 \implies t = 1
+\]
+Substitute \(t = 1\) into (1):
+\[
+3s + 4(1) = 10 \implies 3s + 4 = 10 \implies 3s = 6 \implies s = 2
+\]
+Verify with (3):
+\[
+6(2) - 8(1) = 12 - 8 = 4 \neq 6
+\]
+
+Therefore, the point \((11, 2, 3)\) is not on the plane.
+
+
+In summary, to determine whether a given point is on a given plane when the plane is written in vector form or in parametric form, we need to get the plane into parametric form. Then, we can set the x-coordinate of the point in question equal to the parametric expression for x and we set the y-coordinate of the point in question equal to the parametric expression for y. Then, we usually use substitution or elimination to solve for the parameters (usually s and t). Then, we plug those parameter values into the parametric expression for z and see if we get the required value of the z-coordinate.
+
+\subsubsection{More Information About Planes}
+One and only one plane can be determined if we are given any of the following:
+\begin{itemize}
+    \item a line and a point not on the line
+    \item three non-collinear points (three points not on a line)
+    \item two intersecting lines
+    \item two parallel and non-coincident lines
+\end{itemize}
+\subsubsection*{Example 2}
+Determine a vector equation and parametric equations for the plane containing the points \(A (6, 2, 1)\), \(B (9, -4, 2)\), and \(C (-1, -2, -3)\).
+
+\subsubsection*{Solution}
+\begin{align*}
+    &\overrightarrow{AB} = \langle 9-6, -4-2, 2-1 \rangle = \langle 3, -6, 1 \rangle \\
+    &\overrightarrow{AC} = \langle -1-6, -2-2, -3-1 \rangle = \langle -7, -4, -4 \rangle \\
+    &\vec{n} = \overrightarrow{AB} \times \overrightarrow{AC} = \begin{vmatrix}
+        \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+        3 & -6 & 1 \\
+        -7 & -4 & -4
+    \end{vmatrix} = \mathbf{i}(24 + 4) - \mathbf{j}(-12 + 7) + \mathbf{k}(-12 + 42) = \langle 28, 5, 30 \rangle \\
+    &\text{Vector equation:} \quad \vec{r} = \begin{pmatrix} 6 \\ 2 \\ 1 \end{pmatrix} + s \begin{pmatrix} 3 \\ -6 \\ 1 \end{pmatrix} + t \begin{pmatrix} -7 \\ -4 \\ -4 \end{pmatrix} \\
+    &\text{Parametric equations:} \quad \begin{cases}
+    x = 6 + 3s - 7t \\
+    y = 2 - 6s - 4t \\
+    z = 1 + s - 4t
+    \end{cases}
+\end{align*}
+
+\subsubsection*{Example 3}
+Given the plane with parametric equations \(x=6+3s+7t\), \(y=2-6s+4t\), \(z=1+s+4t\), \(s, t \in \mathbb{R}\), determine the point where this plane intersects the x-axis.
+
+\subsubsection*{Solution}
+For the plane to intersect the x-axis, \(y = 0\) and \(z = 0\):
+\begin{align*}
+    &2 - 6s + 4t = 0 \quad \text{(Equation 1)} \\
+    &1 + s + 4t = 0 \quad \text{(Equation 2)}
+\end{align*}
+From Equation 2:
+\[
+s = -1 - 4t
+\]
+Substitute \(s = -1 - 4t\) into Equation 1:
+\[
+2 - 6(-1 - 4t) + 4t = 0 \implies 2 + 6 + 24t + 4t = 0 \implies 8 + 28t = 0 \implies t = -\frac{2}{7}
+\]
+Substitute \(t = -\frac{2}{7}\) back into \(s = -1 - 4t\):
+\[
+s = -1 - 4\left(-\frac{2}{7}\right) = -1 + \frac{8}{7} = -\frac{7}{7} + \frac{8}{7} = \frac{1}{7}
+\]
+Find the corresponding \(x\) value:
+\[
+x = 6 + 3\left(\frac{1}{7}\right) + 7\left(-\frac{2}{7}\right) = 6 + \frac{3}{7} - 2 = 6 - 2 + \frac{3}{7} = 4 + \frac{3}{7} = \frac{28}{7} + \frac{3}{7} = \frac{31}{7}
+\]
+Therefore, the point of intersection is:
+\[
+\left( \frac{31}{7}, 0, 0 \right)
+\]
+
+\subsection{Cartesian Equation of a Plane (Aka Scalar Equation of a Plane)}
+
+\begin{tcolorbox}[colback=red!5!snow, colframe=red!50!white,
+  colbacktitle=red!75!mistyrose]
+The Cartesian (or scalar) equation of a plane in $\mathbb{R}^3$ is of the form $Ax+Bx+Cz+D=0$. \\
+The vector $\overrightarrow{(A,B,C)}$ is a normal vector (perpendicular to all of the vectors in the plane)
+\end{tcolorbox}  
+\subsubsection{Angle Between Two Planes}
+\begin{tcolorbox}[colback=red!5!snow, colframe=red!50!white,
+  colbacktitle=red!75!mistyrose]
+Two angle between two planes is equal to the angle between the normal vectors of the two planes
+  
+\end{tcolorbox} 
+
+\section{Unit 9 - Relationships between Points, Lines and Planes}
+\subsection{Intersection of a Line with a Plane or Two Lines Intersecting}
+\subsubsection{Part 1: Intersection of a Line with a Plane: 3 Cases}
+\begin{enumerate}
+    \item[1.] The line \( L \) intersects the plane \( \pi \) at exactly one point, \( P \).
+    \item[2.] The line does not intersect the plane, so it is parallel to the plane. There are no points of intersection.
+    \item[3.] The line \( L \) lies on the plane \( \pi \). Every point on \( L \) intersects the plane. There are an infinite number of points of intersection.
+\end{enumerate}
+
+\begin{figure}[!ht]
+\centering
+\resizebox{1\textwidth}{!}{%
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\LARGE]
+
+% First diagram
+\draw [short] (0.25,9.75) -- (2.25,12.5);
+\draw [short] (2.25,12.5) -- (7,12.5);
+\draw [short] (0.25,9.75) -- (5.25,9.75);
+\draw [short] (7,12.5) -- (5.25,9.75);
+\draw [color={rgb,255:red,0; green,251; blue,255}, <->, >=Stealth] (3.5,11.25) -- (5,13.75);
+\draw [color={rgb,255:red,0; green,255; blue,213}, dashed] (3.5,11.25) -- (2.5,9.5);
+\draw [color={rgb,255:red,0; green,255; blue,213}, ->, >=Stealth] (2.5,9.5) -- (1.75,8.25);
+\node [font=\LARGE] at (4.5,13.5) {L};
+\node [font=\LARGE] at (3,11.5) {P};
+\node [font=\LARGE] at (6.25,12.25) {$\pi$};
+
+% Second diagram
+\draw [short] (9.25,10.25) -- (10.5,12.25);
+\draw [short] (10.5,12.25) -- (14.5,12.25);
+\draw [short] (14.5,12.25) -- (13.5,10.25);
+\draw [short] (9.25,10.25) -- (13.5,10.25);
+\draw [color={rgb,255:red,247; green,2; blue,2}, <->, >=Stealth] (9,13.25) -- (14.5,13.25);
+\draw [color={rgb,255:red,0; green,251; blue,255}, ->, >=Stealth] (11,11.25) -- (11,14.75);
+\draw [color={rgb,255:red,0; green,255; blue,213}, dashed] (11,11.25) -- (11,10.25);
+\draw [color={rgb,255:red,0; green,251; blue,255}, short] (11,10.25) -- (11,9.25);
+\draw [color={rgb,255:red,255; green,0; blue,0}, short] (11,13) -- (11.25,13);
+\draw [color={rgb,255:red,255; green,0; blue,0}, short] (11.25,13.25) -- (11.25,13);
+\node [font=\normalsize] at (12.75,13.5) {L, direction vector m};
+\node [font=\large] at (11,15) {n};
+\node [font=\large] at (11,15.25) {$\rightarrow$};
+
+% Third diagram
+\draw [short] (17.25,10) -- (18.75,12.25);
+\draw [short] (18.75,12.25) -- (22.75,12.25);
+\draw [short] (17.25,10) -- (21.25,10);
+\draw [short] (22.75,12.25) -- (21.25,10);
+\draw [color={rgb,255:red,0; green,255; blue,238}, <->, >=Stealth] (18,10.25) -- (21.5,11.75);
+\node [font=\normalsize] at (19.75,11.5) {L};
+\node [font=\normalsize] at (22,12) {$\pi$};
+\node [font=\normalsize] at (13.75,12) {$\pi$};
+\node [font=\small] at (14,13.75) {$\rightarrow$};
+
+\end{circuitikz}
+}
+\label{fig:intersection_cases}
+\end{figure}
+
+
+\subsubsection{Procedure For Determining intersection(s) of a Line with a Plane(if any exist)}
+\begin{tcolorbox}
+\begin{enumerate}
+    \item[1.] Set the parametric expressions for x,y and z into the Cartesian equation $Ax+Bx+Cz+D=0$.
+    \item[2.] Let's assume the parameter is t. Solve the equation we get in part 1 above. If we get to 0t=non-zero then there are no solutions (because it is impossible for 0 a times a real number to equal to a non-zero quantity). Therefore there are no points of intersection, and we have a situation like case 2 on the previous slide(the line L is parallel to, but not on, the plane $\pi$)
+    \item[3.] If we get 0t=0 then there are an infinite number of solutions, meaning that we have a situation like case 3 on the previous slide(the line L is on the plane $\pi$)
+    \item[4.] If we get a non-zero quantity times t equalling a real number, then we have one solution, and we have a situation like case 1 on the previous slide(the line L intersects the plane $\pi$ at a single point)
+\end{enumerate}
+\end{tcolorbox}
+\subsubsection*{Example}
+Determine the point(s) of intersection, if any exist, between the line $L:\vec{r}=\overrightarrow{(3,-2,1)}+s\overrightarrow{(14,-5,-3)}$ and the plane $\pi:x+y+3z-4=0$
+\subsubsection*{Solution}
+\begin{align*}
+    x&=3+14s\\
+    y&=-2-5s\\
+    z&=1-3s
+\end{align*}
+Plug in plane
+\[
+    3+14s-2-5s+3(1-3s)-4=0
+\]
+
+\[
+    3+14s-2-5s+3-9s-4=0
+\]
+$0s=0$ infinite solutions. Therefore, infinite PTS of intersection 
+
+\subsubsection{Part 2: The intersection of Two Lines (4 Cases)}
+\begin{enumerate}
+    \item[1.] Two lines intersect at a single point if
+    \begin{itemize}
+        \item The direction vectors are not collinear, and
+        \item We algebraically determine a point of intersection.
+    \end{itemize}
+    \item[2.] Two lines are coincident if
+    \begin{itemize}
+        \item The direction vectors are collinear, and
+        \item We algebraically determine a point of intersection.
+    \end{itemize}
+    \item[3.] Two lines are parallel \& non-coincident (no points of intersection) if
+    \begin{itemize}
+        \item The direction vectors are collinear, and
+        \item We determine that one point of the lines is not on the other line.
+    \end{itemize}
+    \item[4.] Two lines are skew (no points of intersection) if
+    \begin{itemize}
+        \item The direction vectors are not collinear, and
+        \item We algebraically determine that there are no points of intersection.
+    \end{itemize}
+\end{enumerate}
+\vspace{2em}
+\begin{figure}[!ht]
+\centering
+\resizebox{1\textwidth}{!}{%
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\LARGE]
+\draw [->, >=Stealth] (4.25,12.75) -- (2.25,10.75);
+\draw [->, >=Stealth] (4.25,12.75) -- (4.25,16);
+\draw [->, >=Stealth] (4.25,12.75) -- (8,12.75);
+\draw [<->, >=Stealth] (2.5,13.25) -- (5.75,14.5);
+\draw [<->, >=Stealth] (3,14.75) -- (5.5,11.75);
+\node [font=\large] at (4,14.25) {A};
+\node [font=\normalsize] at (4.25,16.25) {z};
+\node [font=\normalsize] at (2.25,10.5) {x};
+\node [font=\normalsize] at (8.25,12.75) {y};
+\draw [->, >=Stealth] (14.5,13) -- (13,11.25);
+\draw [->, >=Stealth] (14.5,13) -- (14.5,15.75);
+\draw [->, >=Stealth] (14.5,13) -- (17.75,13);
+\draw [<->, >=Stealth] (13,13.5) -- (16.75,14.75);
+\node [font=\normalsize] at (14.5,16) {z};
+\node [font=\normalsize] at (13,11) {x};
+\node [font=\normalsize] at (18,13) {y};
+\draw [->, >=Stealth] (4.25,4.75) -- (2.5,3);
+\draw [->, >=Stealth] (4.25,4.75) -- (4.25,7.25);
+\draw [->, >=Stealth] (4.25,4.75) -- (7,4.75);
+\draw [<->, >=Stealth] (2.25,4) -- (6.25,5.5);
+
+\draw [line width=0.5pt, <->, >=Stealth] (2.25,4.25) -- (6.25,5.75);
+\draw [line width=0.5pt, ->, >=Stealth] (14.25,4.5) -- (12.75,2.75);
+\draw [line width=0.5pt, ->, >=Stealth] (14.25,4.5) -- (17.75,4.5);
+\draw [->, >=Stealth] (14.25,4.5) -- (14.25,7.25);
+\draw [<->, >=Stealth] (12.5,5.75) -- (16.5,6.5);
+\draw [<->, >=Stealth] (13.5,5.5) -- (16.75,3.75);
+\node [font=\normalsize] at (4.25,7.5) {z};
+\node [font=\normalsize] at (7.25,4.75) {y};
+\node [font=\normalsize] at (2.5,2.75) {x};
+\node [font=\normalsize] at (12.75,2.5) {x};
+\node [font=\normalsize] at (14.25,7.5) {z};
+\node [font=\normalsize] at (18,4.5) {y};
+\node [font=\LARGE] at (10,16.25) {Intersecting Lines};
+\node [font=\LARGE] at (9.75,7.75) {Non-intersecting Lines};
+\end{circuitikz}
+}%
+
+\label{fig:my_label}
+\end{figure}
+
+\vspace{4em}
+
+\subsubsection*{Example}
+Determine the point(s) of intersection, if any, of the lines \( L_1: \vec{r}=\overrightarrow{(-4,-1,-6)}+s\overrightarrow{(3,2,-5)}, \, s\in \mathbb{R} \) and \( L_2: \vec{r}=\overrightarrow{(8,7,-26)}+t\overrightarrow{(-6,-4,10)}, \, t \in \mathbb{R} \)
+
+\subsubsection*{Solution}
+Parallel lines \\
+\(\therefore\) check if \(\overrightarrow{(-4,-1,-6)}\) is on \( L_2 \)
+\begin{align*}
+    -4 &= 8 - 6t \implies t = 2 \\
+    -1 &= 7 - 4t \implies t = 2 \\
+    -6 &= -26 + 10t \implies t = 2
+\end{align*}
+The lines intersect at a point since the lines are parallel and intersect at a point. \(\therefore\) The lines are parallel and coincident.
+
+\subsection{System of Equations}
+A linear system of equations can have zero, one, or an infinite number of solutions. Think of two lines. Those of two lines might be parallel and not intersect (no solution), or they might be parallel and intersect at one point (one solution), or they might be parallel and consistent (an infinite number of solutions).
+\subsubsection{Terms to Know}
+An \textbf{inconsistent system} is a system of equations that has zero solutions.\\
+A \textbf{consistent system} is a system of equations that has one solution or an infinite number of solutions.\\\\
+Two system of equations are defined as \textbf{equivalent systems of equations} if every solution to one system is also a solution to the second system of equations, and vice versa.
+
+\subsubsection{Elementary Row Operations }
+\begin{enumerate}
+    \item[1.] Multiply an equation by a nonzero constant.
+    \item[2.] Interchange any pair of equations. 
+    \item[3.] Add a non-zero multiple of one equations to replace the second equation.
+\end{enumerate}
+\subsubsection{Matrices}
+A matrix(plural matrices) is very powerful tool in mathematics. For now, we will introduce matrices as a way to organize our solution to solve a system of equations.\\
+Matrices have many more uses than this, and there are entire university math courses dedicated to them.
+\subsubsection*{Example}
+Solve the following system of equations using a matrix and elementary row operations.
+$$2x+y=-9$$
+$$x+2x=-6$$
+\subsubsection*{Solution}
+$ \left[\begin{array}{ll|l}
+2 & 1 & -9 \\
+1 & 2 & -6
+\end{array}\right] \quad \rightarrow_{2\times R_2}$
+$ \left[\begin{array}{ll|l}
+2 & 1 & -9 \\
+2 & 4 & -12
+\end{array}\right] \quad \rightarrow_{R_1-R_2}$
+$ \left[\begin{array}{ll|l}
+2 & 1 & -9 \\
+0 & -3 & 3
+\end{array}\right]$
+$$
+\begin{aligned}
+-3y &= 3 & \implies y &= -1 \\
+2x - 1 &= -9 & \implies 2x &= -8 \\
+& & \implies x &= -4\\
+\therefore \text{One POT } (-4,-1) \text{consistent system.}
+\end{aligned}
+$$
+\subsubsection*{Example 2}
+Solve the following system of equations using matrix and elementary row operations.
+$$3x+4y=8$$
+$$6x+8y=15$$
+\subsubsection*{Solution}
+$ \left[\begin{array}{ll|l}
+3 & 4 & 8 \\
+6 & 8 & 15
+\end{array}\right] \quad \rightarrow_{R_1\times 2}$
+$ \left[\begin{array}{ll|l}
+6 & 8 & 16 \\
+6 & 8 & 15
+\end{array}\right] \quad \rightarrow_{R_1-R_2}$
+$ \left[\begin{array}{ll|l}
+6 & 8 & 16 \\
+0 & 0 & 1
+\end{array}\right] $\\\\
+$\therefore 0x+0y=1$ not possible. No solutions. Inconsistent system. 
+
+\subsubsection*{Example 3}
+Solve the following system of equations using matrix and elementary row operations.
+$$5x-2y=8$$
+$$6x+8y=15$$
+\subsubsection*{Solution}
+$ \left[\begin{array}{ll|l}
+5 & -2 & 11 \\
+55 & -22 & 121
+\end{array}\right] \quad \rightarrow_{11 \times R_1}$
+$ \left[\begin{array}{ll|l}
+55 & -22 & 121 \\
+55 & -22 & 121
+\end{array}\right] \quad \rightarrow_{R_1 - R_1}$
+$ \left[\begin{array}{ll|l}
+55 & -22 & 121 \\
+0 & 0 & 0
+\end{array}\right] $\\\\
+$0x+0y=0$ has infinite \# of POT's. Therefore, consistent system.
+\subsubsection{Examples with 3 Equations and 3 Unknowns}
+\subsubsection*{Example 4}
+Solve the following system of equations.
+\begin{align*}
+    3x-4y+2z+5=0\\
+    2x+y-7z+32=0\\
+    2x-3y+8z-17=0
+\end{align*}
+\subsubsection*{Solution}
+$ \left[\begin{array}{lll|l}
+3 & -4 & 2 & -5\\
+2 & 1 & -7 & -32\\
+2 & -3 & 8 & 17
+\end{array}\right] \quad \rightarrow_{2 \times R_1}$
+$ \left[\begin{array}{lll|l}
+6 & -8 & 4 & -10\\
+6 & 3 & -21 & -96\\
+6 & -9 & 24 & 51
+\end{array}\right] \quad \rightarrow_{R_1-R_2 } \quad _{R_1-R_3}$
+$ \left[\begin{array}{lll|l}
+6 & -8 & 4 & -10\\
+0 & -11 & 25 & 86\\
+0 & 1 & 20 & -61
+\end{array}\right] \quad \rightarrow_{11 \times R_3}$
+$ \left[\begin{array}{lll|l}
+6 & -8 & 4 & -10\\
+0 & -11 & 25 & 86\\
+0 & 11 & -220 & -671
+\end{array}\right] \quad \rightarrow_{R_2+R_3}$
+$$\left[\begin{array}{lll|l}
+6 & -8 & 4 & -10\\
+0 & -11 & 25 & 86\\
+0 & 0 & -195 & -585
+\end{array}\right] $$
+\begin{align*}
+    \text{from } R_3 \quad -195z&=-585 &&6x-8x+4z=-10\\
+    z&=3 && 6x-8y(-1)+4(3)=-10\\
+    -11y+25z&=8 && 6x=-30\\
+    11y+25(3)&=86 && x=-5\\
+    -11y&=11 \\
+    y&=-1
+\end{align*}
+$\therefore$ One POT at $(-5,-1,3)$
+\subsection{Intersection of Two Planes: 3 Cases}
+There are 3 cases when it comes to the intersection of 2 planes. \\
+Case 1: Two planes intersect along a line (infinite points of intersection)\\
+Case 2: Two parallel planes(no points of intersection)\\
+Case 3: Two coincident planes (infinite points of intersection)
+
+\begin{itemize}
+    \item Is it not possible for two planes to intersect at only one point. There are either zero points of intersection (like in case 2) or there are an infinite number of intersection (a line in case 1 or a plane like in case 3).
+\end{itemize}
+\begin{figure}[!ht]
+\centering
+\resizebox{1\textwidth}{!}{%
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\small]
+\draw [short] (2.25,12) -- (6,12);
+\draw [short] (2.25,12) -- (1.5,11);
+\draw [short] (1.5,11) -- (5.25,11);
+\draw [short] (6,12) -- (5.25,11);
+\draw [short] (3.5,12.75) -- (4.25,13.25);
+\draw [short] (3.5,12.75) -- (3.5,10);
+\draw [short] (3.5,10) -- (4.25,10.75);
+\draw [short] (4.25,13.25) -- (4.25,10.75);
+\draw [dashed] (4.25,12) -- (3.5,11);
+\node [font=\small] at (3.75,11.75) {L};
+\node [font=\small] at (2,11.25) {$\pi_2$};
+\node [font=\small] at (3.75,12.75) {$\pi_1$};
+\node [font=\small] at (4,13.75) {Case 1: Two Planes intersecting along a Line};
+\draw [short] (8.5,12.25) -- (9.25,13);
+\draw [short] (9.25,13) -- (11.75,13);
+\draw [short] (8.5,12.25) -- (11,12.25);
+\draw [short] (11.75,13) -- (11,12.25);
+\draw [short] (9,11.75) -- (8.25,11);
+\draw [short] (9,11.75) -- (11.5,11.75);
+\draw [short] (8.25,11) -- (10.75,11);
+\draw [short] (11.5,11.75) -- (10.75,11);
+\node [font=\small] at (9,12.5) {$\pi_1$};
+\node [font=\small] at (8.75,11.25) {$\pi_2$};
+\node [font=\small] at (10,13.75) {Case 2: Two parallel Planes};
+\draw [short] (13.75,11.75) -- (14.25,12.5);
+\draw [short] (14.25,12.5) -- (17.5,12.5);
+\draw [short] (17.5,12.5) -- (17,11.75);
+\draw [short] (13.75,11.75) -- (17,11.75);
+\node [font=\small] at (14.5,12.25) {$\pi_1 \pi_2$};
+\node [font=\small] at (15.75,13.75) {$Case 3: Two Coincident Planes$};
+\end{circuitikz}
+}%
+
+\label{fig:my_label}
+\end{figure}
+
+\subsubsection{Method for Determining the intersection of Two Planes}
+\begin{enumerate}
+    \item [1.] Make sure that the planes are in Cartesian form and compare the normal vectors.
+    \item [2.] If the normal vectors are collinear (i.e., if $\overrightarrow{n_1}$ is a scalar multiple of $\overrightarrow{n_2}$ ) then one of the following two situations is true.
+    \begin{enumerate}
+    \item [a.] Perhaps the planes are parallel and coincident creating inifinite points of intersection. This is true if the scalar multiple between the normal vectors of the two planes is also the scalar multiple between the constant terms (i.e., the $D$ values of the two planes)
+    \item[b.] Perhaps the planes are parallel and non-coincident, creating zero points of intersection. This is true if the scalar multiple between the normal vectors of the two planes is not the scalar multiple between the constant terms (i.e., the D values of the two planes)
+    \end{enumerate}
+
+\item[3.] If the normal vectors are not collinear (i.e., if $\overrightarrow{n_1}$ is not a scalar multiple of $\overrightarrow{n_2}$ ) then the two planes intersect along a line and there are infinite points of intersection.
+\begin{enumerate}
+    \item[a.] Make a matrix with the Cartesian equations of the planes
+    \item[b.] Use elementary row operations to get a zero in one of the three left-hand columns of one of the rows
+    \item[c.] Using that row, sub in a value for one of the remaining columns, and determine the value for the other column
+    \item[d.] Then, sub both of those values in to the other row to determine a value for the third column. You now have a position vector.
+    \item[e.] The direction vector is the cross product of the normal vectors of the planes.
+    \item[f.] You can now state the equation of the line in vector form.
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection*{Example 1}
+Determine whether the following planes intersect. If they do intersect, state how they intersect, and include the equation of the line of intersection if necessary.
+$\pi_1: 2x-3y+7z-25=0 \quad \text{ and } \quad \pi_2:4x-6y+14z-50=0$
+\subsubsection*{Solution}
+Multiply both sides of $\pi_1$ by 2 $4x-6y+14z-50=0$. \\
+Therefore, the planes are parallel and coincident (infinite POT'S). It is consistent  system.
+
+\subsubsection*{Example 2}
+Determine whether the following planes intersect. If they do intersect, state how they intersect, and include the equation of the line of intersection if necessary.
+$\pi_1: 9x-y+4z-16=0 \quad \text{ and } \quad \pi_2:-18x+2y-8z+8=0$
+\subsubsection*{Solution}
+$\vec{n}_1=(9,-1,4) \quad \vec{n}_2=(-18,2,-8)$. $\therefore $ planes are parallel.\\
+Multiply both side of $\pi_1$ by -2.
+$$-18x+2y-8z+32$$
+$\therefore$ parallel and non-coincident. 0 POT'S incoincident system.
+
 \end{document}
