@@ -24,6 +24,7 @@
 \usepackage{amssymb}
 \usepackage{tikz,lipsum,lmodern}
 \usepackage{booktabs}
+\usepackage{circuitikz}
 
 
 % COLOURS
@@ -49,7 +50,7 @@
 
 \tableofcontents
 \newpage
-\section{Unit 6}
+\section{Unit 6 - An Introduction to Vectors}
 \subsection{Introduction to Vectors}
 A vector is a quantity that requires both a magnitude and a direction for a complete description.  Examples of vectors are weight, velocity and friction.  On the other hand, a scalar is a magnitude that can be completely specified by just one number.  Examples of scalars include age, volume, area, speed, mass and temperature.\\
 
@@ -61,10 +62,23 @@ Speed is a scalar quantity. We can describe the speed of an airplane as 200 km/h
 
 
 Velocity is a vector quantity. We can refer to the velocity of one airplane as $400 km/h$ in a southwesterly direction (represented by the vector $\vec{a}$ in the diagram) and the velocity of another airplane as 100 km/h in a northerly direction (represented by $\Vec{v}$)\\
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imgs/a_v.png}
-\end{figure}
+\begin{center}
+    
+\begin{tikzpicture}
+
+% Drawing vector a (southwesterly direction)
+\draw[->, thick] (0,0) -- (-2.828, -2.828) node[midway, above, sloped] {\footnotesize 400 km/h};
+\node at (-3, -3.5) {$\vec{a}$};
+
+% Drawing vector v (northerly direction)
+\draw[->, thick] (0,0) -- (0,3) node[midway, right] {\footnotesize 100 km/h};
+\node at (0.5, 3.2) {$\vec{v}$};
+
+% Origin point
+\fill (0,0) circle (2pt) node[above right] {Origin};
+\end{tikzpicture}
+\end{center}
+
 
 We can indicate movement in a direction from one location to another using vectors. For example, the vector $\overrightarrow{AB}$ is a line segment running from A to B with its tail at A and its head at B. Its actual size, or magnitude, is denoted by $|\overrightarrow{AB}|$ , and is represented by the length of the line segment. The magnitude of a vector is always non-negative. The direction of the arrow represents the direction of the airplane, and its length represents the speed.
 \newpage
@@ -89,11 +103,25 @@ Two vector $\overrightarrow{AB}$ and $\overrightarrow{CD}$ are opposite if and o
 You can determine the sum $\vec{a}+\vec{b}$ by putting the tail of $\vec{b}$ on the tip of $\vec{a}$ and then drawing a vector straight from the tail of $\vec{a}$ to the tip of $\vec{b}$. The resulting vector is called the resultant.
 
 The method is sometimes also called the "tip to tail" method.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{imgs/a+b.png}
-\end{figure}
-
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+    % Define the vectors
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (2,1);
+    \coordinate (B) at (4,1);
+    
+    % Draw the vectors
+    \draw[->, thick] (O) -- (A) node[midway, above left] {$\vec{a}$};
+    \draw[->, thick] (A) -- (B) node[midway, above] {$\vec{b}$};
+    \draw[->, thick,red] (O) -- (B) node[midway, below right] {$\vec{a} + \vec{b}$};
+    
+    % Points
+    \fill (O) circle (2pt);
+    \fill (A) circle (2pt);
+    \fill (B) circle (2pt);
+    
+\end{tikzpicture}
+\end{center}
 
 A way of thinking about the sum of two vectors is as follows:\\
 
@@ -106,10 +134,26 @@ Suppose that an airplane is travelling with a component velocity of 500 km/h N w
 
 \subsubsection*{Solution}
 \begin{minipage}{0.45\textwidth}
-    \centeringa
-    \includegraphics[width=0.6\textwidth]{imgs/a_w_r.png}
+    \centering
+    \resizebox{0.7\textwidth}{!}{%
+        \begin{circuitikz}
+        \tikzstyle{every node}=[font=\LARGE]
+        \draw [line width=0.7pt, ->, >=Stealth] (4.25,13) -- (8.25,13);
+        \draw [line width=0.7pt, ->, >=Stealth] (4.25,8.25) -- (4.25,13);
+        \draw [line width=0.7pt, ->, >=Stealth, dashed] (4.25,8.25) -- (8.25,13);
+        \draw [line width=0.7pt, short] (4.25,9.25) .. controls (4.5,9.75) and (4.75,10) .. (5,9.25);
+        \node [font=\LARGE] at (4.5,9) {$\theta$};
+        \node [font=\LARGE] at (6,13.5) {$\rightarrow$};
+        \node [font=\LARGE] at (6,13.25) {\textit{w}};
+        \node [font=\LARGE] at (3.75,11.25) {$\rightarrow$};
+        \node [font=\LARGE] at (3.75,11) {a};
+        \node [font=\LARGE] at (7,10.75) {r};
+        \node [font=\LARGE] at (7,11) {$\rightarrow$};
+        \end{circuitikz}
+    }%
+    \label{fig:my_label}
 \end{minipage}%
-\begin{minipage}{0.4\textwidth}
+\begin{minipage}{0.45\textwidth}
     \begin{align*}
         |\vec{r}|^2 &= |\vec{a}|^2 + |\vec{w}|^2 \\
                     &= (500)^2 + (100)^2 \\
@@ -131,13 +175,24 @@ Note, however, that often when we add vectors, the angle that we use for our sin
 Two unit vectors $\vec{a}$ and $\vec{b}$ have an angle of $30^{\circ}$ between them. Determine the magnitude and direction of $2\vec{a}+\vec{b}$.
 \subsubsection*{Solution}
 We can start by drawing two diagrams:
+\begin{center}
+    
+\begin{tikzpicture}[scale=0.5]
+    % Define the vectors
+    \draw[->, thick] (0,0) -- (4,0) node[midway, below] {$\vec{a}$};
+    \draw[->, thick] (0,0) -- (3.464,2) node[midway, right] {$\vec{b}$};
+    \draw[->, thick, blue] (0,0) -- (8,0) node[midway, below] {$2\vec{a}$};
+    \draw[->, thick, red] (8,0) -- (11.464,2) node[midway, above] {$\vec{b}$};
+    \draw[->, thick, green] (0,0) -- (11.464,2) node[midway, above] {$2\vec{a} + \vec{b}$};
 
-
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{imgs/a_b=30.png}
-\end{figure}
+    % Draw the angle
+    \draw[thick] (2.5,0) arc[start angle=0, end angle=30, radius=2.5];
+    \node at (2.9, 0.4) {$30^\circ$};
+    
+    % Origin point
+    \fill (0,0) circle (2pt) node[below right] {Origin};
+\end{tikzpicture}
+\end{center}
 \begin{minipage}{0.45\textwidth}
     \begin{align*}
         |\vec{r}|^2 &=|2\vec{a}|^2+|\vec{b}|^2-2|2\vec{a}||\vec{b}| \cos(150^\circ) \\
@@ -165,7 +220,38 @@ Determine an expression in terms of $\vec{a}, \vec{b}$ and $\vec{c}$ equal to ea
 
 \begin{minipage}{0.45\textwidth}
     \centering
-        \includegraphics[width=0.7\textwidth]{imgs/abcdefgh.png}
+    \resizebox{0.6\textwidth}{!}{%
+        \begin{circuitikz}
+        \tikzstyle{every node}=[font=\LARGE]
+        \draw [line width=0.7pt, short] (3,12) -- (5.75,12);
+        \draw [line width=0.7pt, short] (3,12) -- (3,7.75);
+        \draw [line width=0.7pt, short] (3,7.75) -- (5.75,7.75);
+        \draw [line width=0.7pt, short] (5.75,12) -- (5.75,7.75);
+        \draw [color={rgb,255:red,43; green,255; blue,0}, line width=0.7pt, short] (3,12) -- (4.5,13);
+        \draw [line width=0.7pt, short] (5.75,12) -- (7.25,13);
+        \draw [color={rgb,255:red,255; green,0; blue,221}, line width=0.7pt, short] (4.5,13) -- (7.25,13);
+        \draw [color={rgb,255:red,255; green,0; blue,0}, line width=0.7pt, short] (4.5,13) -- (4.5,9);
+        \draw [line width=0.7pt, short] (3,7.75) -- (4.5,9);
+        \draw [line width=0.7pt, short] (4.5,9) -- (7.25,9);
+        \draw [line width=0.7pt, short] (7.25,13) -- (7.25,9);
+        \draw [line width=0.7pt, short] (5.75,7.75) -- (7.25,9);
+        \node [font=\LARGE] at (2.5,12) {C};
+        \node [font=\LARGE] at (2.5,7.75) {G};
+        \node [font=\LARGE] at (4.25,13.75) {A};
+        \node [font=\LARGE] at (7.5,13.5) {B};
+        \node [font=\LARGE] at (6.25,11.75) {D};
+        \node [font=\LARGE] at (5,9.5) {E};
+        \node [font=\LARGE] at (7.75,9.5) {F};
+        \node [font=\LARGE] at (6.75,7.75) {H};
+        \node [font=\LARGE, color={rgb,255:red,255; green,0; blue,208}] at (5.75,13.5) {$\rightarrow$};
+        \node [font=\LARGE, color={rgb,255:red,255; green,0; blue,208}] at (5.75,13.25) {a};
+        \node [font=\LARGE, color={rgb,255:red,17; green,255; blue,0}] at (3.5,13) {$\rightarrow$};
+        \node [font=\LARGE, color={rgb,255:red,17; green,255; blue,0}] at (3.5,12.75) {b};
+        \node [font=\LARGE, color={rgb,255:red,255; green,0; blue,0}] at (5,11) {$\rightarrow$};
+        \node [font=\LARGE, color={rgb,255:red,255; green,0; blue,0}] at (5,10.75) {c};
+        \end{circuitikz}
+    }%
+    \label{fig:my_label}
 \end{minipage}%
 \begin{minipage}{0.5\textwidth}
     \begin{enumerate}
@@ -265,10 +351,32 @@ the equilaterat force is 140N west
  Of course, we need to remember that the angle between two vectors refers to “tail-to-tail”, but often in our calculations we use the angle between the tip and the tail, which is a different value.
  \subsubsection*{Example}
 Two forces of 20N and 40N act at an angle of $30^{\circ}$ to each other.  Determine the resultant of these two forces.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{imgs/force_1.png}
-\end{figure}
+\begin{center}
+    \begin{tikzpicture}
+    % Define the forces
+    \draw[->, thick] (0,0) -- (4,0) node[midway, below] {40N};
+    \draw[->, thick] (0,0) -- (3.464,2) node[midway, right] {20N};
+
+    % Calculate the resultant vector components
+    \coordinate (R) at (7.464, 2);
+    
+    % Draw the resultant force
+    \draw[->, thick, red] (0,0) -- (R) node[midway, above] {Resultant};
+
+    % Draw the angle
+    \draw[thick] (1.5,0) arc[start angle=0, end angle=30, radius=1.5];
+    \node at (1.7, 0.4) {$30^\circ$};
+    
+    % Origin point
+    \fill (0,0) circle (2pt) node[below right] {Origin};
+
+    % Adding resultant components for clarity
+    \draw[dashed] (4,0) -- (R);
+    \draw[dashed] (0,2) -- (R);
+    
+\end{tikzpicture}
+\end{center}
+
 \begin{align*}
     |r|^2&=20^2+40^2-2(20)(40)\cos 150 ^{\circ}\\
     |r|&\approx 58.2\\
@@ -302,8 +410,9 @@ Given that three forces of 2 N, 3N and 4N are in equilibrium, determine the angl
 $\therefore$ the angle between the two smallest is approximately $75.5^{\circ}$
 \newpage 
 
-\subsubsection{Component Vectors}\\
-It is often convenient to break a vector down into one or more vectors that together comprise the original vector.  
+\subsubsection{Component Vectors}
+It is often convenient to break a vector down into one or more vectors that together comprise the original vector.
+
 \begin{itemize}
     \item In two dimensions, this is most commonly done by considering the horizontal and vertical components of a vector.  
     \item In three dimensions, this is most commonly done by considering the components along each of the three axes.
@@ -564,7 +673,7 @@ A river is 2 km wide and flows at 6 km/h. Anna is driving a motorboat, which has
     \draw[thick] (0,3) -- (5,3);
     
     % Boat velocity vector
-    \draw[->, thick] (2.5,0) -- (2.5,3) node[midway, right] {20 km/h};
+    \draw[->, thick] (2.5,0) -- (2.5,3) node[midway, left] {20 km/h};
     
     % Current velocity vector
     \draw[->, thick] (2.5,0) -- (5,0) node[midway, below] {6 km/h};
